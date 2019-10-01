@@ -1,0 +1,2 @@
+class UsersController < ApplicationRecord
+end 
