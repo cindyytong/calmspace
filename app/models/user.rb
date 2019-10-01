@@ -44,13 +44,13 @@ class User < ApplicationRecord
 
     ##### Associations 
 
-    belongs_to :chatroom,
-    foreign_key: :chatroom_id,
-    class_name: :Chatroom  
+    # belongs_to :chatroom,
+    # foreign_key: :chatroom_id,
+    # class_name: :Chatroom  
 
-    belongs_to :therapist,
-    foreign_key: :current_therapist_id,
-    class_name: :Therapist 
+    # belongs_to :therapist,
+    # foreign_key: :current_therapist_id,
+    # class_name: :Therapist 
 
     #### Authentication 
     attr_reader :password
