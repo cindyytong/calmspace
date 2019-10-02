@@ -1,4 +1,4 @@
-class Therapist < ApplicationRecord 
+class Therapist < ApplicationRecord
     validates :email, :password_digest, :first_name, :last_name, :session_token, :gender, presence: { message: 'must not be blank'} 
     validates :email, uniqueness: { message: 'already registered'}
     validates :first_name, uniqueness: { scope: :last_name } # test 

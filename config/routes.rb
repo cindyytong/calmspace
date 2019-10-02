@@ -4,7 +4,19 @@ Rails.application.routes.draw do
   root "static_pages#root"
 
   namespace :api, defaults: {format: :json} do 
-    resource :user, only: [:create, :show ] 
-    resource :session, only: [:create, :destroy, :show]
+    resources :users, only: [:create, :show ]
+    # nested session api/users/session
+    resource :users do 
+      resource :session, only: [:create, :destroy, :show]
+    end
+
+    resources :therapists, only: [:show]
+    # api/therapists/session
+    resource :therapists do 
+      resource :session, only: [:create, :destroy, :show]
+    end
   end 
 end
+
+
+# write two custom routes 
