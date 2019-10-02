@@ -5,5 +5,5 @@ import therapists from './therapists_reducer';
 
 export default combineReducers({
     users,
-    therapists
+    // therapists
 });

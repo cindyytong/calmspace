@@ -8,14 +8,14 @@ const mapStateToProps = state => {
     return {
         formType: 'Log In',
         errors: state.errors.session,
-        navLink: <Link to="/signup">Sign Up</Link>,
+        navLink: <Link to="/user/login">Log In</Link>,
         demoLink: <button>Demo User</button>
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        processForm: (user) => dispatch(login(user, 'user'))
+        processForm: (user) => dispatch(login(user))
     }
 };
 

@@ -8,21 +8,24 @@ import {
     HashRouter
 } from 'react-router-dom';
 
+import NavBar from './navigation/navbar';
 import UserLogInFormContainer from '../components/session_form/user_login_form_container';
 import UserSignUpFormContainer from './session_form/user_signup_form_container'
 import TherapistLogInFormContainer from '../components/session_form/therapist_login_form_container';
 
+// components 
+
 const App = () => (
     <div>
         <header>
-            <Link to="/">
-                <h1>Calmspace</h1>
-            </Link>
+        <a href="http://domain.com" target="_private">Link</a>
+                <h1>App.jsx is loaded</h1>
+                <NavBar />
         </header>
     <Switch>
-        <AuthRoute exact path="/users/login" component={UserLogInFormContainer}/>
-        <AuthRoute exact path="/users/signup" component={UserSignUpFormContainer}/>
-        <AuthRoute exact path="/therapists/login" component={TherapistLogInFormContainer}/>
+        <Route exact path="/user/login" component={UserLogInFormContainer}/>
+        <Route exact path="/therapist/login" component={TherapistLogInFormContainer}/>
+        <Route exact path="/user/signup" component={UserSignUpFormContainer}/>
     </Switch> 
     </div>
 );
