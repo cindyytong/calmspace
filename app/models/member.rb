@@ -12,7 +12,7 @@ class Member < ApplicationRecord
     end 
 
     def self.find_by_credentials(email, password)
-        member = Member.find_by(email: email)
+        member = self.find_by(email: email)
         return nil unless member
         member.is_password?(password) ? member : nil
       end
