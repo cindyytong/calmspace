@@ -3,6 +3,7 @@ class User < ApplicationRecord
     validates :email, :username, uniqueness: { message: 'already registered'}
     validates :password, length: { minimum: 8, allow_nil: true, message: 'must be greater than 8 characters and contain no special characters' } 
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'must be a valid email address'}
+    validates_inclusion_of :gender_pref, :in => %w( male female none)
 
     after_initialize :ensure_session_token 
 
@@ -40,7 +41,6 @@ class User < ApplicationRecord
 #     "~"
 # ]
 
-    GENDERS = ['m', 'female', 'none']
 
     ##### Associations 
 
