@@ -30,3 +30,6 @@ therapist5 = Therapist.create({ email: 'therapist5@calmspace.com', password: '12
 therapist6 = Therapist.create({ email: 'therapist6@calmspace.com', password: '12345678', first_name: 'Michael', last_name: 'Bolt', gender: 'male' })
 therapist7 = Therapist.create({ email: 'therapist7@calmspace.com', password: '12345678', first_name: 'Andrew', last_name: 'Garvy', gender: 'male' })
 therapist8 = Therapist.create({ email: 'therapist8@calmspace.com', password: '12345678', first_name: 'Mitch', last_name: 'Stern', gender: 'male' })
+
+
+therapist10 = Therapist.create({ email: 'therapist10@calmspace.com', password: '12345678', first_name: 'Ha', last_name: 'Lee', gender: 'female' })

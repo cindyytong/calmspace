@@ -10,40 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_141035) do
+ActiveRecord::Schema.define(version: 2019_10_02_143437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "therapists", force: :cascade do |t|
+  create_table "members", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
+    t.string "session_token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_members_on_email", unique: true
+    t.index ["session_token"], name: "index_members_on_session_token", unique: true
+  end
+
+  create_table "therapists", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "session_token", null: false
     t.text "body"
     t.string "degree"
     t.string "gender", null: false
     t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_therapists_on_email", unique: true
     t.index ["first_name", "last_name"], name: "index_therapist_on_first_and_last_name", unique: true
-    t.index ["session_token"], name: "index_therapists_on_session_token", unique: true
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "password_digest", null: false
     t.string "username", null: false
     t.boolean "over_age_13", null: false
-    t.string "session_token", null: false
     t.string "gender_pref", default: "none"
     t.integer "current_therapist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
