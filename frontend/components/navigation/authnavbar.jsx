@@ -6,7 +6,7 @@ class AuthNavBar extends React.Component{
    
     render(){
         // determine welcome message based on user type
-        debugger
+
         let userIdentifier; 
         if(typeof currentUser.username !== null ){
             userIdentifier= this.props.currentUser.username

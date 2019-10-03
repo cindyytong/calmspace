@@ -5,7 +5,7 @@ import { logout } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
-    debugger
+
     if (!state.session.id){
         return { currentUser: null }
     } else {
