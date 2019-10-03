@@ -42,7 +42,6 @@ class LoginForm extends React.Component {
     
 
     render(){
-        
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -73,11 +72,11 @@ class LoginForm extends React.Component {
                         <button 
                         className="demo-button"
                         onClick={this.loginDemoPatient}>
-                            Demo Patient
+                            Login as Demo Patient
                         </button>
-                        <Link to='/therapist/demo'
+                        <Link to='/therapist/login'
                         className="demo-button">
-                            Demo Therapist
+                            Login as Demo Therapist
                         </Link>
                     </div>
                 </form>

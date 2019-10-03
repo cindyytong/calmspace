@@ -25,11 +25,9 @@ user6 = User.create({ email: 'user3@calmspace.com', username: 'user1', over_age_
 therapist1 = Therapist.create({ email: 'therapist1@calmspace.com', password: '12345678', first_name: 'Sarah', last_name: 'Lee', gender: 'female' })
 therapist2 = Therapist.create({ email: 'therapist2@calmspace.com', password: '12345678', first_name: 'Rebecca', last_name: 'Yel', gender: 'female' })
 therapist3 = Therapist.create({ email: 'therapist3@calmspace.com', password: '12345678', first_name: 'Chloe', last_name: 'Finn', gender: 'female' })
-therapist4 = Therapist.create({ email: 'therapist4@calmspace.com', password: '12345678', first_name: 'Akura', last_name: 'Smith', gender: 'female' })
-therapist5 = Therapist.create({ email: 'therapist5@calmspace.com', password: '12345678', first_name: 'Jason', last_name: 'Ryder', gender: 'male' })
-therapist6 = Therapist.create({ email: 'therapist6@calmspace.com', password: '12345678', first_name: 'Michael', last_name: 'Bolt', gender: 'male' })
-therapist7 = Therapist.create({ email: 'therapist7@calmspace.com', password: '12345678', first_name: 'Andrew', last_name: 'Garvy', gender: 'male' })
-therapist8 = Therapist.create({ email: 'therapist8@calmspace.com', password: '12345678', first_name: 'Mitch', last_name: 'Stern', gender: 'male' })
+therapist4 = Therapist.create({ email: 'therapist4@calmspace.com', password: '12345678', first_name: 'Jason', last_name: 'Ryder', gender: 'male' })
+therapist5 = Therapist.create({ email: 'therapist5@calmspace.com', password: '12345678', first_name: 'Michael', last_name: 'Bolt', gender: 'male' })
+therapist6 = Therapist.create({ email: 'therapist6@calmspace.com', password: '12345678', first_name: 'Andrew', last_name: 'Garvy', gender: 'male' })
 
 
 #### Topics 

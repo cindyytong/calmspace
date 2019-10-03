@@ -93,7 +93,7 @@ class Signup extends React.Component {
                         onClick={this.loginDemoPatient}>
                             Demo Patient
                         </button>
-                        <Link to='/therapist/demo'
+                        <Link to='/therapist/login'
                         className="demo-button">
                             Demo Therapist
                         </Link>
