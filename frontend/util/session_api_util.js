@@ -1,4 +1,4 @@
-export const login = (user, type) => (
+export const login = ( user, type ) => (
     $.ajax({
         method: 'POST',
         url: `/api/session/${type}`,
@@ -7,18 +7,18 @@ export const login = (user, type) => (
 );
 
 
-export const logout = () => (
-    $.ajax({
+export const logout = () => {
+    return $.ajax({
         method: 'DELETE',
-        url: `/api/session/${user.type}`
+        url: '/api/session'
     })
-);
+};
 
 // ONLY FOR USERS 
-export const signup = user => (
+export const signup = ( user, type ) => (
     $.ajax({
         method: 'POST',
-        url: '/api/users',
+        url: `/api/users/${type}`,
         data: { user }
     })
 );

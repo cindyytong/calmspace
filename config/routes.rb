@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :therapists, only: [:show]
 
     post 'session/:type', to: 'sessions#create', as: 'signin'
-    delete 'session/:type', to: 'sessions#delete', as: 'signout'
+    delete 'session', to: 'sessions#destroy', as: 'signout'
   end 
 end
 

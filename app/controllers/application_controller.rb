@@ -7,11 +7,14 @@ class ApplicationController < ActionController::Base
 
     def current_user 
         return nil unless session[:session_token]
-        @current_user ||= User.find_by(session_token: session[:session_token])
+        memberClass = session[:member_type].constantize 
+        @current_user ||= memberClass.find_by(session_token: session[:session_token])
+       
     end 
 
     def login!(user)
         session[:session_token] = user.session_token 
+        session[:member_type] = user.class.to_s
     end 
 
     def logout!

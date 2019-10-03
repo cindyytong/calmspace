@@ -32,4 +32,27 @@ therapist7 = Therapist.create({ email: 'therapist7@calmspace.com', password: '12
 therapist8 = Therapist.create({ email: 'therapist8@calmspace.com', password: '12345678', first_name: 'Mitch', last_name: 'Stern', gender: 'male' })
 
 
-therapist10 = Therapist.create({ email: 'therapist10@calmspace.com', password: '12345678', first_name: 'Ha', last_name: 'Lee', gender: 'female' })
+#### Topics 
+TOPICS = [
+    'ADHD',
+    'Anger Management'
+    'Anxiety',
+    'Behavioral Issues'
+    'Career Counseling',
+    'Child or Adolescent'
+    'Coping Skills',
+    'Codependency'
+    'Cognitive Behavioral'
+    'Divorce'
+    'Depression',
+    'Family Conflict',
+    'Life Coaching',
+    'Life Transition'
+    'Learning Disability'
+    'Positive Psychology',
+    'Pregnancy, Prenatlal, Postpartem'
+    'Relationship Issues'
+    'Self Esteem'
+    'Stress'
+]
+

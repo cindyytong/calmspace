@@ -7,6 +7,7 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util'
 
 import NavBar from './navigation/navbar';
 import AuthNavBarContainer from './navigation/auth_nav_container';
@@ -26,17 +27,17 @@ const App = () => (
             <Route exact path='/user/signup' component={NavBar}/>
             <Route exact path='/therapist/demo' component={NavBar}/>
             {/* Logged In Nav */}
-            <Route path='/auth' component={AuthNavBarContainer}/>
+            <ProtectedRoute path='/auth' component={AuthNavBarContainer}/>
         </header>
-    <Switch>
-        <Route exact path="/user/login" component={UserLogInFormContainer}/>
-        <Route exact path="/user/signup" component={UserSignUpFormContainer}/>
+    
+        <AuthRoute exact path="/user/login" component={UserLogInFormContainer}/>
+        <AuthRoute exact path="/user/signup" component={UserSignUpFormContainer}/>
         {/* <Route exact path="/therapist/demo" component={DemoTherapistContainer}/> */}
 
 {/* Auth routes  */}
         <Route path="/auth/user/chatroom" component={UserChatroom}/>
         <Route exact path="/auth/user/onboard" component={OnboardContainer}/>
-    </Switch> 
+
     </div>
 );
 

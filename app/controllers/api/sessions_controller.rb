@@ -8,18 +8,17 @@ class Api::SessionsController < ApplicationController
         
         if @user
             login!(@user)
-            # where does user go on login  
             render json: @user 
         else 
             render json: ["Invalid email/password combination"], status: 401
         end 
     end 
 
-    def destroy 
-        @user = current_user 
-        if @user
+    def destroy
+        if current_user
+            debugger
             logout!
-            render "/"  # bring back to root
+            render json: {}  
         else 
             render json: ["Not currently signed in"], status: 404
         end 
