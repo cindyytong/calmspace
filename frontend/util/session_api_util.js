@@ -15,10 +15,10 @@ export const logout = () => {
 };
 
 // ONLY FOR USERS 
-export const signup = ( user, type ) => (
+export const signup = ( user ) => (
     $.ajax({
         method: 'POST',
-        url: `/api/users/${type}`,
+        url: `/api/users`,
         data: { user }
     })
 );

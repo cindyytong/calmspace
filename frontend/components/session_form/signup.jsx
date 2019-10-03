@@ -2,24 +2,16 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-class SessionForm extends React.Component {
-    
-    // componentDidMount(){
-    //     this.props.clearErrors();
-    // }
-    
+class Signup extends React.Component {
     constructor(props){
         super(props);
-
-        this.state = this.props
-            // email: props.email || '',
-            // password: '',
-            // over_age_13: props.over_age_13 || false, /// How should this match what is on backend?  Does this mess up therapists?
-            // username: props.username || ''
-      
-
+        this.state = {
+            username: '',
+            email: '',
+            password: '',
+            over_age_13: false
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.loginDemoPatient = this.loginDemoPatient.bind(this);
     }
 
     update(field) {
@@ -30,62 +22,27 @@ class SessionForm extends React.Component {
       }
     }
 
-    check(field) {
+    handleClick(field) {
         return(e) => {
             this.setState({
-                [field]: true
+                [field]: e.target.checked
             })
         }
     }
 
     handleSubmit(e){
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user) // add in success cb for where to route to 
-        .then(() => this.props.history.push(`/auth/user/chatroom`));
+        this.props.processForm(this.state)
+            .then(() => this.props.history.push(`/auth/user/chatroom`));
     }
-
-    loginDemoPatient(e){
-        e.preventDefault();
-        this.props.processForm({ email: 'user1@calmspace.com', password: '12345678'})
-        .then(() => this.props.history.push('/auth/user/chatroom'));
-    };
     
 
     render(){
-        // signup fields for users only 
-        let ageCheck;
-        let demoLink;
-        let userNameField;
-
-        if (this.props.formType === 'Sign Up'){
-            ageCheck =  
-            ( <div className='age-check-input'>
-                <input type="checkbox" 
-                name="age-check"
-                value={this.state.over_age_13}
-                onChange={this.update('over_age_13')}
-                onClick={this.check('over_age_13')}
-                />
-                <label className="age-check-label">I am over the age of 13 and agree to the terms of use and privacy policy</label>
-            </div>); 
-
-            demoLink = <button>Demo User</button>;
-
-            userNameField = (
-                <input type="username" 
-                name="username"
-                value={this.state.username}
-                onChange={this.update('username')}
-                placeholder="Username"
-                className="login-field"/>);
-        };
 
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                     <h3>{this.props.formType}</h3>
-                    {userNameField}
                     <div className="login-form">
                         <input type="email" 
                             name="email"
@@ -95,6 +52,14 @@ class SessionForm extends React.Component {
                             className="login-field"
                         />
                         <br></br>
+                        <input type="username" 
+                            name="username"
+                            value={this.state.username}
+                            onChange={this.update('username')}
+                            placeholder="Username"
+                            className="login-field"
+                        />
+                        <br/>
                         <input type="password" 
                             name="password"
                             value={this.state.password}
@@ -102,8 +67,16 @@ class SessionForm extends React.Component {
                             placeholder="Password"
                             className="login-field"
                         />
-                        <br></br>
-                        {ageCheck}
+                        <br/>
+                        <div className='age-check-input'>
+                            <input type="checkbox" 
+                            name="age-check"
+                            checked={this.state.over_age_13}
+                            onClick={this.handleClick('over_age_13')}
+                            className="check-field"
+                            />
+                            <label className="age-check-label">I am over the age of 13 and agree to the terms of use and privacy policy</label>
+                        </div>
                         <input 
                             className="session-submit"
                             type="submit" 
@@ -126,4 +99,4 @@ class SessionForm extends React.Component {
     }
 };
 
-export default withRouter(SessionForm);
+export default withRouter(Signup);
