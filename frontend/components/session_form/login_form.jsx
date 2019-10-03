@@ -2,25 +2,22 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class LoginForm extends React.Component {
     
-    // componentDidMount(){
-    //     this.props.clearErrors();
-    // }
-    
+    componentDidMount(){
+        this.props.clearErrors();
+    }
+
     constructor(props){
         super(props);
-
-        this.state = this.props
-            // email: props.email || '',
-            // password: '',
-            // over_age_13: props.over_age_13 || false, /// How should this match what is on backend?  Does this mess up therapists?
-            // username: props.username || ''
-      
-
+        this.state = {
+            email: '',
+            password: ''
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.loginDemoPatient = this.loginDemoPatient.bind(this);
     }
+
 
     update(field) {
       return (e) => {
@@ -28,14 +25,6 @@ class SessionForm extends React.Component {
               [field]: e.currentTarget.value
           });
       }
-    }
-
-    check(field) {
-        return(e) => {
-            this.setState({
-                [field]: true
-            })
-        }
     }
 
     handleSubmit(e){
@@ -53,39 +42,11 @@ class SessionForm extends React.Component {
     
 
     render(){
-        // signup fields for users only 
-        let ageCheck;
-        let demoLink;
-        let userNameField;
-
-        if (this.props.formType === 'Sign Up'){
-            ageCheck =  
-            ( <div className='age-check-input'>
-                <input type="checkbox" 
-                name="age-check"
-                value={this.state.over_age_13}
-                onChange={this.update('over_age_13')}
-                onClick={this.check('over_age_13')}
-                />
-                <label className="age-check-label">I am over the age of 13 and agree to the terms of use and privacy policy</label>
-            </div>); 
-
-            demoLink = <button>Demo User</button>;
-
-            userNameField = (
-                <input type="username" 
-                name="username"
-                value={this.state.username}
-                onChange={this.update('username')}
-                placeholder="Username"
-                className="login-field"/>);
-        };
-
+        
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                     <h3>{this.props.formType}</h3>
-                    {userNameField}
                     <div className="login-form">
                         <input type="email" 
                             name="email"
@@ -102,8 +63,7 @@ class SessionForm extends React.Component {
                             placeholder="Password"
                             className="login-field"
                         />
-                        <br></br>
-                        {ageCheck}
+                        <br/>
                         <input 
                             className="session-submit"
                             type="submit" 
@@ -126,4 +86,4 @@ class SessionForm extends React.Component {
     }
 };
 
-export default withRouter(SessionForm);
+export default withRouter(LoginForm);

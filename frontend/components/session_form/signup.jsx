@@ -3,6 +3,11 @@ import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 class Signup extends React.Component {
+ 
+    componentDidMount(){
+        this.props.clearErrors();
+    }
+
     constructor(props){
         super(props);
         this.state = {
