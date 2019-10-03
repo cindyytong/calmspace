@@ -19,7 +19,6 @@ const App = () => (
     <div>
         <header>
         <a href="http://domain.com" target="_private">Link</a>
-                <h1>App.jsx is loaded</h1>
                 <NavBar />
         </header>
     <Switch>

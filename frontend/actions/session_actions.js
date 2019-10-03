@@ -3,6 +3,9 @@ import * as APIUtil from '../util/session_api_util';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const VERIFY_USER = 'VERIFY_USER';
+export const CLEAR_VERIFIED_USER = 'CLEAR_VERIFIED_USER';
 
 export const receiveCurrentUser = currentUser => {
     return {
@@ -24,14 +27,29 @@ export const receiveErrors = errors => {
     }
 };
 
-export const login = ( user, type ) => dispatch => {
-    return APIUtil.login(user, type).then(user => (
-        dispatch(receiveCurrentUser(user))
-    ), error => (
-        dispatch(receiveErrors(error.responsesJSON))
-        ))
-};
+export const clearErrors = errors => ({
+    type: CLEAR_ERRORS,
+    errors,
+});
 
+const verifyUser = user => ({
+    type: VERIFY_USER,
+    user
+});
+
+export const clearVerifiedUser = user => ({
+    type: CLEAR_VERIFIED_USER,
+});
+
+
+export const login = ( user, type ) => dispatch => {
+    return APIUtil.login(user, type).then(function(user) {
+        dispatch(receiveCurrentUser(user)) })
+        .fail(function(error) {
+            dispatch(receiveErrors(error.responseJSON))
+        })
+    };
+ 
 
 export const logout = () => dispatch => {
     return APIUtil.logout().then(user => (
@@ -40,9 +58,9 @@ export const logout = () => dispatch => {
 };
 
 export const signup = (user) => dispatch => {
-    return APIUtil.signup(user).then(user => (
-        dispatch(receiveCurrentUser(user))
-    ), error => (
-        dispatch(receiveErrors(error.responsesJSON))
-    ))
-};
+    return APIUtil.signup(user).then(function(user) {
+        dispatch(receiveCurrentUser(user)) })
+        .fail(function(error) {
+            dispatch(receiveErrors(error.responseJSON))
+        })
+    };
