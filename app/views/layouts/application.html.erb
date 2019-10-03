@@ -1,10 +1,18 @@
 <!DOCTYPE html>
+<script type="text/javascript">
+// IMAGES 
+  window.logo_URL = "<%= image_url('logo_blue.png') %>"
+</script>
+
 <html>
   <head>
     <title>Calmspace</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+  
+   <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag asset_path('logo_favicon.png') %>

@@ -1,0 +1,71 @@
+* {
+    font-family: Roboto, Helvetica, Arial;
+}
+
+h1 {
+    font-size: 65px;
+    font-weight: 700px;
+    letter-spacing: -.2px;
+    line-height: 70px;
+}
+
+.subheader {
+    font-size: 22px;
+    font-weight: 700px;
+    letter-spacing: .3px;
+    line-height: 25px;
+}
+
+p {
+    font-size: 16px;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.black-shadow{
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,.17);
+}
+
+.green-btn {
+    border-radius: 9px;
+    height: 54px;
+    font-family: Roboto Condensed,Helvetica,Arial;
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: 1.9px;
+    line-height: 42px;
+    text-transform: uppercase;
+    border: 0;
+    transition: all .15s;
+    background-color: #0fc1a7;
+    color: #fff;
+    text-decoration: none
+}
+
+.btn-primary {
+    padding-left: 48px;
+    padding-right: 48px;
+    width: auto;
+    outline: none;
+}

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// add signoff on logout button click 
 class AuthNavBar extends React.Component{
 
     constructor(props){

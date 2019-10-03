@@ -12,6 +12,9 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 // Global Components 
 import NavBar from './navigation/navbar';
 import AuthNavBarContainer from './navigation/auth_nav_container';
+import Splash from './splash/splash';
+import Footer from './footer/footer';
+
 // Patient Components 
 import UserLogInFormContainer from './session_form/user_login_form_container';
 import UserSignUpFormContainer from './session_form/user_signup_form_container';
@@ -33,7 +36,9 @@ const App = () => (
     {/* Logged In Nav */}
             <ProtectedRoute path='/auth' component={AuthNavBarContainer}/>
         </header>
+        <body>
     {/* Logged out views */}
+        <Route exact path='/' component={Splash}/>
         <AuthRoute exact path="/user/login" component={UserLogInFormContainer}/>
         <AuthRoute exact path="/user/signup" component={UserSignUpFormContainer}/>
         <AuthRoute exact path="/therapist/login" component={DemoTherapistContainer}/>
@@ -42,8 +47,12 @@ const App = () => (
         <ProtectedRoute path="/auth/user/chatroom" component={UserChatroom}/>
         <ProtectedRoute path="/auth/therapist/dashboard" component={TherapistDashboardContainer}/>
         <ProtectedRoute exact path="/auth/user/onboard" component={OnboardContainer}/>
-
+        </body>
+    <footer>
+        <Route path='/' component={Footer} />
+    </footer>
     </div>
+
 );
 
 export default App; 
