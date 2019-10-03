@@ -27,19 +27,18 @@ export const receiveErrors = errors => {
     }
 };
 
-export const clearErrors = errors => ({
-    type: CLEAR_ERRORS,
-    errors,
+export const clearErrors = () => ({
+    type: CLEAR_ERRORS
 });
 
-const verifyUser = user => ({
-    type: VERIFY_USER,
-    user
-});
+// const verifyUser = user => ({
+//     type: VERIFY_USER,
+//     user
+// });
 
-export const clearVerifiedUser = user => ({
-    type: CLEAR_VERIFIED_USER,
-});
+// export const clearVerifiedUser = user => ({
+//     type: CLEAR_VERIFIED_USER,
+// });
 
 
 export const login = ( user, type ) => dispatch => {

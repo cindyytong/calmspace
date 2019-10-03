@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ################# USERS ###################
-user1 = User.create({ email: 'user1@calmspace.com', username: 'user1', over_age_13: true, password: '12345678' })
-user2 = User.create({ email: 'user2@calmspace.com', username: 'user2', over_age_13: true, password: '12345678' })
+demo_patient = User.create({ email: 'user1@calmspace.com', username: 'demo patient', over_age_13: true, password: '12345678', gender_pref: 'none' })
+patient2 = User.create({ email: 'user2@calmspace.com', username: 'user2', over_age_13: true, password: '12345678' })
 
 # gender pref 
-user4 = User.create({ email: 'user4@calmspace.com', username: 'user4', over_age_13: true, password: '12345678', gender_pref: 'male' })
-user5 = User.create({ email: 'user5@calmspace.com', username: 'user5', over_age_13: true, password: '12345678', gender_pref: 'female' })
+patient3 = User.create({ email: 'user4@calmspace.com', username: 'user4', over_age_13: true, password: '12345678', gender_pref: 'male' })
+patient4 = User.create({ email: 'user5@calmspace.com', username: 'user5', over_age_13: true, password: '12345678', gender_pref: 'female' })
 
 # Failures: 
 # under age 13 
