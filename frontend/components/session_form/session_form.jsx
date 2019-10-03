@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 class SessionForm extends React.Component {
     constructor(props){
         super(props);
-        debugger
         this.state = {
             email: '',
             password: '',
@@ -23,7 +22,6 @@ class SessionForm extends React.Component {
 
     check(field) {
         return(e) => {
-            debugger
             this.setState({
                 [field]: true
             })
@@ -32,10 +30,8 @@ class SessionForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        debugger
         const user = Object.assign({}, this.state);
         this.props.processForm(user) // add in success cb for where to route to 
-        debugger
     }
 
     render(){

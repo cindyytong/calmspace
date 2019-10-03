@@ -14,9 +14,8 @@ class Member < ApplicationRecord
     end 
 
     def self.find_by_credentials(email, password)
-        debugger
+
         member = self.find_by(email: email)
-        debugger
         return nil unless member
         member.is_password?(password) ? member : nil
       end
@@ -28,7 +27,6 @@ class Member < ApplicationRecord
     end 
 
     def is_password?(password)
-        debugger
         BCrypt::Password.new(self.password_digest).is_password?(password)
     end 
 

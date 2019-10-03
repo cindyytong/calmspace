@@ -5,7 +5,6 @@ import { signup } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
 const mapStateToProps = state => {
-    debugger
     return {
         formType: 'Sign Up',
         errors: state.errors.session,
@@ -15,7 +14,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-    debugger
     return {
         processForm: (user) => dispatch(signup(user, 'user'))
     }
