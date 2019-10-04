@@ -7,12 +7,12 @@ import { getTherapists } from '../../actions/therapist_actions';
 
 const mapStateToProps = state => {
     const demoTherapists = [
-        { email: 'therapist1@calmspace.com', password: '12345678', first_name: 'Sarah'},
-        { email: 'therapist2@calmspace.com', password: '12345678', first_name: 'Rebecca'},
-        { email: 'therapist3@calmspace.com', password: '12345678', first_name: 'Chloe'},
-        { email: 'therapist4@calmspace.com', password: '12345678', first_name: 'Jason'},
-        { email: 'therapist5@calmspace.com', password: '12345678', first_name: 'Michael'},
-        { email: 'therapist6@calmspace.com', password: '12345678', first_name: 'Andrew'}
+        { id: 1, email: 'therapist1@calmspace.com', password: '12345678', first_name: 'Sarah', image: 'window.therapist1URL'},
+        { id: 2, email: 'therapist2@calmspace.com', password: '12345678', first_name: 'Rebecca', image: 'window.therapist2URL'},
+        { id: 3, email: 'therapist3@calmspace.com', password: '12345678', first_name: 'Chloe', image: 'window.therapist3URL' },
+        { id: 4, email: 'therapist4@calmspace.com', password: '12345678', first_name: 'Jason', image: 'window.therapist2URL'},
+        { id: 5, email: 'therapist5@calmspace.com', password: '12345678', first_name: 'Michael', image: 'window.therapist2URL'},
+        { id: 6, email: 'therapist6@calmspace.com', password: '12345678', first_name: 'Andrew', image: 'window.therapist2URL'}
     ];
     return {
         demoTherapists: demoTherapists

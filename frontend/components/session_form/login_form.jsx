@@ -42,14 +42,18 @@ class LoginForm extends React.Component {
     
 
     render(){
+        let displayError;
+        if (this.props.errors.length > 0){
+            displayError = this.props.errors[0];
+        }
+
         return (
-            <div className="login-form-container grey-fill">
+            <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                     <div className="logoWrap">
                         <img src={window.formlogoURL} className="nav-logo"/>
                     </div>
                     <div className="login-form">
-                        <div className="error">Error test</div>
                         <div className="form-row">
                             <input type="email" 
                                 name="email"
@@ -59,7 +63,7 @@ class LoginForm extends React.Component {
                                 className="login-field"
                             />
                         </div>
-                        <div className="error">Error test</div>
+                        <div className="error">{displayError}</div>
                         <div className="form-row">
                             <input type="password" 
                                 name="password"
@@ -69,20 +73,27 @@ class LoginForm extends React.Component {
                                 className="login-field"
                             />
                         </div>
-                        <input 
-                            className="session-submit"
-                            type="submit" 
-                            value={this.props.formType}
-                        />
-                        <button 
-                        className="demo-button"
-                        onClick={this.loginDemoPatient}>
-                            Login as Demo Patient
-                        </button>
-                        <Link to='/therapist/login'
-                        className="demo-button">
-                            Login as Demo Therapist
-                        </Link>
+                        <div className="button-row">
+                            <input 
+                                className="session-submit white green-fill"
+                                type="submit" 
+                                value={this.props.formType}
+                            />
+                        </div>
+                        <div className="button-row">
+                            <p className="login-description grey">Log in as </p>
+                            <Link to="/auth/user/chatroom"
+                            className="demo-link green"
+                            onClick={this.loginDemoPatient}>
+                                 Demo Patient
+                            </Link>
+                            <p className="login-description grey">or </p> 
+                            <Link to='/therapist/login'
+                            className="demo-link green">
+                                  Demo Therapist
+                            </Link>
+                        </div>
+                
                     </div>
                 </form>
             </div>

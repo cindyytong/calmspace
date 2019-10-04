@@ -7,6 +7,19 @@
     color: #0fc1a7;
 }
 
+.grey {
+    color: #747474; 
+}
+
+.light-grey {
+    color: #CECECE;
+}
+
+// for input fields
+::placeholder {
+    color: #CECECE;
+}
+
 // Fill colors 
 .white-fill {
     background-color: white;

@@ -27,13 +27,14 @@ class DemoTherapist extends React.Component{
                         onClick={this.loginDemoTherapist(therapist)}>
                         Login As {therapist.first_name}
                     </button>
+                    {/* <img key={`image{therapist.id}`} src={therapist.image} id="splash-image"/> */}
                 </div>
             )
         });
 
         return (
             <div className="demo-therapist-container">
-                <h1>Login as a demo therapist</h1>
+                <h4 className="green">Log In as a Demo Therapist</h4>
                 <ul>
                     {therapists}
                 </ul>

@@ -27,7 +27,7 @@ import DemoTherapistContainer from './demo_therapist/demo_therapist_container';
 import TherapistDashboardContainer from './therapist_dashboard/therapist_dashboard_container';
 
 const App = () => (
-    <div>
+    <div className="app-container grey-fill">
     <header>
     {/* Logged Out Nav */}
             <Route exact path='/' component={NavBar}/>

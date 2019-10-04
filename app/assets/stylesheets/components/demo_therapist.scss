@@ -1,5 +1,7 @@
 .demo-therapist-container{
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .demo-therapist-profile{
