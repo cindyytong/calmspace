@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Splash = () => {
     return (
-        <div className="page-container">  
+        <div className="page-container ">  
             <div className="splash-container">
             <img src={window.splashURL} id="splash-image"/>
             <div className="col-1-2 splash-content">

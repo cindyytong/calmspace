@@ -1,11 +1,12 @@
+
 .splash-container {
-    
+   
 }
 
 .splash-content {
   margin-top: 8%;
   margin-left: 8%; 
-  margin-bottom: 20%;
+  margin-bottom: 100px;
 }
 
 .section-text {
@@ -25,12 +26,12 @@
 }
 // is there a better way to set background image with footer coming after
   #splash-image {
-    width: 100%;
-    background-position: center;
+    background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
-    position: fixed;
+    position: absolute;
     left: 0px;
     top: 0px;
     z-index: -1; 
+    opacity: .8; 
   }

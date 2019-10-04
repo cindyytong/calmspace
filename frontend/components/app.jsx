@@ -28,7 +28,7 @@ import TherapistDashboardContainer from './therapist_dashboard/therapist_dashboa
 
 const App = () => (
     <div>
-        <header>
+    <header>
     {/* Logged Out Nav */}
             <Route exact path='/' component={NavBar}/>
             <Route exact path='/user/login' component={SimpleNavBar}/>
@@ -36,8 +36,8 @@ const App = () => (
             <Route exact path='/therapist/login' component={NavBar}/>
     {/* Logged In Nav */}
             <ProtectedRoute path='/auth' component={AuthNavBarContainer}/>
-        </header>
-        <body>
+    </header>
+    <body>
     {/* Logged out views */}
         <Route exact path='/' component={Splash}/>
         <AuthRoute exact path="/user/login" component={UserLogInFormContainer}/>
@@ -50,7 +50,7 @@ const App = () => (
         <ProtectedRoute exact path="/auth/user/onboard" component={OnboardContainer}/>
         </body>
     <footer>
-        <Route path='/' component={Footer} />
+        <Route exact path='/' component={Footer} />
     </footer>
     </div>
 
