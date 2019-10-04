@@ -11,39 +11,49 @@
 
 .therapist-boxes{
     display: flex;
-    flex-direction: horizontal;
+    flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .single-therapist-container {
-    height: 84px;
-    width: 84px;
-    margin: 20px;
-    color: white;
+    width: 100px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    margin-left: 100px;
 }
 
-.single-therapist-container:hover {
-    background-color: #179a87; 
+.single-therapist-container img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
 }
 
-.therapist-name {
 
-}
-.demo-therapist-box {
-    
-}
-.demo-therapist-profile{
-    
+.single-therapist-container a {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding-left: 48px;
+    padding-right: 48px;
+    width: auto;
+    outline: none;
+    border-radius: 9px;
+    height: 54px;
+    font-family: "Roboto Condensed",Helvetica,Arial;
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: 1.9px;
+    line-height: 42px;
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,.17)
 }
 
-.demo-therapist-button{
-
-}
-
-.single-therapist-container{
-    
+.single-therapist-container a:hover {
+    background-color: #0fc1a7; 
 }

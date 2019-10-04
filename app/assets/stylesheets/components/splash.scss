@@ -5,12 +5,11 @@
   background-size: cover;
   background-position: center top;
   margin-top: 0;
+  display: flex;
 }
 
 .splash-content {
-  margin-top: 8%;
   margin-left: 8%; 
-  margin-bottom: 100px;
 }
 
 .section-text {
@@ -18,6 +17,7 @@
 }
 
 .headline {
+  margin-top: 100px;
   margin-bottom: 40px;
 }
 

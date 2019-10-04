@@ -1,11 +1,16 @@
 class Topic < ApplicationRecord 
     validates :title, presence: true, uniqueness: true 
-    
-    belongs_to :topicable, polymorphic: true 
-    belongs_to :user  # does this put a null false constraint?
-    belongs_to :therapist  # does this put a null false constraint? 
 
-    has_many :topic_interests,
-    class_name: :TopicJoin,
-    foreign_key: :topic_id 
+    has_many :topic_interests
+
+    has_many :users,
+    through: :topic_interests,
+    source: :userable,
+    source_type: 'User'
+   
+    # has_many :users  # does this put a null false constraint?
+    # has_many :therapists  # does this put a null false constraint? 
+
+    
+   
 end 

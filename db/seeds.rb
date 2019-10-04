@@ -37,11 +37,11 @@ topics_arr.each {|topic| Topic.create( {title: topic } )}
 
 ################# USERS ###################
 # no gender pref 
-demo_patient = User.create({ email: 'user1@calmspace.com', username: 'demo patient', over_age_13: true, password: '12345678', gender_pref: 'none' })
+demo_patient = User.create!({ email: 'user1@calmspace.com', username: 'demo patient', over_age_13: true, password: '12345678', gender_pref: 'none' })
 # female pref 
-demo_patient_female = User.create({ email: 'user2@calmspace.com', username: 'demo patient 2', over_age_13: true, password: '12345678', gender_pref: 'female' })
+demo_patient_female = User.create!({ email: 'user2@calmspace.com', username: 'demo patient 2', over_age_13: true, password: '12345678', gender_pref: 'female' })
 #male pref 
-demo_patient_male = User.create({ email: 'user3@calmspace.com', username: 'demo patient 3', over_age_13: true, password: '12345678', gender_pref: 'male' })
+demo_patient_male = User.create!({ email: 'user3@calmspace.com', username: 'demo patient 3', over_age_13: true, password: '12345678', gender_pref: 'male' })
 
 
 ################# THERAPISTS ###################
@@ -56,5 +56,5 @@ therapist5 = Therapist.create({ email: 'therapist5@calmspace.com', password: '12
 therapist6 = Therapist.create({ email: 'therapist6@calmspace.com', password: '12345678', first_name: 'Andrew', last_name: 'Garvy', gender: 'male' })
 
 ################ TOPIC_INTERESTS JOINS ###############
-user1_topic = TopicInterest.create({userable_id: 1, topic_id: 1, userable_type: "User"})
+demo_patient_topic = TopicInterest.create!({ userable_id: demo_patient_female.id, topic_id: Topic.first.id, userable_type: "User"})
 

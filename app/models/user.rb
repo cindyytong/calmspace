@@ -5,10 +5,11 @@ class User < Member
 
 
     ##### Associations 
-    has_many :topic_interests, :as => :userable, :dependent
-
+    has_many :topic_interests, :as => :userable,
+    class_name: :TopicInterest
 
     has_many :topics,
-    through: :topic_joins
+    through: :topic_interests,
+    source: :topic
 
 end 
