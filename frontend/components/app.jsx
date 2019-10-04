@@ -27,7 +27,7 @@ import DemoTherapistContainer from './demo_therapist/demo_therapist_container';
 import TherapistDashboardContainer from './therapist_dashboard/therapist_dashboard_container';
 
 const App = () => (
-    <div className="app-container grey-fill">
+    <>
     <header>
     {/* Logged Out Nav */}
             <Route exact path='/' component={NavBar}/>
@@ -37,7 +37,7 @@ const App = () => (
     {/* Logged In Nav */}
             <ProtectedRoute path='/auth' component={AuthNavBarContainer}/>
     </header>
-    <body>
+        
     {/* Logged out views */}
         <Route exact path='/' component={Splash}/>
         <AuthRoute exact path="/user/login" component={UserLogInFormContainer}/>
@@ -48,11 +48,11 @@ const App = () => (
         <ProtectedRoute path="/auth/user/chatroom" component={UserChatroom}/>
         <ProtectedRoute path="/auth/therapist/dashboard" component={TherapistDashboardContainer}/>
         <ProtectedRoute exact path="/auth/user/onboard" component={OnboardContainer}/>
-        </body>
+
     <footer>
         <Route exact path='/' component={Footer} />
     </footer>
-    </div>
+    </>
 
 );
 

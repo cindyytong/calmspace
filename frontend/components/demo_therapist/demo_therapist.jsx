@@ -1,14 +1,15 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class DemoTherapist extends React.Component{
     constructor(props){
         super(props);
     }
 
-    componentDidMount(){
-        this.props.logout();
-    }
+    // componentDidMount(){
+    //     this.props.logout();
+    // }
 
     loginDemoTherapist(demoTherapist) {
         return (e) => {
@@ -20,22 +21,23 @@ class DemoTherapist extends React.Component{
     render(){
         const therapists = this.props.demoTherapists.map( therapist => {
             return (
-                <div className="single-therapist-container"
+                <div className="single-therapist-container dark-green-fill"
                     key={therapist.id}>
-                    <button 
-                        className="demo-therapist-button"
+                    <Link to="/auth/therapist/dashboard"
+                        className="therapist-name"
                         onClick={this.loginDemoTherapist(therapist)}>
-                        Login As {therapist.first_name}
-                    </button>
-                    {/* <img key={`image{therapist.id}`} src={therapist.image} id="splash-image"/> */}
+                        {therapist.first_name}
+                    </Link>
+                    {/* <img src={therapist.image} id="splash-image"/> */}
+  
                 </div>
             )
         });
 
         return (
             <div className="demo-therapist-container">
-                <h4 className="green">Log In as a Demo Therapist</h4>
-                <ul>
+                <h4 className="demo-therapist-heading grey">Log In as a Demo Therapist</h4>
+                <ul className="therapist-boxes">
                     {therapists}
                 </ul>
             </div>

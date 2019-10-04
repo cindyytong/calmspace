@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className="footer-container dark-green-fill">
                    <h4 className="white row">Talkspace</h4>
-                   <div class="icons row">
+                   <div className="icons row">
                         <img className="social-icon" src={window.githubURL} />
                         <img className="social-icon" src={window.contactURL} />
                         <img className="social-icon" src={window.linkedInURL} />
