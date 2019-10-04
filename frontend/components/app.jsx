@@ -51,6 +51,7 @@ const App = () => (
 
     <footer>
         <Route exact path='/' component={Footer} />
+        <Route exact path='/therapist/login' component={Footer} />
     </footer>
     </>
 
