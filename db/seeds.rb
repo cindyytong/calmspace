@@ -45,16 +45,39 @@ demo_patient_male = User.create!({ email: 'user3@calmspace.com', username: 'demo
 
 
 ################# THERAPISTS ###################
+
 # female therapists 
-therapist1 = Therapist.create({ email: 'therapist1@calmspace.com', password: '12345678', first_name: 'Sarah', last_name: 'Lee', gender: 'female' })
-therapist2 = Therapist.create({ email: 'therapist2@calmspace.com', password: '12345678', first_name: 'Rebecca', last_name: 'Yel', gender: 'female' })
-therapist3 = Therapist.create({ email: 'therapist3@calmspace.com', password: '12345678', first_name: 'Chloe', last_name: 'Finn', gender: 'female' })
+therapist1 = Therapist.create!({ email: 'therapist1@calmspace.com', password: '12345678', first_name: 'Sarah', last_name: 'Lee', gender: 'female' })
+
+therapist2 = Therapist.create!({ email: 'therapist2@calmspace.com', password: '12345678', first_name: 'Rebecca', last_name: 'Yel', gender: 'female' })
+therapist3 = Therapist.create!({ email: 'therapist3@calmspace.com', password: '12345678', first_name: 'Chloe', last_name: 'Finn', gender: 'female' })
 
 # male therapists 
-therapist4 = Therapist.create({ email: 'therapist4@calmspace.com', password: '12345678', first_name: 'Jason', last_name: 'Ryder', gender: 'male' })
-therapist5 = Therapist.create({ email: 'therapist5@calmspace.com', password: '12345678', first_name: 'Michael', last_name: 'Bolt', gender: 'male' })
-therapist6 = Therapist.create({ email: 'therapist6@calmspace.com', password: '12345678', first_name: 'Andrew', last_name: 'Garvy', gender: 'male' })
+therapist4 = Therapist.create!({ email: 'therapist4@calmspace.com', password: '12345678', first_name: 'Jason', last_name: 'Ryder', gender: 'male' })
+
+therapist5 = Therapist.create!({ email: 'therapist5@calmspace.com', password: '12345678', first_name: 'Michael', last_name: 'Bolt', gender: 'male' })
+therapist6 = Therapist.create!({ email: 'therapist6@calmspace.com', password: '12345678', first_name: 'Andrew', last_name: 'Garvy', gender: 'male' })
 
 ################ TOPIC_INTERESTS JOINS ###############
-demo_patient_topic = TopicInterest.create!({ userable_id: demo_patient_female.id, topic_id: Topic.first.id, userable_type: "User"})
+#All topics: therapist1 & therapist2 
+Topic.all.each{|topic| TopicInterest.create!( { userable_id: therapist1.id, topic_id: topic.id, userable_type: "Therapist"} )}
 
+Topic.all.each{|topic| TopicInterest.create!( { userable_id: therapist4.id, topic_id: topic.id, userable_type: "Therapist"} )}
+
+# topics_arr[0..10]
+
+(0..10).each do |n| 
+    TopicInterest.create!( { userable_id: therapist2.id, topic_id: topic[n], userable_type: "Therapist"} )}
+end 
+
+topics_first_half.each{|topic| TopicInterest.create!( { userable_id: therapist2.id, topic_id: topic.id, userable_type: "Therapist"} )}
+
+topics_first_half.each{|topic| TopicInterest.create!( { userable_id: therapist5.id, topic_id: topic.id, userable_type: "Therapist"} )}
+
+
+# topics_arr[10..20]
+topics_second_half = Topic[10..20]
+
+topics_second_half.each{|topic| TopicInterest.create!( { userable_id: therapist3.id, topic_id: topic.id, userable_type: "Therapist"} )}
+
+topics_second_half.each{|topic| TopicInterest.create!( { userable_id: therapist6.id, topic_id: topic.id, userable_type: "Therapist"} )}

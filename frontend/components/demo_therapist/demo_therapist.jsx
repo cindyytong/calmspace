@@ -7,10 +7,6 @@ class DemoTherapist extends React.Component{
         super(props);
     }
 
-    // componentDidMount(){
-    //     this.props.logout();
-    // }
-
     loginDemoTherapist(demoTherapist) {
         return (e) => {
             this.props.login(demoTherapist)
@@ -23,7 +19,7 @@ class DemoTherapist extends React.Component{
             return (
                 <div className="single-therapist-container" key={therapist.id}>
                     <img src={therapist.image} id="splash-image"/>
-                   
+    
                     <Link to="/auth/therapist/dashboard"
                         className="therapist-name"
                         onClick={this.loginDemoTherapist(therapist)}>
