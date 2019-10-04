@@ -1,18 +1,19 @@
 .navigation-bar{
     width: 100%;
     display: flex;
+    justify-content: space-between;
     height: 69px;
     top: 0;
     padding-right: 12px;
     padding-left: 18px;
     align-items: center;
-    position: fixed;
+    // position: fixed;
     box-sizing: border-box;
 }
 
 // Different navs
 .splash-nav{
-    background: white;
+    
 }
 
 .simple-nav{
@@ -30,12 +31,6 @@
 }
 
 .nav-right {
-    // position: relative;
-    // left: inherit;
-    // right: 10px;
-    // height: auto;
-    // padding: 0;
-    // width: auto;
     display: flex;
 }
 
@@ -46,6 +41,7 @@
     display: flex;
     position: relative;
 }
+
 .nav-link {
     font-size: 15px;
     font-family: "Roboto Condensed", Helvetica;

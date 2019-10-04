@@ -11,6 +11,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 
 // Global Components 
 import NavBar from './navigation/navbar';
+import SimpleNavBar from './navigation/simplenavbar';
 import AuthNavBarContainer from './navigation/auth_nav_container';
 import Splash from './splash/splash';
 import Footer from './footer/footer';
@@ -30,8 +31,8 @@ const App = () => (
         <header>
     {/* Logged Out Nav */}
             <Route exact path='/' component={NavBar}/>
-            <Route exact path='/user/login' component={NavBar}/>
-            <Route exact path='/user/signup' component={NavBar}/>
+            <Route exact path='/user/login' component={SimpleNavBar}/>
+            <Route exact path='/user/signup' component={SimpleNavBar}/>
             <Route exact path='/therapist/login' component={NavBar}/>
     {/* Logged In Nav */}
             <ProtectedRoute path='/auth' component={AuthNavBarContainer}/>

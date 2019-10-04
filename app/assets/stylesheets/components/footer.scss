@@ -1,8 +1,13 @@
 .footer-container {
+    height: 150px;
     display: flex;
-    background-color: #003e4c;
-    margin: 0 -15px;
-    min-height: 150px;
+    justify-content: center;
+    padding: 60px; 
+  
+}
+
+.row {
+    display: block;
 }
 
 .social-icon{
@@ -10,11 +15,18 @@
     height: 24px;
 }
 
-.icon-row{
-
+.icons{
+    display: block;
+    
 }
 
-.disclaimer-row {
+.social-icon {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+.disclaimer {
     font-size: 16px;
     color: #fff;
     font-weight: 400;

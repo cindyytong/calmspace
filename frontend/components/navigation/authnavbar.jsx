@@ -20,11 +20,14 @@ class AuthNavBar extends React.Component{
     render(){
         const { currentUser, logout } = this.props;
         return (
-            <div className="auth-navigation-bar">
-                <img className="nav-logo" src="https://rasa.com/static/talkspace_logo-3970f7ac25fef2f58caf690071a53c0d.svg"/>
-                <button>Hello {currentUser.username}</button>
-                <button className="header-button" onClick={this.handleSubmit}>Log Out</button>
-            </div>
+                <nav className="navigation-bar auth-nav green-fill">
+                <Link to="/"> <img src={window.whitelogoURL} className="nav-logo"/></Link>
+                <ul className="nav-right">
+                    <li className="nav-link">Hello {currentUser.username}</li>
+                    <li className="nav-link"><Link to='/' onClick={this.handleSubmit}>Log Out</Link></li>
+                </ul>
+               
+            </nav>
         )
     }
 };

@@ -1,9 +1,36 @@
 .splash-container {
-    background-image: image-url('splash_hero.jpg');
-    height: 100%;
+    
+}
+
+.splash-content {
+  margin-top: 8%;
+  margin-left: 8%; 
+  margin-bottom: 20%;
+}
+
+.section-text {
+  margin-bottom: 50px;
+}
+
+.headline {
+  margin-bottom: 40px;
+}
+
+.section-text .subheader {
+  margin-bottom: 20px;
+}
+.section-text p {
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+// is there a better way to set background image with footer coming after
+  #splash-image {
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: -1; 
   }
