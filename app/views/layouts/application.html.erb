@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <script type="text/javascript">
 // IMAGES 
-  window.logo_URL = "<%= image_url('logo_blue.png') %>"
+  window.logoURL = "<%= image_url('logo_blue.png') %>"
+  window.githubURL = "<%= image_url('github.png') %>"
+  window.contactURL = "<%= image_url('contact.png') %>"
+  window.linkedInURL = "<%= image_url('linked_in.png') %>"
+  window.instagramURL = "<%= image_url('instagram.png') %>"
 </script>
 
 <html>
@@ -12,7 +16,7 @@
   
    <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag asset_path('logo_favicon.png') %>
