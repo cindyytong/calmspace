@@ -4,6 +4,12 @@ class Therapist < Member
     validates_inclusion_of :gender, :in => %w( male female )
 
     ##### Associations 
+    has_many :topic_joins, 
+    as: :topicable, 
+    class_name: :TopicJoin,
+    foreign_key: :userable_id
 
+    has_many :topics,
+    through: :topic_joins
 
 end 

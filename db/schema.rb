@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_161421) do
+ActiveRecord::Schema.define(version: 2019_10_04_184224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,22 @@ ActiveRecord::Schema.define(version: 2019_10_02_161421) do
     t.index ["email"], name: "index_therapists_on_email", unique: true
     t.index ["first_name", "last_name"], name: "index_therapist_on_first_and_last_name", unique: true
     t.index ["session_token"], name: "index_therapists_on_session_token", unique: true
+  end
+
+  create_table "topic_interests", force: :cascade do |t|
+    t.integer "userable_id", null: false
+    t.integer "topic_id", null: false
+    t.string "userable_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id", "userable_type"], name: "index_topic_interests_on_topic_id_and_userable_type"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_topics_on_title", unique: true
   end
 
   create_table "users", force: :cascade do |t|

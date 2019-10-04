@@ -1,6 +1,10 @@
 
-.splash-container {
-   
+.page-container {
+  background-image: image-url('splash_hero.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  margin-top: 0;
 }
 
 .splash-content {
@@ -25,13 +29,12 @@
   line-height: 20px;
 }
 // is there a better way to set background image with footer coming after
-  #splash-image {
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: -1; 
-    opacity: .8; 
-  }
+  // #splash-image {
+  //   background-position: center top;
+ 
+  //   // position: absolute;
+  //   left: 0px;
+  //   top: 0px;
+  //   z-index: -1; 
+  //   opacity: .8; 
+  // }

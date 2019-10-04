@@ -5,13 +5,10 @@ class User < Member
 
 
     ##### Associations 
+    has_many :topic_interests, :as => :userable, :dependent
 
-    # belongs_to :chatroom,
-    # foreign_key: :chatroom_id,
-    # class_name: :Chatroom  
 
-    # belongs_to :therapist,
-    # foreign_key: :current_therapist_id,
-    # class_name: :Therapist 
+    has_many :topics,
+    through: :topic_joins
 
 end 
