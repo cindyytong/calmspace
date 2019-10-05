@@ -59,25 +59,60 @@ therapist5 = Therapist.create!({ email: 'therapist5@calmspace.com', password: '1
 therapist6 = Therapist.create!({ email: 'therapist6@calmspace.com', password: '12345678', first_name: 'Andrew', last_name: 'Garvy', gender: 'male' })
 
 ################ TOPIC_INTERESTS JOINS ###############
-#All topics: therapist1 & therapist2 
+# All topics: therapist1 & therapist4 
 Topic.all.each{|topic| TopicInterest.create!( { userable_id: therapist1.id, topic_id: topic.id, userable_type: "Therapist"} )}
 
 Topic.all.each{|topic| TopicInterest.create!( { userable_id: therapist4.id, topic_id: topic.id, userable_type: "Therapist"} )}
 
 # topics_arr[0..10]
+# therapist 2 & 5
+
+therapist2_id = Therapist.where(first_name: "Rebecca")[0].id
+therapist5_id = Therapist.where(first_name: "Michael")[0].id
 
 (0..10).each do |n| 
-    TopicInterest.create!( { userable_id: therapist2.id, topic_id: topic[n], userable_type: "Therapist"} )}
+    TopicInterest.create!( { userable_id: therapist2_id, topic_id: (Topic.where(title: topics_arr[n])[0].id), userable_type: "Therapist"} )
 end 
 
-topics_first_half.each{|topic| TopicInterest.create!( { userable_id: therapist2.id, topic_id: topic.id, userable_type: "Therapist"} )}
+(0..10).each do |n| 
+    TopicInterest.create!( { userable_id: therapist5_id, topic_id: (Topic.where(title: topics_arr[n])[0].id), userable_type: "Therapist"} )
+end 
 
-topics_first_half.each{|topic| TopicInterest.create!( { userable_id: therapist5.id, topic_id: topic.id, userable_type: "Therapist"} )}
 
+# topics_arr[11...20]
+therapist3_id = Therapist.where(first_name: "Chloe")[0].id
+therapist6_id = Therapist.where(first_name: "Andrew")[0].id
 
-# topics_arr[10..20]
-topics_second_half = Topic[10..20]
+(10..20).each do |n| 
+    TopicInterest.create!( { userable_id: therapist3_id, topic_id: (Topic.where(title: topics_arr[n])[0].id), userable_type: "Therapist"} )
+end 
 
-topics_second_half.each{|topic| TopicInterest.create!( { userable_id: therapist3.id, topic_id: topic.id, userable_type: "Therapist"} )}
+(10..20).each do |n| 
+    TopicInterest.create!( { userable_id: therapist6_id, topic_id: (Topic.where(title: topics_arr[n])[0].id), userable_type: "Therapist"} )
+end 
 
-topics_second_half.each{|topic| TopicInterest.create!( { userable_id: therapist6.id, topic_id: topic.id, userable_type: "Therapist"} )}
+# Patients 
+
+demo_patient_id = User.where(email: 'user1@calmspace.com')[0].id
+demo_patient_female_id = User.where(email: 'user2@calmspace.com')[0].id
+demo_patient_male_id = User.where(email: 'user3@calmspace.com')[0].id
+
+demo_patient_topic_id = [1, 12]
+
+demo_patient_topic_id.each do |topic_id| 
+    TopicInterest.create!( { userable_id: demo_patient_id, topic_id: (Topic.where(title: topics_arr[topic_id])[0].id), userable_type: "User"} )
+end 
+
+demo_patient_female_topic_id = [2, 18, 19]
+
+demo_patient_female_topic_id.each do |topic_id| 
+    TopicInterest.create!( { userable_id: demo_patient_female_id, topic_id: (Topic.where(title: topics_arr[topic_id])[0].id), userable_type: "User"} )
+end 
+
+demo_patient_male_topic_id = [1, 2]
+
+demo_patient_male_topic_id.each do |topic_id| 
+    TopicInterest.create!( { userable_id: demo_patient_male_id, topic_id: (Topic.where(title: topics_arr[topic_id])[0].id), userable_type: "User"} )
+end 
+
+############## Matching queries ###########
