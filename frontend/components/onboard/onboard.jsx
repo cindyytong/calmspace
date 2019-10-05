@@ -14,9 +14,8 @@ class Onboard extends React.Component {
             id: user.id,
             current_therpist_id: user.current_therpist_id,
             gender_pref: user.gender_pref,
-            topics: user.topics,
-            goals: user.goals 
-            }
+            goals: user.goals
+        }
         debugger 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -69,6 +68,7 @@ class Onboard extends React.Component {
             <h2>Onboard</h2>
             <p>Calmspace will connect you with a licensed therapist, who you can message from anywhere at any time.</p>
             <p>First, let’s get started by answering a few questions so we can help find the best matches for you.</p>
+            
             <form onSubmit={this.handleSubmit}>
                 <div className="question-container">
                     <h4 className="question">What led you to seek help today?</h4>
@@ -77,12 +77,11 @@ class Onboard extends React.Component {
                 <div className="question-container">
                     <h4 className="question">Do you have a gender preference for your therapist</h4>
                     <div className="gender-pref-radio">
-                        <input type="radio" onClick={this.handleClick('gender_pref')} value="female" name="genderPref" id="female"/>
-                        <label>Female</label>
-                        <input type="radio" onClick={this.handleClick('gender_pref')} value="male" name="genderPref" id="male"/>
-                        <label>Male</label>
-                        <input type="radio" onClick={this.handleClick('gender_pref')} value="none" name="genderPref" id="none"/>
-                        <label>No preference</label>
+                    <select value={this.state.gender_pref} onChange={this.update("gender_pref")}>
+                        <option value="none">No prefeence</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                    </select>
                     </div>
                 </div>
                 <div className="question-container">
