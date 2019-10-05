@@ -11,6 +11,5 @@ class Topic < ApplicationRecord
     # has_many :users  # does this put a null false constraint?
     # has_many :therapists  # does this put a null false constraint? 
 
-    
-   
+
 end 

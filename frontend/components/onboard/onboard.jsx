@@ -4,12 +4,12 @@ import TopicItem from './topic_item';
 
 class Onboard extends React.Component {
     componentDidMount(){
-        debugger
+  
         this.props.fetchTopics();
     }
 
     constructor(props){
-        debugger
+
         super(props);
         // this.handleSubmit = this.handleSubmit.bind(this);
         // this.state = this.props.user 
@@ -33,8 +33,10 @@ class Onboard extends React.Component {
     // }
 
     render(){
-        const topics = this.props.topics
-        debugger
+        const topics = this.props.topics.map( topic => {
+            return (<p>{topic.title}</p>)
+        });
+
         return(
         <div className="onboard-page-container">
             <h2>Onboard</h2>
@@ -59,6 +61,7 @@ class Onboard extends React.Component {
                 <div className="question-container">
                     <h4 className="question">Select all topics you would like to explore</h4>
                     <TopicItem topic={"test topic"}/>
+                    {topics}
                 </div>
                 <div className="button-row">
                     <input 

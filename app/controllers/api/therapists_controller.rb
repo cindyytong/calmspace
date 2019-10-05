@@ -1,4 +1,4 @@
-class TherapistsController < ApplicationController
+class Api::TherapistsController < ApplicationController
     def show 
         @therapist = Therapist.find(params[:id])
         if @therapist 

@@ -9,7 +9,7 @@ const mapStateToProps = state => {
     debugger
     return {
         errors: state.errors.session,
-        posts: Object.keys(state.topics).map(id => state.topics[id])
+        topics: Object.values(state.entities.topics)
     }
 };
 
