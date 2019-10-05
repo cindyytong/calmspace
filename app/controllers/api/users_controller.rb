@@ -14,6 +14,16 @@ class Api::UsersController < ApplicationController
         render :show 
     end 
 
+    def update
+        @user = User.find(params[:id])
+        if @user.update(user_params)
+            render :show 
+        else
+            render json: @user.errors.full_messages, status: 422
+        end  
+
+    end 
+
     def get_matches # returns therapist matches for user 
         # look at https://github.com/aliao3511/slacc/blob/master/app/controllers/api/users_controller.rb
         if params[:username]
@@ -27,6 +37,6 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-      params.require(:user).permit(:username, :email, :password, :over_age_13)  
+      params.require(:user).permit(:id, :username, :email, :password, :over_age_13, :gender_pref, :current_therapist_id, :goals)  
     end 
 end 
