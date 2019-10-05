@@ -11,6 +11,7 @@ class Signup extends React.Component {
     constructor(props){
         super(props);
         this.state = {
+            id: '',
             username: '',
             email: '',
             password: '',
@@ -38,7 +39,7 @@ class Signup extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         this.props.processForm(this.state)
-            .then(() => this.props.history.push(`/auth/user/chatroom`));
+            .then(() => this.props.history.push(`/auth/user/onboard`));
     }
     
 
@@ -73,7 +74,7 @@ class Signup extends React.Component {
                                 className="login-field"
                             />
                         </div>
-                        <div className="field-description">8 character minimum</div>
+                        <div className="field-description">This will be the name your therapist sees</div>
                         <div className="form-row">
                             <input type="password" 
                                 name="password"
@@ -83,7 +84,8 @@ class Signup extends React.Component {
                                 className="login-field"
                             />
                         </div>
-                        <div className="field-description">This will be the name your therapist sees</div>
+                        <div className="field-description">8 character minimum</div>
+                        <div className="field-description"></div>
                         <div className="age-row">
                            <input type="checkbox" 
                                 name="age-check"

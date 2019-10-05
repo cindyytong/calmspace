@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end 
     resources :therapists, only: [:show, :index]
 
+    resources :topics, only: [:index, :show]
+
     post 'session/:type', to: 'sessions#create', as: 'signin'
     delete 'session', to: 'sessions#destroy', as: 'signout'
 

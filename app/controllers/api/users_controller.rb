@@ -11,7 +11,6 @@ class Api::UsersController < ApplicationController
 
     def show 
         @user = User.includes(:topics, :topic_interests).where(id: params[:id]).first 
-        debugger
         render :show 
     end 
 
