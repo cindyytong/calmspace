@@ -3,11 +3,15 @@ Rails.application.routes.draw do
 
   root "static_pages#root"
   namespace :api, defaults: { format: :json } do 
-    resources :users, only: [:create]
+    resources :users, only: [:create, :show] do 
+      get 'get_matches', to: 'users#get_matches'
+    end 
     resources :therapists, only: [:show, :index]
 
     post 'session/:type', to: 'sessions#create', as: 'signin'
     delete 'session', to: 'sessions#destroy', as: 'signout'
+
+    get 'get_matches', to: 'users#get_matches'  
   end 
 end
 

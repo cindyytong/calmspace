@@ -19,8 +19,8 @@ import Footer from './footer/footer';
 // Patient Components 
 import UserLogInFormContainer from './session_form/user_login_form_container';
 import UserSignUpFormContainer from './session_form/user_signup_form_container';
+import OnboardContainer from './onboard/onboard_container';
 import UserChatroom from './chatroom/user_chatroom'
-import OnboardContainer from './onboard/onboard-container';
 
 // Therapist Components 
 import DemoTherapistContainer from './demo_therapist/demo_therapist_container';
@@ -45,9 +45,9 @@ const App = () => (
         <AuthRoute exact path="/therapist/login" component={DemoTherapistContainer}/>
 
     {/* Auth routes  */}
+        <ProtectedRoute exact path="/auth/user/:userId/onboard" component={OnboardContainer}/>
         <ProtectedRoute path="/auth/user/chatroom" component={UserChatroom}/>
         <ProtectedRoute path="/auth/therapist/dashboard" component={TherapistDashboardContainer}/>
-        <ProtectedRoute exact path="/auth/user/onboard" component={OnboardContainer}/>
 
     <footer>
         <Route exact path='/' component={Footer} />

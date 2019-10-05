@@ -9,6 +9,22 @@ class Api::UsersController < ApplicationController
         end 
     end 
 
+    def show 
+        @user = User.includes(:topics, :topic_interests).where(id: params[:id]).first 
+        debugger
+        render :show 
+    end 
+
+    def get_matches # returns therapist matches for user 
+        # look at https://github.com/aliao3511/slacc/blob/master/app/controllers/api/users_controller.rb
+        if params[:username]
+            @user = User.where(username: username)
+            render json: {}
+        else
+            render json: {}
+        end
+    end 
+
     private
 
     def user_params

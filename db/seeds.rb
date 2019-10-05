@@ -116,3 +116,57 @@ demo_patient_male_topic_id.each do |topic_id|
 end 
 
 ############## Matching queries ###########
+
+# 1. find patient id by email 
+# 2. get patient user_gender_pref 
+# 3. get therapist matching user_gender_pref (3 - 6)
+# 4. From the therapist matching gender pref find therapist matching topics 
+
+def get_gender_match(email)
+    user_gender_pref = User.where(email: email)[0].gender_pref
+    if user_gender_pref == 'none'
+        return Therapist.all.to_a 
+    else 
+        return Therapist.where(gender: user_gender_pref).to_a
+    end 
+end 
+
+get_gender_match("user1@calmspace.com").length # returns 6 
+get_gender_match("user2@calmspace.com").length # returns 3
+get_gender_match("user3@calmspace.com").length # returns 3
+
+# topic_arr = User.where(email: "user1@calmspace.com")[0].topics.to_a
+gender_matches = get_gender_match("user1@calmspace.com").to_a  # array of all therapist matches 
+gender_matches[0].topics.to_a.length # first therapist 
+def get_topic_match(gender_matches, email)
+    # get topics interest from user 
+    user_topics = User.where(email: email)[0].topics.to_a
+    # save topic titles in array 
+    topic_names = user_topics.map{|topic| topic.title}
+    # for each therapist match 
+    gender_matches.each do |therapist|
+        therapist_topics = Therapist.where(email: therapist.email)[0].topics.to_a.length 
+    end 
+end 
+
+
+
+#### 
+# 1. topic_interests for a user on SQL returns topic_ids 
+# SELECT * FROM topic_interests WHERE userable_id = 5 AND userable_type = 'User';
+
+# 2. find topic joins list of therapist with any match to topic ids 
+#  SELECT * FROM topic_interests WHERE userable_type = 'Therapist' AND topic_id IN (6, 17);
+
+
+SELECT *  
+FROM topic_interests 
+WHERE userable_type = 'Therapist' 
+AND topic_id IN (6, 17); 
+
+SELECT DISTINCT  # gives list of therapist_id with any matching topic 
+userable_id,
+COUNT * 
+FROM topic_interests 
+WHERE userable_type = 'Therapist' 
+AND topic_id IN (6, 17)
