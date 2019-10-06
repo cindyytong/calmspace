@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
 
 
-
 class Onboard extends React.Component {
     componentDidMount(){
         this.props.fetchTopics();
@@ -89,7 +88,7 @@ class Onboard extends React.Component {
         e.preventDefault();
         this.createSelectedTopics();
         this.props.updateUser(this.state.new_user)
-            .then(() => this.props.history.push(`auth/user/matches`))
+            .then(() => this.props.history.push(`/auth/user/matches`))
     }
 
 
@@ -155,73 +154,3 @@ class Onboard extends React.Component {
 };
 
 export default withRouter(Onboard);
-
-
-
-// // filters out true and returns [ 'ADHD', 'Anger Management' ]
-// let selection = {
-//     'ADHD': true,
-//     'Anger Management': true,
-//     'Anxiety': false,
-//     'Behavioral Issues': false,
-//     'Career Counseling': false,
-//     'Child or Adolescent': false,
-//     'Coping Skills': false,
-//     'Codependency': false,
-//     'Cognitive Behavioral': false,
-//     'Divorce': false,
-//     'Depression': false,
-//     'Family Conflict': false,
-//     'Life Coaching': false,
-//     'Life Transition': false,
-//     'Learning Disability': false,
-//     'Positive Psychology': false,
-//     'Pregnancy Postpartem': false,
-//     'Relationship Issues': false,
-//     'Self Esteem': false,
-//     'Stress': false  
-// };
-
-// let keys = Object.keys(selection);
-// let filtered = keys.filter(function(key){
-//     if(selection[key] === true){
-//         return key
-//     }
-// }); 
-
-
-
-
-// topics = {
-// 5: {id: 5, title: "ADHD"}
-// 6: {id: 6, title: "Anger Management"}
-// 7: {id: 7, title: "Anxiety"}
-// 8: {id: 8, title: "Behavioral Issues"}
-// 9: {id: 9, title: "Career Counseling"}
-// 10: {id: 10, title: "Child or Adolescent"}
-// 11: {id: 11, title: "Coping Skills"}
-// 12: {id: 12, title: "Codependency"}
-// 13: {id: 13, title: "Cognitive Behavioral"}
-// 14: {id: 14, title: "Divorce"}
-// 15: {id: 15, title: "Depression"}
-// 16: {id: 16, title: "Family Conflict"}
-// 17: {id: 17, title: "Life Coaching"}
-// 18: {id: 18, title: "Life Transition"}
-// 19: {id: 19, title: "Learning Disability"}
-// 20: {id: 20, title: "Positive Psychology"}
-// 21: {id: 21, title: "Pregnancy Postpartem"}
-// 22: {id: 22, title: "Relationship Issues"}
-// 23: {id: 23, title: "Self Esteem"}
-// 24: {id: 24, title: "Stress"}
-// }
-
-// const topicsArr = Object.values(topics)
-// //
-// let topicEx = [
-//     {id: 5, title: "ADHD"},
-//     {id: 6, title: "Anger Management"},
-//     {id: 7, title: "Anxiety"}
-// ]
-
-// let topic = topicEx.find(o => o.title === 'ADHD').id;
-// console.log(topic.id); // 5

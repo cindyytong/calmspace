@@ -12,6 +12,7 @@ class Match extends React.Component {
         super(props);
        
         this.state = this.props.user 
+        debugger
         // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -44,9 +45,9 @@ class Match extends React.Component {
                 <div className="therapist-match-container">
                     <div className="therapist-left">
                         <img src={window.therapist1URL} className="therapist-match-pic"/>
-                        <Link to={`/auth/user/${this.state.user.id}/chatroom`}
+                        <Link to={`/auth/user/${this.state.id}/chatroom`}
                             className="select-therapist"
-                            onClick={this.selectTherapist}>
+                            onClick={this.selectTherapist}> Select
                         </Link>
                     </div>
                     <div className="therapist-right">
