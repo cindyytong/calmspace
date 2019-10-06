@@ -1,7 +1,6 @@
 class Api::TopicInterestsController < ApplicationController
-
     def create
-        @topic_interest = TopicInterest.new(topic_interest_params)
+        @topic_interest = TopicInterest.new(params)
         if @topic_interest.save 
             render :show 
         else
@@ -9,8 +8,15 @@ class Api::TopicInterestsController < ApplicationController
         end 
     end 
 
-    private 
-    def topic_interest_params 
-        params.fetch(:topic_interest, {}).permit(:userable_id, :topic_id, :userable_type)
+    def show
+        @topic_interest = TopicInterest.find(params[:id])
+        render :show  
     end 
+
+    # def topic_interest_params 
+    #     params.require(:topic_interest).permit(:userable_id, :topic_id, :userable_type)
+    # end 
 end 
+
+#  makes a new topic 
+# TopicInterest.new(userable_id: 62 , topic_id: 24, userable_type: 'User')

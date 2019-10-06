@@ -72,7 +72,7 @@ class Onboard extends React.Component {
         e.preventDefault();
         debugger
         this.props.updateUser(this.state.new_user)
-            .then(() => this.props.history.push(`auth/user/{new_user.id}/matches`))
+            .then(() => this.props.history.push(`auth/user/${this.state.new_user.id}/matches`))
     }
 
     render(){
