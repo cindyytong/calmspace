@@ -1,14 +1,14 @@
-// import { RECEIVE_CURRENT_USER } from '../actions/session_actions'
-// import merge from 'lodash/merge';
+import { RECEIVE_THERAPIST } from '../actions/therapist_actions'
+import merge from 'lodash/merge';
 
-// const usersReducer = (state={}, action) => {
-//     Object.freeze(state);
-//     switch(action.type){
-//         case RECEIVE_CURRENT_USER: 
-//             return merge({}, state, { [action.currentUser.id]: action.currentUser })
-//         default: 
-//             return state;
-//     }
-// };
+const therapistsReducer = (state={}, action) => {
+    Object.freeze(state);
+    switch(action.type){
+        case RECEIVE_THERAPIST: 
+            return merge({}, state, { [action.therapist.id]: action.therapist })
+        default: 
+            return state;
+    }
+};
 
-// export default usersReducer 
+export default therapistsReducer 

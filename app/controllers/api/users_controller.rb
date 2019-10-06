@@ -24,10 +24,8 @@ class Api::UsersController < ApplicationController
     end 
 
     def get_matches # returns therapist matches for user 
-        debugger
         if current_user
-            debugger
-        therapists = TopicInterest.find_by_sql(["
+            therapists = TopicInterest.find_by_sql(["
                 SELECT userable_id, COUNT (*) 
                 FROM topic_interests 
                 WHERE userable_type = 'Therapist'
@@ -40,11 +38,11 @@ class Api::UsersController < ApplicationController
                 GROUP BY userable_id
                 ORDER BY COUNT(*) DESC
                 LIMIT 3", current_user.id]).to_a
-                therapist_ids = therapists.map{ |therapist| therapist.userable_id } # [8, 9, 10]
-            debugger
-            render json: therapist_ids 
+                therapist_ids = therapists.map{ |therapist| therapist.userable_id } 
+                @therapists = Therapist.includes(:topics).where(:id => therapist_ids )
+            render :get_matches
         else
-            render json: @user.errors.full_messages, status: 422
+            render json: {}, status: 404
         end 
     end 
 

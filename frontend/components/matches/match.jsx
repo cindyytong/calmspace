@@ -5,16 +5,19 @@ import { Link } from 'react-router-dom';
 
 class Match extends React.Component {
     
-    constructor(props){
-        super(props);
-        this.state = this.props.user 
-        debugger
-        // this.handleSubmit = this.handleSubmit.bind(this);
-    }
     componentDidMount(){
         debugger
-        this.props.fetchMatches(this.state)
+        this.props.fetchMatches();
      }
+
+    constructor(props){
+        super(props);
+        debugger
+        this.state = {
+            user: this.props.user
+        } 
+        // this.handleSubmit = this.handleSubmit.bind(this);
+    }
  
 
     // handleClick(field) {
@@ -39,24 +42,38 @@ class Match extends React.Component {
     }
 
     render(){
-        return(
-            <div className="matches-container">
-                <h4>Meet your matches</h4>
-                <p>Based on your criteria, these are the best matches for you</p>
-                <div className="therapist-match-container">
+        const therapists = this.props.matches.map(therapist => {
+            return (
+                <div className="therapist-container" key={therapist.id}>
                     <div className="therapist-left">
-                        <img src={window.therapist1URL} className="therapist-match-pic"/>
-                        <Link to={`/auth/user/${this.state.id}/chatroom`}
+                        <img src={therapist.img_url} className="therapist-pic"/>
+                        <Link to={`/auth/user/${this.state.user.id}/chatroom`}
                             className="select-therapist"
-                            onClick={this.selectTherapist}> Select
+                            onClick={this.selectTherapist}>Select
                         </Link>
                     </div>
                     <div className="therapist-right">
-                        <h5>Profile</h5>
-                        <h4>Therapist Name</h4>
-                        <p className="degree">Degree</p>
-                        <p>bio goes heszdnlsndskldnladknlsndklndlnaldnklanskldnklnklasnldnlkre</p>
+                        <div className="profile-col-1">
+                            <h5>Profile</h5>
+                            <h4>{therapist.first_name} {therapist.last_name}</h4>
+                            <p className="degree">{therapist.degree}</p>
+                            <p>{therapist.body}</p>
+                        </div>
+                        <div className="profile-col-2">
+                            <p>License and State</p>
+                            <p>{therapist.degree}, NY</p>
+                        </div>
                     </div>
+                </div>
+            );
+        })
+
+        return(
+            <div className="matches-page-container">
+                <h4>Meet your matches</h4>
+                <p>Based on your criteria, these are the best matches for you</p>
+                <div className="matches-container">
+                    {therapists}
                 </div>
             </div>
         )

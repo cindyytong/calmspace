@@ -128,7 +128,7 @@ class Onboard extends React.Component {
                     <h4 className="question">Do you have a gender preference for your therapist</h4>
                     <div className="gender-pref-radio">
                     <select onChange={this.update('gender_pref')}>
-                        <option value="none">No prefeence</option>
+                        <option value="none">No preference</option>
                         <option value="female">Female</option>
                         <option value="male">Male</option>
                     </select>

@@ -12,7 +12,6 @@ const receiveUser = user => {
 };
 
 const receiveAllMatches = matches => {
-    debugger
     return {
         type: RECEIVE_ALL_MATCHES,
         matches
@@ -30,8 +29,7 @@ export const updateUser = user => dispatch => {
 };
 
 
-export const fetchMatches = user => dispatch => {
-    debugger
-    return UserApiUtil.fetchMatches(user)
+export const fetchMatches = () => dispatch => {
+    return UserApiUtil.fetchMatches()
         .then(matches => dispatch(receiveAllMatches(matches)))
 }
