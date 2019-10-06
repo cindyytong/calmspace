@@ -1,6 +1,7 @@
 import * as UserApiUtil from '../util/user_api_util';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
+export const RECEIVE_ALL_MATCHES = 'RECEIVE_ALL_MATCHES';
 
 
 const receiveUser = user => {
@@ -9,6 +10,14 @@ const receiveUser = user => {
         user 
     }
 };
+
+const receiveAllMatches = matches => {
+    debugger
+    return {
+        type: RECEIVE_ALL_MATCHES,
+        matches
+    }
+}
 
 export const fetchUser = id => dispatch => {
     return UserApiUtil.fetchUser(id)
@@ -20,3 +29,9 @@ export const updateUser = user => dispatch => {
         .then(user => dispatch(receiveUser(user)))
 };
 
+
+export const fetchMatches = user => dispatch => {
+    debugger
+    return UserApiUtil.fetchMatches(user)
+        .then(matches => dispatch(receiveAllMatches(matches)))
+}

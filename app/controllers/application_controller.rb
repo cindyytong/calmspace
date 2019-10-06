@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
         return nil unless session[:session_token]
         memberClass = session[:member_type].titleize.constantize 
         @current_user ||= memberClass.find_by(session_token: session[:session_token])
-        debugger
     end 
 
     def login!(user)

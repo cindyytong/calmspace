@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Match from './match';
 import { Link } from 'react-router-dom';
-import { updateUser } from '../../actions/user_actions';
+import { updateUser, fetchMatches } from '../../actions/user_actions';
 
 const mapStateToProps = state => {
     return {
@@ -14,7 +14,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         clearErrors: () => dispatch(clearErrors()),
-        updateUser: (user) => dispatch(updateUser(user))
+        updateUser: (user) => dispatch(updateUser(user)),
+        fetchMatches: (user) => dispatch(fetchMatches(user))
     }
 };
 

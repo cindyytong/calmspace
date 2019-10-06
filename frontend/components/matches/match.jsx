@@ -4,17 +4,18 @@ import { Link } from 'react-router-dom';
 
 
 class Match extends React.Component {
-    // componentDidMount(){
-       
-    // }
-
+    
     constructor(props){
         super(props);
-       
         this.state = this.props.user 
         debugger
         // this.handleSubmit = this.handleSubmit.bind(this);
     }
+    componentDidMount(){
+        debugger
+        this.props.fetchMatches(this.state)
+     }
+ 
 
     // handleClick(field) {
       

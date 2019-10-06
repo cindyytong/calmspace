@@ -152,28 +152,60 @@ end
 
 
 #### 
-# 1. topic_interests for a user on SQL returns topic_ids 
-# SELECT * FROM topic_interests WHERE userable_id = 5 AND userable_type = 'User';
+# 1. get topic interest for user with userable_id
+# SELECT * 
+# FROM topic_interests 
+# WHERE userable_type = 'User'
+# AND userable_id = 5; 
+# # 2. get the topic ids for the topics the user wants 
+# SELECT DISTINCT topic_id 
+# FROM topic_interests 
+# WHERE userable_type = 'User'
+# AND userable_id = 5; 
 
-# 2. find topic joins list of therapist with any match to topic ids 
-#  SELECT * FROM topic_interests WHERE userable_type = 'Therapist' AND topic_id IN (6, 17);
+# # 3. get therapist ids who match any topic 
+# SELECT DISTINCT userable_id 
+# FROM topic_interests 
+# WHERE userable_type = 'Therapist'
+# AND topic_id IN (
+#     SELECT DISTINCT topic_id 
+#     FROM topic_interests 
+#     WHERE userable_type = 'User'
+#     AND userable_id = 5 
+# );
+
+# # 4. order by therapist who match the most topics; limit top 3  
+# SELECT userable_id, COUNT (*) 
+# FROM topic_interests 
+# WHERE userable_type = 'Therapist'
+# AND topic_id IN (
+#     SELECT DISTINCT topic_id 
+#     FROM topic_interests 
+#     WHERE userable_type = 'User'
+#     AND userable_id = 5 
+# )
+# GROUP BY userable_id
+# ORDER BY COUNT(*) DESC
+# LIMIT 3;
+
+# TopicInterest.select(:topic_id).where(:userable_id => 5, :userable_type => "User").to_a
+
+# # rewrite using activeRecord 
 
 
-SELECT *  
-FROM topic_interests 
-WHERE userable_type = 'Therapist' 
-AND topic_id IN (6, 17); 
+# # therapist_ids = <<-SQL
+# #     SELECT userable_id, COUNT (*) 
+#     FROM topic_interests 
+#     WHERE userable_type = 'Therapist'
+#     AND topic_id IN (
+#         SELECT DISTINCT topic_id 
+#         FROM topic_interests 
+#         WHERE userable_type = 'User'
+#         AND userable_id = 5 
+#     )
+#     GROUP BY userable_id
+#     ORDER BY COUNT(*) DESC
+#     LIMIT 3;
+# SQL 
 
-SELECT DISTINCT  # gives list of therapist_id with any matching topic 
-userable_id,
-COUNT * 
-FROM topic_interests 
-WHERE userable_type = 'Therapist' 
-AND topic_id IN (6, 17)
-
-
-# def get_therapist_matches 
-#     execute(<<-SQL)
-#     SQL 
-# end 
-# https://github.com/appacademy/curriculum/blob/master/sql/projects/sqlzoo/solution/lib/07a_joins_bonus.rb
+# therapist_array = ActiveRecord::Base.connection.execute(sql)

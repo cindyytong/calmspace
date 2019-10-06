@@ -12,3 +12,12 @@ export const updateUser = user => {
         data: { user } 
     })
 }
+
+export const fetchMatches = user => {
+    debugger
+    return $.ajax({
+        method: 'GET',
+        url: '/api/get_matches',
+        data: { user }
+    })
+}

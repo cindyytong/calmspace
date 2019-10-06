@@ -24,13 +24,28 @@ class Api::UsersController < ApplicationController
     end 
 
     def get_matches # returns therapist matches for user 
-        # look at https://github.com/aliao3511/slacc/blob/master/app/controllers/api/users_controller.rb
-        if params[:username]
-            @user = User.where(username: username)
-            render json: {}
+        debugger
+        if current_user
+            debugger
+        therapists = TopicInterest.find_by_sql(["
+                SELECT userable_id, COUNT (*) 
+                FROM topic_interests 
+                WHERE userable_type = 'Therapist'
+                AND topic_id IN (
+                    SELECT DISTINCT topic_id 
+                    FROM topic_interests 
+                    WHERE userable_type = 'User'
+                    AND userable_id = ? 
+                )
+                GROUP BY userable_id
+                ORDER BY COUNT(*) DESC
+                LIMIT 3", current_user.id]).to_a
+                therapist_ids = therapists.map{ |therapist| therapist.userable_id } # [8, 9, 10]
+            debugger
+            render json: therapist_ids 
         else
-            render json: {}
-        end
+            render json: @user.errors.full_messages, status: 422
+        end 
     end 
 
     private
