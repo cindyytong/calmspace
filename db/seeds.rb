@@ -170,3 +170,10 @@ COUNT *
 FROM topic_interests 
 WHERE userable_type = 'Therapist' 
 AND topic_id IN (6, 17)
+
+
+# def get_therapist_matches 
+#     execute(<<-SQL)
+#     SQL 
+# end 
+# https://github.com/appacademy/curriculum/blob/master/sql/projects/sqlzoo/solution/lib/07a_joins_bonus.rb

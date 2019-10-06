@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :update] do 
       get 'get_matches', to: 'users#get_matches'
     end 
-    resources :therapists, only: [:show, :index]
+    resources :therapists, only: [:show]
 
     resources :topics, only: [:index, :show]
 

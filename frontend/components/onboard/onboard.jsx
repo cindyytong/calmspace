@@ -12,7 +12,6 @@ class Onboard extends React.Component {
     constructor(props){
         super(props);
         let user = this.props.user; 
-        
         this.state = {
             new_user: {
                 id: user.id,
@@ -48,7 +47,6 @@ class Onboard extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-
     update(field) {
         return (e) => {
             const new_user = this.state.new_user;
@@ -65,15 +63,17 @@ class Onboard extends React.Component {
             currentState[field] = e.target.checked;
             this.setState({ selections: currentState })
         }
-        debugger
+   
     }
 
     handleSubmit(e){
         e.preventDefault();
         debugger
+        this.props.createTopicInterest(79, 24);
         this.props.updateUser(this.state.new_user)
-            .then(() => this.props.history.push(`auth/user/${this.state.new_user.id}/matches`))
+            .then(() => this.props.history.push(`auth/user/matches`))
     }
+
 
     render(){
         // map topics into list 

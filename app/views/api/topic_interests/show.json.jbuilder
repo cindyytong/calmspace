@@ -1,1 +1,0 @@
-json.extract! topic_interest, :topic_id, :userable_id, :userable_type

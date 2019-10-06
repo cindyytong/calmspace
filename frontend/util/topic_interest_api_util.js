@@ -1,11 +1,12 @@
-export const createTopicInterest = ( userId, topicId, userType ) => { 
+export const createTopicInterest = ( userId, topicId, userType = "User" ) => { 
+    debugger
     return $.ajax({
         method: 'POST',
-        url: `/api/topic_interests`,
+        url: '/api/topic_interests',
         data: { 
-            userable_id,
-            topic_id,
-            userable_type
+            userable_id: userId,
+            topic_id: topicId,
+            userable_type: userType
          }
     })
 };
@@ -16,3 +17,5 @@ export const fetchTopicInterest = (id) => {
         url: `/api/topic_interests/${id}`
     })
 }
+
+
