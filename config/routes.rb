@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
     resources :topics, only: [:index, :show]
 
+    resources :topic_interests, only: [:create]
+
     post 'session/:type', to: 'sessions#create', as: 'signin'
     delete 'session', to: 'sessions#destroy', as: 'signout'
 
