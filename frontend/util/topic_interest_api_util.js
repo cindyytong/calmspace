@@ -1,5 +1,4 @@
 export const createTopicInterest = ( userId, topicId, userType = "User" ) => { 
-    debugger
     return $.ajax({
         method: 'POST',
         url: '/api/topic_interests',
