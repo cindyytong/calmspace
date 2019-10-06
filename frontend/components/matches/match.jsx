@@ -5,17 +5,9 @@ import { Link } from 'react-router-dom';
 
 class Match extends React.Component {
     
-    componentDidMount(){
-        debugger
-        this.props.fetchMatches();
-     }
-
-    constructor(props){
+    constructor(props, ownProps){
         super(props);
-        debugger
-        this.state = {
-            user: this.props.user
-        } 
+        this.state = this.props.user;
         // this.handleSubmit = this.handleSubmit.bind(this);
     }
  
@@ -42,12 +34,12 @@ class Match extends React.Component {
     }
 
     render(){
-        const therapists = this.props.matches.map(therapist => {
+        const therapists = Object.values(this.props.matches).map(therapist => {
             return (
                 <div className="therapist-container" key={therapist.id}>
                     <div className="therapist-left">
                         <img src={therapist.img_url} className="therapist-pic"/>
-                        <Link to={`/auth/user/${this.state.user.id}/chatroom`}
+                        <Link to={`/auth/user/chatroom`}
                             className="select-therapist"
                             onClick={this.selectTherapist}>Select
                         </Link>
@@ -62,6 +54,12 @@ class Match extends React.Component {
                         <div className="profile-col-2">
                             <p>License and State</p>
                             <p>{therapist.degree}, NY</p>
+                            <ul>Specialties</ul>
+                            {Object.values(therapist.topics).map(topic => {
+                                return (
+                                    <li>{topic.title}</li>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>

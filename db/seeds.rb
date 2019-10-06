@@ -65,9 +65,12 @@ I have expertise in Relationship issues, working with Sexuality and Gender Ident
 
 ################ TOPIC_INTERESTS JOINS ###############
 # All topics: therapist1 & therapist4 
-Topic.all.each{|topic| TopicInterest.create!( { userable_id: therapist1.id, topic_id: topic.id, userable_type: "Therapist"} )}
+therapist1_id = Therapist.where(first_name: "Sarah")[0].id
+therapist4_id = Therapist.where(first_name: "Jason")[0].id
 
-Topic.all.each{|topic| TopicInterest.create!( { userable_id: therapist4.id, topic_id: topic.id, userable_type: "Therapist"} )}
+Topic.all.each{|topic| TopicInterest.create!( { userable_id: therapist1_id, topic_id: topic.id, userable_type: "Therapist"} )}
+
+Topic.all.each{|topic| TopicInterest.create!( { userable_id: therapist4_id, topic_id: topic.id, userable_type: "Therapist"} )}
 
 # topics_arr[0..10]
 # therapist 2 & 5
@@ -80,7 +83,7 @@ therapist5_id = Therapist.where(first_name: "Michael")[0].id
 end 
 
 (0..10).each do |n| 
-    TopicInterest.create!( { userable_id: therapist5_id, topic_id: (Topic.where(title: topics_arr[n])[0].id), userable_type: "Therapist"} )
+    TopicInterest.create!( { userable_id: therapist2_id, topic_id: (Topic.where(title: topics_arr[n])[0].id), userable_type: "Therapist"} )
 end 
 
 
