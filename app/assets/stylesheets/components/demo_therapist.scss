@@ -6,7 +6,12 @@
 
 .demo-therapist-heading {
     margin-top: 80px;
-    text-align: center 
+    color:  #9499ae; 
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: 33px;
+    margin-bottom: 30px;
+    text-align: center; 
 }
 
 .therapist-boxes{
@@ -25,12 +30,12 @@
     margin-left: 100px;
 }
 
+
 .single-therapist-container img {
     width: 150px;
     height: 150px;
     margin-bottom: 20px;
 }
-
 
 .single-therapist-container a {
     padding: 6px 12px;
@@ -43,17 +48,15 @@
     padding-left: 48px;
     padding-right: 48px;
     width: auto;
-    outline: none;
     border-radius: 9px;
-    height: 54px;
+    height: 40px;
     font-family: "Roboto Condensed",Helvetica,Arial;
-    font-size: 17px;
-    font-weight: 900;
     letter-spacing: 1.9px;
     line-height: 42px;
-    box-shadow: 0 8px 12px 0 rgba(0,0,0,.17)
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.17);
+    text-decoration: none;
 }
 
 .single-therapist-container a:hover {
-    background-color: #0fc1a7; 
+    background-color: #0fc1a7;
 }
