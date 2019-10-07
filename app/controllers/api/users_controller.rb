@@ -24,26 +24,9 @@ class Api::UsersController < ApplicationController
     end 
 
     def get_matches # returns therapist matches for user 
-        if current_user
-            # therapists = TopicInterest.find_by_sql(["
-            #     SELECT userable_id, COUNT (*) 
-            #     FROM topic_interests 
-            #     WHERE userable_type = 'Therapist'
-            #     AND topic_id IN (
-            #         SELECT DISTINCT topic_id 
-            #         FROM topic_interests 
-            #         WHERE userable_type = 'User'
-            #         AND userable_id = ? 
-            #     )
-            #     GROUP BY userable_id
-            #     ORDER BY COUNT(*) DESC
-            #     LIMIT 3", current_user.id]).to_a
-            #     therapist_ids = therapists.map{ |therapist| therapist.userable_id } 
-            #     @therapists = Therapist.includes(:topics).where(id: therapist_ids)
-            
-
+        if current_user        
             topic_ids = TopicInterest.where(:userable_id => current_user.id ).group(:topic_id).pluck(:topic_id)
-            therapist_ids = TopicInterest.where(topic_id: topic_ids).where(userable_type: "Therapist").group(:userable_id).pluck(:userable_id)
+            therapist_ids = TopicInterest.limit(3).where(topic_id: topic_ids).where(userable_type: "Therapist").group(:userable_id).pluck(:userable_id)
             @therapists = Therapist.includes(:topics).where(id: therapist_ids).to_a
             render :get_matches
         else

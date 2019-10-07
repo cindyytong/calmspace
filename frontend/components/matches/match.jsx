@@ -8,18 +8,16 @@ class Match extends React.Component {
     constructor(props, ownProps){
         super(props);
         this.state = this.props.user;
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.selectTherapist = this.selectTherapist.bind(this);
     }
  
-
-    // handleClick(field) {
-      
-    //     return(e) => {
-    //         this.setState({
-    //             [field]: e.target.checked
-    //         })
-    //     }
-    // }
+    handleClick(field) {
+        return(e) => {
+            this.setState({
+                [field]: e.target.value
+            })
+        }
+    }
 
     // handleSubmit(e){
     //     e.preventDefault();
@@ -27,10 +25,10 @@ class Match extends React.Component {
     //         .then(() => this.props.history.push(`auth/user/{user.id}/matches`))
     // }
 
-    selectTherapist(e){
-        console.log("therapist is selected")
-        // on button click assign therapist to user, user to therapist 
-        // route to chatroom 
+    selectTherapist(){
+        this.handleClick('current_therapist_id');
+        this.props.updateUser(this.state)
+            .then(() => this.props.history.push(`/auth/user/${this.state.id}/chatroom`))
     }
 
     render(){
@@ -39,9 +37,8 @@ class Match extends React.Component {
                 <div className="therapist-container" key={therapist.id}>
                     <div className="therapist-left">
                         <img src={therapist.img_url} className="therapist-pic"/>
-                        <Link to={`/auth/user/chatroom`}
-                            className="select-therapist"
-                            onClick={this.selectTherapist}>Select
+                        <Link to='/auth/user/chatroom' onClick={this.selectTherapist} value={therapist.id} className="select-therapist">
+                            Select
                         </Link>
                     </div>
                     <div className="therapist-right">

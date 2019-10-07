@@ -158,6 +158,14 @@ def get_topic_match(gender_matches, email)
 end 
 
 
+############### TESTING CHATROOMS & MESSAGES ############
+user_id = 142
+therapist_id = 19 
+
+chatroom_1 = ChatRoom.create!(user_id: 142, therapist_id: 19)
+note_1 = Note.create!(chat_room_id: 1, body: "this is a new note")
+message1 = Message.create!(body: "Hello test", chat_room_id: 1, messageable_id: 142, messageable_type: "User")
+
 
 #### 
 # 1. get topic interest for user with userable_id

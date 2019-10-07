@@ -47,7 +47,7 @@ const App = () => (
 
     {/* Auth routes  */}
         <ProtectedRoute exact path="/auth/user/onboard" component={OnboardContainer}/>
-        <ProtectedRoute exact path="/auth/user/matches" component={MatchContainer}/>
+        <ProtectedRoute exact path="/auth/user/:userId/matches" component={MatchContainer}/>
         <ProtectedRoute path="/auth/user/:userId/chatroom" component={UserChatroom}/>
         <ProtectedRoute path="/auth/therapist/dashboard" component={TherapistDashboardContainer}/>
 

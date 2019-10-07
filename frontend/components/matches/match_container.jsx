@@ -7,8 +7,7 @@ import { updateUser, fetchMatches } from '../../actions/user_actions';
 
 const mapStateToProps = state => {
     return {
-        user: Object.values(state.entities.users)[0], // user object 
-        // therapists: Object.values(state.entities.therapists), 
+        user: Object.values(state.entities.users)[0], 
         errors: state.errors.session,
         matches: state.entities.matches
     }
@@ -18,29 +17,7 @@ const mapDispatchToProps = dispatch => {
     return {
         clearErrors: () => dispatch(clearErrors()),
         updateUser: (user) => dispatch(updateUser(user)),
-        // fetchMatches: () => dispatch(fetchMatches()),
-        // fetchTherapist: (id) => dispatch(fetchTherapist(id))
     }
 };
-
-// class MatchForm extends React.Component {
-//     componentDidMount(){
-//         this.props.clearErrors();
-//         // this.props.fetchMatches();
-//     }
-
-//     render(){
-//         const matches = this.props.entities.matches;
-//         const user = this.props.entities.user; 
-//         const updateUser = this.props.updateUser;
-        
-//         return(
-//             <Match
-//             matches={matches}
-//             user={user}
-//             updateUser={updateUser} />
-//         )
-//     }
-// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Match);

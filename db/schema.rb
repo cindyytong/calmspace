@@ -10,10 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_221330) do
+ActiveRecord::Schema.define(version: 2019_10_07_002956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "therapist_id", null: false
+    t.integer "note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["therapist_id"], name: "index_chat_room_on_therapist"
+    t.index ["user_id", "therapist_id"], name: "index_chat_room_on_user_and_therapist"
+    t.index ["user_id"], name: "index_chat_room_on_user"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "body", null: false
+    t.integer "chat_room_id", null: false
+    t.integer "messageable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "messageable_type", null: false
+    t.index ["chat_room_id"], name: "index_message_on_chat_room"
+    t.index ["messageable_id"], name: "index_messsage_on_sender"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.integer "chat_room_id", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "therapists", force: :cascade do |t|
     t.string "first_name", null: false

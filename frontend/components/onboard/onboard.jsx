@@ -89,7 +89,7 @@ class Onboard extends React.Component {
         this.createSelectedTopics(); // make topic_interest entries 
         this.props.fetchMatches();  // update state with matches 
         this.props.updateUser(this.state.new_user) // update user pref
-            .then(() => this.props.history.push(`/auth/user/matches`))
+            .then(() => this.props.history.push(`/auth/user/${this.state.new_user.id}/matches`))
     }
 
 
