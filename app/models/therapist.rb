@@ -7,7 +7,7 @@ class Therapist < Member
 
     has_many :topic_interests, :as => :userable,
     class_name: :TopicInterest,
-    # dependent: :destroy 
+    dependent: :destroy 
 
     has_many :topics,
     through: :topic_interests,
@@ -15,12 +15,12 @@ class Therapist < Member
 
     has_many :messages, :as => :messageable,
     class_name: :Message,
-    # dependent: :destroy  
+    dependent: :destroy  
 
     has_many :chat_rooms,
     foreign_key: :therapist_id,
     class_name: :ChatRoom,
-    # dependent: :destroy 
+    dependent: :destroy 
 
     has_many :notes,
     through: :chat_rooms,

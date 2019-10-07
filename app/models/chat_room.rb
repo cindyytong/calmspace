@@ -11,7 +11,7 @@ message: "each user can only chat with one therapist at a time"}
     foreign_key: :therapist_id,
     class_name: :Therapist  
 
-    has_many :messages
+    has_many :messages,
     foreign_key: :chat_room_id,
     class_name: :Message,
     dependent: :destroy 

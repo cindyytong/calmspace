@@ -7,7 +7,7 @@ class User < Member
     ##### Associations 
     has_many :topic_interests, :as => :userable,
     class_name: :TopicInterest,
-    # dependent: :destroy
+    dependent: :destroy
 
     has_many :topics,
     through: :topic_interests,
@@ -15,11 +15,11 @@ class User < Member
 
     has_many :messages, :as => :messageable,
     class_name: :Message,
-    # dependent: :destroy 
+    dependent: :destroy 
 
     has_one :chat_room,
     foreign_key: :user_id,
     class_name: :ChatRoom,
-    # dependent: :destroy  
+    dependent: :destroy  
 
 end 
