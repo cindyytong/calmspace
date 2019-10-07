@@ -7,7 +7,6 @@ class LoginForm extends React.Component {
     componentDidMount(){
         this.props.clearErrors();
     }
-
     constructor(props){
         super(props);
         this.state = {
@@ -39,7 +38,6 @@ class LoginForm extends React.Component {
         this.props.processForm({ email: 'user1@calmspace.com', password: '12345678'})
         .then(() => this.props.history.push('/auth/user/chatroom'));
     };
-    
 
     render(){
         let displayError;
