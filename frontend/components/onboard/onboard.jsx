@@ -67,7 +67,6 @@ class Onboard extends React.Component {
 
     createSelectedTopics(){
         // make an array of selected titles only 
-        debugger
         let topics = this.state.selections;
         var selectedTopics = [];
         for (let title in topics ){
@@ -85,16 +84,8 @@ class Onboard extends React.Component {
         })
     }
 
-    // handleSubmit(e){
-    //     e.preventDefault();
-    //     this.createSelectedTopics()
-    //         .then(() => this.props.fetchMatches())  // update state with matches 
-    //         .then(() => this.props.updateUser(this.state.new_user)) // update user pref
-    //         .then(() => this.props.history.push(`/auth/user/${this.state.new_user.id}/matches`))
-    // }
-
     handleSubmit(e){
-        // debugger
+  
         e.preventDefault();
         this.createSelectedTopics(); // make topic_interest entries 
         // this.props.fetchMatches();  // update state with matches 
@@ -140,9 +131,8 @@ class Onboard extends React.Component {
                 </div>
                 <div className="question-container">
                     <label className="question" htmlFor="gender-pref">Do you have a gender preference for your therapist</label>
-   
                         <div className="custom-select">
-                        <select onChange={this.update('gender_pref')}>
+                        <select className="select-gender" onChange={this.update('gender_pref')}>
                             <option className="dropdown-option" value="none">No preference</option>
                             <option className="dropdown-option" value="female">Female</option>
                             <option className="dropdown-option" value="male">Male</option>

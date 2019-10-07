@@ -10,28 +10,28 @@
 }
 
 .onboard-header {
-    margin-top: 5%;
     margin-bottom: 5%;
 }
 
 .onboard-headline {
+    color:  black; 
     font-size: 30px;
-    letter-spacing: .3px;
-    line-height: 39px;
-    font-weight: 600;
-    color: #000; 
-}
+    letter-spacing: 0;
+    line-height: 33px;
+    margin-bottom: 10px;
+    text-align: center;
+} 
 
 .onboard-description {
-    margin-top: 10px;
-    margin-bottom: 15px;
-    font-size: 14px;
-    color: #b4b4b4;
-    font-size: 14.4px;
+    font-size: 16px;
+    letter-spacing: .43px;
+    line-height: 27px;
+    color:#9499ae; 
+    text-align: center;  
 }
 
 .onboard-content {
-    margin-top: 5%;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -43,11 +43,10 @@
 
 .question {
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.5;
-    color: rgba(116, 116, 116, 1);
+    color:  black;  
     margin-bottom: 50px;
-    font-weight: 600;
 }
 
 .goal-textarea {
@@ -55,10 +54,51 @@
     padding: 6px 12px;
     font-size: 16px;
     line-height: 1.5;
-    color: #55595c;
+    color: rgba(116, 116, 116, 1);
+    font-family: 'Roboto', sans-serif;
     background-color: #fff;
     background-image: none;
     border: 1px solid #eceeef;
     border-radius: 10px;
     margin-bottom: 50px;
+}
+
+.goal-textarea:focus {
+    margin-top: 10px;
+    border: 1px solid#0fc1a7;
+}
+
+.select-gender {
+    color: rgba(116, 116, 116, 1);
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #c4c4c4;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.topic-row {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.check-top input[type=checkbox] {
+    padding-left:5px;
+    padding-right:5px;
+    border-radius:15px;
+    border: 1px solid #c4c4c4;
+    width:15px;
+    height:15px;
+}
+
+.check-top input[type=checkbox]:checked {
+    background-color: #179a87;  
+}
+
+
+.check-label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #55595c;
+    padding: 15px; 
+    margin-bottom: 15px;
 }

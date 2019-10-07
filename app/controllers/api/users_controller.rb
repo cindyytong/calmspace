@@ -16,8 +16,9 @@ class Api::UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        debugger
+        # debugger
         if @user.update(user_params)
+            # debugger
             render :show 
         else
             render json: @user.errors.full_messages, status: 422
@@ -25,17 +26,16 @@ class Api::UsersController < ApplicationController
     end 
 
     def get_matches # returns therapist matches for user 
-        if current_user   
-            # debugger 
+        if current_user    
             id = current_user.id
             user_topics =  TopicInterest.where(:userable_id => id )  
             # no topic or gender selected, return first 3 therapists 
             if user_topics[0].nil? && current_user.gender_pref == "none" 
-                # debugger
+             
                 @therapists = Therapist.includes(:topics).first(3).to_a
             # no topic only, return therapist with gender
             elsif user_topics[0].nil? && current_user.gender_pref != "none"
-                debugger
+              
                 @therapists = Therapist.includes(:topics).limit(3).where(:gender => current_user.gender_pref).to_a
             # topics selected, return therapist with topics regardless of gender
             else 

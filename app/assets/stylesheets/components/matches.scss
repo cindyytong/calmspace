@@ -1,7 +1,189 @@
-.matches-container {
-    margin-top: 100px;
-    width: 100%;
-    height: 100%;
+.matches-page-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10%;
+    margin-left: 10%; 
+    margin-right: 10%;
+}
+
+.match-header {
+    color:  black; 
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: 33px;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+.match-subheading {
+    font-size: 16px;
+    letter-spacing: .43px;
+    line-height: 27px;
+    color:#9499ae; 
+    text-align: center;  
+}
+
+.therapist-container {
+    margin-top: 20px;
+    margin-bottom: 10;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    padding: 20px;
+}
+
+.therapist-left {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.therapist-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 50px;
+}
+
+.select-therapist {
+    width: 180px;
+    height: 45px;
+    padding-left: 60px;
+    padding-right: 60px;
+    // display: flex;
+    // align-items: center;
+    // box-sizing: border-box;
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-family: "Roboto Condensed",Helvetica,Arial;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1.9px;
+    line-height: 42px;
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,.17);
+    background-color: #179a87;
+    color: white;
+}
+
+.select-therapist:hover {
+    background-color: #003e4c; 
+}
+
+
+.therapist-right {
+    margin-left: 20px;
+    width: 60%;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+}
+
+.profile-col-1 {
+    width: 65%;
+    padding-right: 25px;
+}
+
+.profile-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #222f2d;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-bottom: 20px;
+}
+
+.therapist-name {
+    font-size: 21px;
+    line-height: 28px;
+    letter-spacing: .06px;
+    color: #222f2d;
+    margin-bottom: 10px;
+}
+
+.degree {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 17px;
+    color: #222f2d;
+    margin-bottom: 15px;
+}
+
+.bio {
+    word-wrap: break-word;
+    text-align: left;
+    font-size: 14px;
+    color: #6b6969;
+    font-weight: 300;
+    letter-spacing: -.11px;
+    line-height: 18px;
+}
+
+.profile-col-2 {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.degree-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.degree-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px; 
+}
+
+
+.degree-info p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #222f2d;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-bottom: 10px;
+}
+
+.focus-list {
+    font-size: 14px;
+    font-weight: 500;
+    color: #222f2d;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-bottom: 20px;
+}
+.topic-item {
+    word-wrap: break-word;
+    text-align: left;
+    font-size: 14px;
+    color: #6b6969;
+    font-weight: 300;
+    letter-spacing: -.11px;
+    line-height: 18px;
+}
+
+.focus-list li {
+    &::before {
+    content: "";
+    left: 0;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: #179a87;
+    border-radius: 50%;
+    }	
 }
