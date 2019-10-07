@@ -59,7 +59,7 @@ class Match extends React.Component {
                             <ul>Specialties</ul>
                             {Object.values(therapist.topics).map(topic => {
                                 return (
-                                    <li key={`topic-${topic.id}`}>{topic.title}</li>
+                                    <li key={`topic-${topic.id}-${therapist.id}`}>{topic.title}</li>
                                 )
                             })}
                         </div>
