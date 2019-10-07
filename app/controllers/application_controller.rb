@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     end 
 
     def logged_in?
-        !!@current_user
+        !!current_user
     end 
 
     ####### should I use base or the user validation? 

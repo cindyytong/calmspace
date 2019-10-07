@@ -9,29 +9,35 @@ class Match extends React.Component {
         super(props);
         // debugger
         this.state = props.user;
-        this.selectTherapist = this.selectTherapist.bind(this);
+        // this.selectTherapist = this.selectTherapist.bind(this);
     }
  
     componentDidMount(){
         this.props.fetchMatches();
     }
 
-    updateCurrentTherapist() {
-        // debugger
-        return(e) => {
-            // debugger
-            this.setState({
-                current_therapist_id: e.currentTarget.value
-            })
-        }
-      }
+    // updateCurrentTherapist() {
+    //     // debugger
+    //     return(e) => {
+    //         // debugger
+    //         this.setState({
+    //             current_therapist_id: e.currentTarget.value
+    //         })
+    //     }
+    //   }
 
-    selectTherapist(e){
-        e.preventDefault();
-        this.updateCurrentTherapist();
-        // debugger
-        this.props.updateUser(this.state)
-            .then(() => this.props.history.push(`auth/user/${user.id}/chatroom`))
+    selectTherapist(therapistId){
+       
+        // this.updateCurrentTherapist();
+        return(e) => {
+            e.preventDefault();
+    
+            this.props.updateUser({
+                current_therapist_id: therapistId,
+                id: this.state.id})
+            .then(() => this.props.history.push(`/auth/user/${this.state.id}/chatroom`))
+        }
+        
     }
 
 
@@ -42,7 +48,7 @@ class Match extends React.Component {
                     <div className="therapist-left">
                         <img src={eval(`window.${therapist.img_url}`)} className="therapist-pic"/>
                     
-                        <button value={therapist.id} onClick={this.selectTherapist} className="select-therapist">
+                        <button onClick={this.selectTherapist(therapist.id)} className="select-therapist">
                             Select
                         </button>
                     </div>

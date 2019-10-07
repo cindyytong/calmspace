@@ -31,16 +31,16 @@ const App = () => (
     <>
     <header>
     {/* Logged Out Nav */}
-            <Route exact path='/' component={NavBar}/>
-            <Route exact path='/user/login' component={SimpleNavBar}/>
-            <Route exact path='/user/signup' component={SimpleNavBar}/>
-            <Route exact path='/therapist/login' component={NavBar}/>
+        <AuthRoute exact path='/' component={NavBar}/>
+        <AuthRoute exact path='/user/login' component={SimpleNavBar}/>
+        <AuthRoute exact path='/user/signup' component={SimpleNavBar}/>
+        <ProtectedRoute exact path='/therapist/login' component={NavBar}/>
     {/* Logged In Nav */}
-            <ProtectedRoute path='/auth' component={AuthNavBarContainer}/>
+        <ProtectedRoute path='/auth' component={AuthNavBarContainer}/>
     </header>
         
     {/* Logged out views */}
-        <Route exact path='/' component={Splash}/>
+        <AuthRoute exact path='/' component={Splash}/>
         <AuthRoute exact path="/user/login" component={UserLogInFormContainer}/>
         <AuthRoute exact path="/user/signup" component={UserSignUpFormContainer}/>
         <AuthRoute exact path="/therapist/login" component={DemoTherapistContainer}/>
