@@ -1,18 +1,22 @@
 
-.page-container {
+.splash-page-container {
   background-image: image-url('splash_hero.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  height:100vh;
   background-position: center top;
-  margin-top: 0;
   display: flex;
+  flex-direction: column;
 }
 
 .splash-content {
+  margin-top: 5%;
   margin-left: 8%; 
+  margin-right: 8%;
 }
 
-.section-text {
+.splash-text {
+  width: 70%;
   margin-bottom: 50px;
 }
 
@@ -26,15 +30,4 @@
 }
 .section-text p {
   margin-bottom: 10px;
-  line-height: 20px;
 }
-// is there a better way to set background image with footer coming after
-  // #splash-image {
-  //   background-position: center top;
- 
-  //   // position: absolute;
-  //   left: 0px;
-  //   top: 0px;
-  //   z-index: -1; 
-  //   opacity: .8; 
-  // }

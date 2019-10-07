@@ -1,27 +1,21 @@
 * {
     font-family: Roboto, Helvetica, Arial;
-    box-sizing: border-box;
 }
 
-html {
-	position: relative;
-    height: 100%;
-
-}
-
-.app-container {
-    height: 100vh;
-}
-
-body {
-    width: 100%; 
-}
 
 h1 {
     font-size: 65px;
     font-weight: 700px;
     letter-spacing: -.2px;
     line-height: 70px;
+}
+
+.subheader {
+    font-size: 22px;
+    font-weight: 700px;
+    letter-spacing: .3px;
+    line-height: 25px;
+    margin: 0 0 10px;
 }
 
 h4 {
@@ -33,45 +27,34 @@ h4 {
     margin-top: 0;
     height: 40px;
 }
-.subheader {
-    font-size: 22px;
-    font-weight: 700px;
-    letter-spacing: .3px;
-    line-height: 25px;
-    margin: 0 0 10px;
-}
+
 
 p {
     font-size: 16px;
     margin: 0 0 10px;
+    line-height: 22px;
 }
 
 
 /* Button styling */
 .btn-primary {
-    display: inline-block;
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 400;
+    // display: inline-block;
+    width: 210px;
+    height: 54px;
+    padding: 20px;
+    padding-left: 48px;
+    padding-right: 48px;
+    box-sizing: border-box;
     text-transform: uppercase;
     text-align: center;
     border: 1px solid transparent;
     border-radius: 4px;
-    padding-left: 48px;
-    padding-right: 48px;
-    width: auto;
-    outline: none;
     border-radius: 9px;
-    height: 54px;
     font-family: "Roboto Condensed",Helvetica,Arial;
     font-size: 17px;
     font-weight: 900;
     letter-spacing: 1.9px;
     line-height: 42px;
-    text-transform: uppercase;
-    border: 0;
-    transition: all .15s;
-    text-decoration: none;
     box-shadow: 0 8px 12px 0 rgba(0,0,0,.17)
 }
 
