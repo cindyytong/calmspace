@@ -14,7 +14,7 @@ export const updateUser = user => {
 }
 
 export const fetchMatches = () => {
-    debugger
+    // debugger
     return $.ajax({
         method: 'GET',
         url: '/api/get_matches',

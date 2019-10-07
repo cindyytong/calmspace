@@ -19,7 +19,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-    debugger
     return {
         login: (therapist) => dispatch(login(therapist, 'therapist')),
     }

@@ -16,7 +16,7 @@ class Onboard extends React.Component {
             new_user: {
                 id: user.id,
                 current_therpist_id: '',
-                gender_pref: '',
+                gender_pref: 'none',
                 goals: ''
             },
             topics,
@@ -94,10 +94,10 @@ class Onboard extends React.Component {
     // }
 
     handleSubmit(e){
-        debugger
+        // debugger
         e.preventDefault();
         this.createSelectedTopics(); // make topic_interest entries 
-        this.props.fetchMatches();  // update state with matches 
+        // this.props.fetchMatches();  // update state with matches 
         this.props.updateUser(this.state.new_user) // update user pref
             .then(() => this.props.history.push(`/auth/user/${this.state.new_user.id}/matches`))
     }

@@ -5,6 +5,10 @@ class Therapist < Member
 
     ##### Associations 
 
+    has_many :patients,
+    class_name: :User,
+    foreign_key: :current_therapist_id 
+
     has_many :topic_interests, :as => :userable,
     class_name: :TopicInterest,
     dependent: :destroy 
@@ -25,5 +29,7 @@ class Therapist < Member
     has_many :notes,
     through: :chat_rooms,
     source: :note 
+
+    
 
 end 
