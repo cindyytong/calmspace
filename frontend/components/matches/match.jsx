@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 class Match extends React.Component {
     
     constructor(props, ownProps){
+        debugger
         super(props);
-        this.state = this.props.user;
+        this.state = props.user;
         this.selectTherapist = this.selectTherapist.bind(this);
     }
  
@@ -27,16 +28,20 @@ class Match extends React.Component {
 
     selectTherapist(){
         this.handleClick('current_therapist_id');
+        debugger
         this.props.updateUser(this.state)
             .then(() => this.props.history.push(`/auth/user/${this.state.id}/chatroom`))
     }
 
     render(){
+        debugger
         const therapists = Object.values(this.props.matches).map(therapist => {
             return (
                 <div className="therapist-container" key={therapist.id}>
                     <div className="therapist-left">
-                        <img src={therapist.img_url} className="therapist-pic"/>
+                        <img className="1-pic" src={`window.${therapist.img_url}`} className="therapist-pic"/>
+                        {/* <img className="2-pic" src={eval(`window.${therapist.img_url}`)} className="therapist-pic"/> */}
+                        {/* <img className="2-pic" src={window.therapist1} className="therapist-pic"/> */}
                         <Link to='/auth/user/chatroom' onClick={this.selectTherapist} value={therapist.id} className="select-therapist">
                             Select
                         </Link>
@@ -54,7 +59,7 @@ class Match extends React.Component {
                             <ul>Specialties</ul>
                             {Object.values(therapist.topics).map(topic => {
                                 return (
-                                    <li>{topic.title}</li>
+                                    <li key={`topic-${topic.id}`}>{topic.title}</li>
                                 )
                             })}
                         </div>

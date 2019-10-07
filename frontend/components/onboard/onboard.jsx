@@ -15,9 +15,9 @@ class Onboard extends React.Component {
         this.state = {
             new_user: {
                 id: user.id,
-                current_therpist_id: user.current_therpist_id,
-                gender_pref: user.gender_pref,
-                goals: user.goals
+                current_therpist_id: '',
+                gender_pref: '',
+                goals: ''
             },
             topics,
             selections: {
@@ -67,6 +67,7 @@ class Onboard extends React.Component {
 
     createSelectedTopics(){
         // make an array of selected titles only 
+        debugger
         let topics = this.state.selections;
         var selectedTopics = [];
         for (let title in topics ){
@@ -84,7 +85,16 @@ class Onboard extends React.Component {
         })
     }
 
+    // handleSubmit(e){
+    //     e.preventDefault();
+    //     this.createSelectedTopics()
+    //         .then(() => this.props.fetchMatches())  // update state with matches 
+    //         .then(() => this.props.updateUser(this.state.new_user)) // update user pref
+    //         .then(() => this.props.history.push(`/auth/user/${this.state.new_user.id}/matches`))
+    // }
+
     handleSubmit(e){
+        debugger
         e.preventDefault();
         this.createSelectedTopics(); // make topic_interest entries 
         this.props.fetchMatches();  // update state with matches 
@@ -100,7 +110,7 @@ class Onboard extends React.Component {
             <div className="topic-row" key={topic.id}>
                 <input type="checkbox" 
                     name={topic.title}
-                    checked={this.state.selections[topic.title]}
+                    // checked={this.state.selections[topic.title]}
                     onClick={this.selectTopic(topic.title)}
                     className="check-topic"
                 />
