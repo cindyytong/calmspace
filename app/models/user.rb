@@ -5,6 +5,10 @@ class User < Member
 
 
     ##### Associations 
+    belongs_to :therapist, optional: true,
+    class_name: :Therapist,
+    foreign_key: :current_therapist_id 
+
     has_many :topic_interests, :as => :userable,
     class_name: :TopicInterest,
     dependent: :destroy

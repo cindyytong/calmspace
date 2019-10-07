@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DemoTherapist from './demo_therapist';
-import { login, logout } from '../../actions/session_actions';
-import { getTherapists } from '../../actions/therapist_actions';
+import { login } from '../../actions/session_actions';
 
 
 const mapStateToProps = state => {
@@ -22,8 +21,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         login: (therapist) => dispatch(login(therapist, 'therapist')),
-        // logout: () => dispatch(logout()),
-        // getTherapists: () => dispatch(getTherapists())
     }
 };
 

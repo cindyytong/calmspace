@@ -89,7 +89,7 @@ class Signup extends React.Component {
                         <div className="age-row">
                            <input type="checkbox" 
                                 name="age-check"
-                                checked={this.state.over_age_13}
+                                // checked={this.state.over_age_13}
                                 onClick={this.handleClick('over_age_13')}
                                 className="check-field"
                             />

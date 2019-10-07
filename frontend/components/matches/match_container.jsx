@@ -17,6 +17,7 @@ const mapDispatchToProps = dispatch => {
     return {
         clearErrors: () => dispatch(clearErrors()),
         updateUser: (user) => dispatch(updateUser(user)),
+        fetchMatches: () => dispatch(fetchMatches())
     }
 };
 

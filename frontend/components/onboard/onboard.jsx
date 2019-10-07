@@ -15,9 +15,9 @@ class Onboard extends React.Component {
         this.state = {
             new_user: {
                 id: user.id,
-                current_therpist_id: user.current_therpist_id,
-                gender_pref: user.gender_pref,
-                goals: user.goals
+                current_therpist_id: '',
+                gender_pref: 'none',
+                goals: ''
             },
             topics,
             selections: {
@@ -85,9 +85,10 @@ class Onboard extends React.Component {
     }
 
     handleSubmit(e){
+  
         e.preventDefault();
         this.createSelectedTopics(); // make topic_interest entries 
-        this.props.fetchMatches();  // update state with matches 
+        // this.props.fetchMatches();  // update state with matches 
         this.props.updateUser(this.state.new_user) // update user pref
             .then(() => this.props.history.push(`/auth/user/${this.state.new_user.id}/matches`))
     }
@@ -100,7 +101,7 @@ class Onboard extends React.Component {
             <div className="topic-row" key={topic.id}>
                 <input type="checkbox" 
                     name={topic.title}
-                    checked={this.state.selections[topic.title]}
+                    // checked={this.state.selections[topic.title]}
                     onClick={this.selectTopic(topic.title)}
                     className="check-topic"
                 />
@@ -116,27 +117,31 @@ class Onboard extends React.Component {
 
         return(
         <div className="onboard-page-container">
-            <h2>Onboard</h2>
-            <p>Calmspace will connect you with a licensed therapist, who you can message from anywhere at any time.</p>
-            <p>First, let’s get started by answering a few questions so we can help find the best matches for you.</p>
-            
+            <div className="onboard-header">
+                <h2 className="onboard-headline">Get Matched</h2>
+                <p className="onboard-description">Calmspace will connect you with a licensed therapist, who you can message from anywhere at any time.</p>
+                <p className="onboard-description">First, let’s get started by answering a few questions so we can help find the best matches for you.</p>
+            </div>
+            <div className="onboard-content">
             <form onSubmit={this.handleSubmit}>
                 <div className="question-container">
-                    <h4 className="question">What led you to seek help today?</h4>
-                    <textarea  name="answer" value={this.state.new_user.goals} onChange={this.update('goals')} id="answer-why" cols="30" rows="15"></textarea>
+                    <label className="question" htmlFor="question-goal">
+                        What led you to seek help today?</label>
+                        <textarea className="goal-textarea" name="question-goal" value={this.state.new_user.goals} onChange={this.update('goals')} cols="20" rows="5"></textarea>
                 </div>
                 <div className="question-container">
-                    <h4 className="question">Do you have a gender preference for your therapist</h4>
-                    <div className="gender-pref-radio">
-                    <select onChange={this.update('gender_pref')}>
-                        <option value="none">No preference</option>
-                        <option value="female">Female</option>
-                        <option value="male">Male</option>
-                    </select>
-                    </div>
+                    <label className="question" htmlFor="gender-pref">Do you have a gender preference for your therapist</label>
+                        <div className="custom-select">
+                        <select className="select-gender" onChange={this.update('gender_pref')}>
+                            <option className="dropdown-option" value="none">No preference</option>
+                            <option className="dropdown-option" value="female">Female</option>
+                            <option className="dropdown-option" value="male">Male</option>
+                        </select>
+                        </div>     
                 </div>
                 <div className="question-container">
-                    <h4 className="question">Select all topics you would like to explore</h4>
+                    <label className="question" htmlFor="topics">
+                        Select all topics you would like to explore</label>
                     <div className="topics-container">
                         {topics}
                     </div>
@@ -149,6 +154,7 @@ class Onboard extends React.Component {
                         value="Get Matched"/>
                 </div>
             </form>
+            </div>
         </div>
         )
     }

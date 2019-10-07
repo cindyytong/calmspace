@@ -14,6 +14,8 @@ class DemoTherapist extends React.Component{
         }
     }
 
+    
+
     render(){
         const therapists = this.props.demoTherapists.map( therapist => {
             return (
