@@ -9,5 +9,8 @@
   this.App || (this.App = {});
 
   App.cable = ActionCable.createConsumer();
+  //  allows us to create subscriptions to the backend 
 
 }).call(this);
+
+//  received is what is invoked when you are broadcasted to (i.e. receive messsages)

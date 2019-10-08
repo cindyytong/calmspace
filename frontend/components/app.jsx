@@ -9,10 +9,7 @@ import {
 } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
 
-// Global Components 
-// import NavBar from './navigation/navbar';
-// import SimpleNavBar from './navigation/simplenavbar';
-// import AuthNavBarContainer from './navigation/auth_nav_container';
+//Global Components 
 import Splash from './splash/splash';
 import Footer from './footer/footer';
 
@@ -28,7 +25,7 @@ import DemoTherapistContainer from './demo_therapist/demo_therapist_container';
 import TherapistDashboardContainer from './therapist_dashboard/therapist_dashboard_container';
 
 // Chat
-import UserChatRoomContainer from './chatroom/user_chatroom_container';
+import UserChatDashboard from './chatroom/user/user_chat_dashboard';
 // import TherapistChatroom from './chatroom/therapist_chatroom';
 
 const App = () => (
@@ -44,11 +41,8 @@ const App = () => (
         <ProtectedRoute exact path="/auth/user/onboard" component={OnboardContainer}/>
         <ProtectedRoute exact path="/auth/landing" component={AuthLanding}/>
         <ProtectedRoute exact path="/auth/user/:userId/matches" component={MatchContainer}/>
-        <ProtectedRoute exact path="/auth/user/:userId/chatroom" component={UserChatRoomContainer}/>
+        <ProtectedRoute exact path="/auth/user/chatroom/:userId" component={UserChatDashboard}/>
 
-        {/* Therapist */}
-        <ProtectedRoute exact path="/auth/therapist/dashboard" component={TherapistDashboardContainer}/>
-        {/* <ProtectedRoute exact path="/auth/therapist/:therapistId/chatroom" component={TherapistChatRoomContainer}/> */}
     </Switch>        
     </>
 
