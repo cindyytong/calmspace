@@ -170,8 +170,11 @@ end
 # therapist_id = 19 
 
 chatroom_1 = ChatRoom.create!(user_id: demo_patient_id, therapist_id: therapist1.id)
+# chatroom_1 = ChatRoom.create!(user_id: 11, therapist_id: 19)
+message1 = Message.create!(body: "Hello test", chat_room_id: chatroom_1.id, messageable_id: demo_patient_id, messageable_type: "User")
+# message1 = Message.create!(body: "Hello test", chat_room_id: 1, messageable_id: 11, messageable_type: "User")
+
 note_1 = Note.create!(chat_room_id: chatroom_1.id, body: "this is a new note for chatroom1")
-message1 = Message.create!(body: "Hello test", chat_room_id: chat_room_1.id, messageable_id: demo_patient_id, messageable_type: "User")
 
 
 #### 
