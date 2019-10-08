@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Match from './match';
-// import { Link } from 'react-router-dom';
 import { updateUser, fetchMatches } from '../../actions/user_actions';
-// import { fetchTherapist } from '../../actions/therapist_actions';
 
 const mapStateToProps = state => {
     return {

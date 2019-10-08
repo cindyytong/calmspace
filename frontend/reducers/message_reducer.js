@@ -1,0 +1,1 @@
+import { RECEIVE_MESSAGES } from '../actions/message_actions';
