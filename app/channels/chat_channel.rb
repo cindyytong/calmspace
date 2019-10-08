@@ -3,7 +3,7 @@ class ChatChannel < ApplicationCable::Channel
     stream_for 'chat_channel'
   end
 
-  # we can only broadcast objects 
+  # we can only broadcast objects, hence we make the socket 
   def speak(data)
     message = Message.create(body: data['message'])
     socket = { message: message.body }

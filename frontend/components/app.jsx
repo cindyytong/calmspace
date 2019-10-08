@@ -28,6 +28,9 @@ import AuthLanding from './auth_landing/auth_landing';
 import DemoTherapistContainer from './demo_therapist/demo_therapist_container';
 import TherapistDashboardContainer from './therapist_dashboard/therapist_dashboard_container';
 
+// Chat
+import ChatRoom from './chatroom/chatroom';
+
 const App = () => (
     <>  
     <Switch> 
@@ -38,7 +41,7 @@ const App = () => (
         <ProtectedRoute exact path="/auth/user/onboard" component={OnboardContainer}/>
         <ProtectedRoute exact path="/auth/landing" component={AuthLanding}/>
         <ProtectedRoute exact path="/auth/user/:userId/matches" component={MatchContainer}/>
-        <ProtectedRoute exact path="/auth/user/:userId/chatroom" component={UserChatroom}/>
+        <ProtectedRoute exact path="/auth/user/:userId/chatroom" component={ChatRoom}/>
         <ProtectedRoute exact path="/auth/therapist/dashboard" component={TherapistDashboardContainer}/>
     </Switch>        
     </>

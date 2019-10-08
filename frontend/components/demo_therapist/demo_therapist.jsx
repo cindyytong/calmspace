@@ -6,7 +6,6 @@ import SimpleNavBar from '../navigation/simplenavbar'
 class DemoTherapist extends React.Component{
     constructor(props){
         super(props);
-        debugger
     }
 
     loginDemoTherapist(demoTherapist) {

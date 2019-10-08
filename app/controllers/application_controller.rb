@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
     end 
 
     def login!(user)
-        debugger
         session[:session_token] = user.session_token 
         session[:member_type] = user.class.to_s
     end 

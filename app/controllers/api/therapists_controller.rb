@@ -1,7 +1,7 @@
 class Api::TherapistsController < ApplicationController
     def show 
         @therapist = Therapist.includes(:topics).where(id: params[:id]).first 
-        debugger
+
     
         if @therapist 
             render :show 
