@@ -10,9 +10,9 @@ import {
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
 
 // Global Components 
-import NavBar from './navigation/navbar';
-import SimpleNavBar from './navigation/simplenavbar';
-import AuthNavBarContainer from './navigation/auth_nav_container';
+// import NavBar from './navigation/navbar';
+// import SimpleNavBar from './navigation/simplenavbar';
+// import AuthNavBarContainer from './navigation/auth_nav_container';
 import Splash from './splash/splash';
 import Footer from './footer/footer';
 
@@ -22,39 +22,25 @@ import UserSignUpFormContainer from './session_form/user_signup_form_container';
 import OnboardContainer from './onboard/onboard_container';
 import MatchContainer from './matches/match_container';
 import UserChatroom from './chatroom/user_chatroom';
+import AuthLanding from './auth_landing/auth_landing';
 
 // Therapist Components 
 import DemoTherapistContainer from './demo_therapist/demo_therapist_container';
 import TherapistDashboardContainer from './therapist_dashboard/therapist_dashboard_container';
 
 const App = () => (
-    <>
-    <header>
-    {/* Logged Out Nav */}
-        <AuthRoute exact path='/' component={NavBar}/>
-        <AuthRoute exact path='/user/login' component={SimpleNavBar}/>
-        <AuthRoute exact path='/user/signup' component={SimpleNavBar}/>
-        <ProtectedRoute exact path='/therapist/login' component={NavBar}/>
-    {/* Logged In Nav */}
-        <ProtectedRoute path='/auth' component={AuthNavBarContainer}/>
-    </header>
-        
-    {/* Logged out views */}
-        <AuthRoute exact path='/' component={Splash}/>
+    <>  
+    <Switch> 
         <AuthRoute exact path="/user/login" component={UserLogInFormContainer}/>
         <AuthRoute exact path="/user/signup" component={UserSignUpFormContainer}/>
         <AuthRoute exact path="/therapist/login" component={DemoTherapistContainer}/>
-
-    {/* Auth routes  */}
+        <AuthRoute exact path='/' component={Splash}/>
         <ProtectedRoute exact path="/auth/user/onboard" component={OnboardContainer}/>
+        <ProtectedRoute exact path="/auth/landing" component={AuthLanding}/>
         <ProtectedRoute exact path="/auth/user/:userId/matches" component={MatchContainer}/>
-        <ProtectedRoute path="/auth/user/:userId/chatroom" component={UserChatroom}/>
-        <ProtectedRoute path="/auth/therapist/dashboard" component={TherapistDashboardContainer}/>
-
-    <footer>
-        <Route exact path='/' component={Footer} />
-        <Route exact path='/therapist/login' component={Footer} />
-    </footer>
+        <ProtectedRoute exact path="/auth/user/:userId/chatroom" component={UserChatroom}/>
+        <ProtectedRoute exact path="/auth/therapist/dashboard" component={TherapistDashboardContainer}/>
+    </Switch>        
     </>
 
 );

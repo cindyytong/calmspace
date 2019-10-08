@@ -1,10 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import SimpleNavBar from '../navigation/simplenavbar'
 
 class DemoTherapist extends React.Component{
     constructor(props){
         super(props);
+        debugger
     }
 
     loginDemoTherapist(demoTherapist) {
@@ -32,12 +34,15 @@ class DemoTherapist extends React.Component{
         });
 
         return (
+            <>
+            <SimpleNavBar />
             <div className="demo-therapist-container">
                 <h4 className="demo-therapist-heading grey">Log In as a Demo Therapist</h4>
                 <ul className="therapist-boxes">
                     {therapists}
                 </ul>
             </div>
+            </>
         )
     }
 }

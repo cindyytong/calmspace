@@ -1,34 +1,23 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import AuthNavContainer from '../navigation/auth_nav_container'
 
 
 class Match extends React.Component {
     
     constructor(props, ownProps){
         super(props);
-        // debugger
         this.state = props.user;
-        // this.selectTherapist = this.selectTherapist.bind(this);
+       
     }
  
     componentDidMount(){
         this.props.fetchMatches();
     }
 
-    // updateCurrentTherapist() {
-    //     // debugger
-    //     return(e) => {
-    //         // debugger
-    //         this.setState({
-    //             current_therapist_id: e.currentTarget.value
-    //         })
-    //     }
-    //   }
 
     selectTherapist(therapistId){
-       
-        // this.updateCurrentTherapist();
         return(e) => {
             e.preventDefault();
     
@@ -44,9 +33,12 @@ class Match extends React.Component {
     render(){
         const therapists = Object.values(this.props.matches).map(therapist => {
             return (
+                <>
+                <AuthNavContainer />
                 <div className="therapist-container" key={therapist.id}>
                     <div className="therapist-left">
                         <img src={eval(`window.${therapist.img_url}`)} className="therapist-pic"/>
+                        
                     
                         <button onClick={this.selectTherapist(therapist.id)} className="select-therapist">
                             Select
@@ -56,27 +48,31 @@ class Match extends React.Component {
                         <div className="profile-col-1">
                             <h5 className="profile-title">Profile</h5>
                             <h4 className="therapist-name">{therapist.first_name} {therapist.last_name}</h4>
-                            <p className="degree">{therapist.degree}</p>
-                            <p className="bio">{therapist.body}</p>
-                        </div>
-                        <div className="profile-col-2">
                             <div className="degree-info">
                                 <img src={window.degreeIconURL} className="degree-icon"/>
                                     <p>License and State </p>
                                     <p>{therapist.degree}, NY</p>
                             </div>
+                            <p className="bio">{therapist.body}</p>
+                        </div>
+                        <div className="profile-col-2">
+    
                             <div className="focus-list">
                                 <ul>Focus
                                     {Object.values(therapist.topics).map(topic => {
                                         return (
-                                            <li className="topic-item" key={`topic-${topic.id}-${therapist.first_name}`}>{topic.title}</li>
-                                        )
+                                            <div className="topic-row" key={`topic-${topic.id}-${therapist.first_name}`}>
+                                                <img className="check-bullet" src={window.checkIconURL} />
+                                                <li className="topic-item" >{topic.title}</li>
+                                            </div>
+                                        );
                                     })}
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+                </>
             );
         })
 

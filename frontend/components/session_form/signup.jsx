@@ -1,6 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import NavBar from '../navigation/navbar'
+import SimpleNavBar from '../navigation/simplenavbar';
+
 
 class Signup extends React.Component {
  
@@ -50,6 +53,8 @@ class Signup extends React.Component {
         }
 
         return (
+            <>
+            <SimpleNavBar />
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                     <div className="logoWrap">
@@ -119,6 +124,7 @@ class Signup extends React.Component {
                     </div>
                 </form>
             </div>
+            </>
         )
     }
 };

@@ -4,8 +4,7 @@
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 10%;
-    margin-left: 10%; 
-    margin-right: 10%;
+
 }
 
 .match-header {
@@ -32,7 +31,6 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
     flex-wrap: wrap;
     flex-shrink: 0;
     padding: 20px;
@@ -57,9 +55,6 @@
     height: 45px;
     padding-left: 60px;
     padding-right: 60px;
-    // display: flex;
-    // align-items: center;
-    // box-sizing: border-box;
     text-transform: uppercase;
     text-align: center;
     border: 1px solid transparent;
@@ -87,6 +82,7 @@
     display: flex;
     flex-direction: row;
     padding: 25px;
+    align-items: flex-start;
 }
 
 .profile-col-1 {
@@ -99,12 +95,11 @@
     font-weight: 500;
     color: #222f2d;
     letter-spacing: 0;
-    line-height: 19px;
     margin-bottom: 20px;
 }
 
 .therapist-name {
-    font-size: 21px;
+    font-size: 30px;
     line-height: 28px;
     letter-spacing: .06px;
     color: #222f2d;
@@ -166,6 +161,17 @@
     line-height: 19px;
     margin-bottom: 20px;
 }
+.topic-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.check-bullet {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
 .topic-item {
     word-wrap: break-word;
     text-align: left;
@@ -175,6 +181,7 @@
     letter-spacing: -.11px;
     line-height: 18px;
 }
+
 
 .focus-list li {
     &::before {

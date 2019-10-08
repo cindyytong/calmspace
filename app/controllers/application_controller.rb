@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     # protect_from_forgery with: :exception
     protect_from_forgery
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in?, :user_type
 
     private 
 
@@ -11,7 +11,12 @@ class ApplicationController < ActionController::Base
         @current_user ||= memberClass.find_by(session_token: session[:session_token])
     end 
 
+    def user_type 
+        @memberClass = session[:member_type]
+    end 
+
     def login!(user)
+        debugger
         session[:session_token] = user.session_token 
         session[:member_type] = user.class.to_s
     end 

@@ -2,11 +2,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 100px;
 }
 
 .demo-therapist-heading {
     margin-top: 80px;
-    text-align: center 
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif; 
 }
 
 .therapist-boxes{
@@ -33,9 +36,6 @@
 
 
 .single-therapist-container a {
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 400;
     text-transform: uppercase;
     text-align: center;
     border: 1px solid transparent;
@@ -51,7 +51,7 @@
     font-weight: 900;
     letter-spacing: 1.9px;
     line-height: 42px;
-    box-shadow: 0 8px 12px 0 rgba(0,0,0,.17)
+    box-shadow: 0 5px 6px 0 rgba(0,0,0,.17)
 }
 
 .single-therapist-container a:hover {

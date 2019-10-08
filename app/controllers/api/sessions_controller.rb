@@ -1,15 +1,21 @@
 class Api::SessionsController < ApplicationController 
     def create
         memberType = params[:type].titleize.constantize
+        debugger
         @user = memberType.find_by_credentials(
             params[:user][:email],
             params[:user][:password]
         )
         
-        if @user
+        if @user && params[:type] == 'user'
+            debugger
             login!(@user)
             render "api/users/show" 
-        else 
+        elsif @user && params[:type] == 'therapist'
+            debugger
+            login!(@user)
+            render "api/therapists/show"    
+        else  
             render json: ["Invalid email/password combination"], status: 401
         end 
     end 

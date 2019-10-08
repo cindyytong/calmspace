@@ -7,6 +7,7 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 
 export const receiveCurrentUser = currentUser => {
+    debugger
     return {
         type: RECEIVE_CURRENT_USER,
         currentUser
@@ -32,6 +33,7 @@ export const clearErrors = () => ({
 
 
 export const login = ( user, type ) => dispatch => {
+    debugger
     return APIUtil.login(user, type).then(function(user) {
         dispatch(receiveCurrentUser(user)) })
         .fail(function(error) {
