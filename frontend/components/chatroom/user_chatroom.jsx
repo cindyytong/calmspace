@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AuthNavContainer from '../navigation/auth_nav_container'
+import AuthNavContainer from '../navigation/auth_nav_container';
+import ChatRoom from './chatroom';
 
 
 const UserChatroom = () => {
     return (
         <>
         <AuthNavContainer />
-        <h1>User chatroom</h1>
+        <ChatRoom />
         </>
     )
 };

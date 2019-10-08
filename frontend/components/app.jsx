@@ -21,7 +21,6 @@ import UserLogInFormContainer from './session_form/user_login_form_container';
 import UserSignUpFormContainer from './session_form/user_signup_form_container';
 import OnboardContainer from './onboard/onboard_container';
 import MatchContainer from './matches/match_container';
-import UserChatroom from './chatroom/user_chatroom';
 import AuthLanding from './auth_landing/auth_landing';
 
 // Therapist Components 
@@ -29,19 +28,25 @@ import DemoTherapistContainer from './demo_therapist/demo_therapist_container';
 import TherapistDashboardContainer from './therapist_dashboard/therapist_dashboard_container';
 
 // Chat
-import ChatRoom from './chatroom/chatroom';
+import UserChatroom from './chatroom/user_chatroom';
+// import ChatRoom from './chatroom/chatroom';
 
 const App = () => (
     <>  
     <Switch> 
+        {/* Logged Out */}
         <AuthRoute exact path="/user/login" component={UserLogInFormContainer}/>
         <AuthRoute exact path="/user/signup" component={UserSignUpFormContainer}/>
         <AuthRoute exact path="/therapist/login" component={DemoTherapistContainer}/>
         <AuthRoute exact path='/' component={Splash}/>
+
+        {/* User */}
         <ProtectedRoute exact path="/auth/user/onboard" component={OnboardContainer}/>
         <ProtectedRoute exact path="/auth/landing" component={AuthLanding}/>
         <ProtectedRoute exact path="/auth/user/:userId/matches" component={MatchContainer}/>
-        <ProtectedRoute exact path="/auth/user/:userId/chatroom" component={ChatRoom}/>
+        <ProtectedRoute exact path="/auth/user/:userId/chatroom" component={UserChatroom}/>
+
+        {/* Therapist */}
         <ProtectedRoute exact path="/auth/therapist/dashboard" component={TherapistDashboardContainer}/>
     </Switch>        
     </>

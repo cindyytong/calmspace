@@ -1,18 +1,15 @@
 class Api::SessionsController < ApplicationController 
     def create
         memberType = params[:type].titleize.constantize
-
         @user = memberType.find_by_credentials(
             params[:user][:email],
             params[:user][:password]
         )
         
         if @user && params[:type] == 'user'
-     
             login!(@user)
             render "api/users/show" 
         elsif @user && params[:type] == 'therapist'
-         
             login!(@user)
             render "api/therapists/show"    
         else  

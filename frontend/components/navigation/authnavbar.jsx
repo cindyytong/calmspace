@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class AuthNavBar extends React.Component{
     constructor(props){
@@ -23,7 +24,8 @@ class AuthNavBar extends React.Component{
                 <Link to="/"> <img src={window.whitelogoURL} className="nav-logo"/></Link>
                 <ul className="nav-right">
                     <li className="auth-nav-welcome">Hello {currentUser.username}</li>
-                    <li className="logout"><Link to='/user/login' onClick={this.handleSubmit}>Log Out</Link></li>
+                    {/* <li className="logout"><Link to='/user/login' onClick={this.handleSubmit}>Log Out</Link></li> */}
+                    <li className="logout"><button className="logout-button" onClick={this.handleSubmit}>Log Out</button></li>
                 </ul>
                
             </nav>
@@ -31,4 +33,4 @@ class AuthNavBar extends React.Component{
     }
 };
 
-export default AuthNavBar;
+export default withRouter(AuthNavBar);
