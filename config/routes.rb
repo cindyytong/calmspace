@@ -19,9 +19,8 @@ Rails.application.routes.draw do
     delete 'session', to: 'sessions#destroy', as: 'signout'
     get 'get_matches', to: 'users#get_matches'  
 
-    resources :chat_rooms, only: [:create, :show, :update] do 
-      resources :messages, only: [:create]
-      get 'get_therapist_chat_rooms', to: 'chat_rooms#get_therapist_chat_rooms'
+    resources :chat_rooms, only: [:index, :create, :show, :update] do 
+      resources :messages, only: [:index] # create is handled by action cable
     end 
   end 
 end
