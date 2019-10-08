@@ -10,7 +10,7 @@ def index
          render :show
     # find chatrooms for therapist; can return many 
     elsif params[:therapist_id]
-         @chat_rooms = Therapist.find(params[:therapist_id]).chat_room.includes(:messages, :user)
+         @chat_rooms = Therapist.find(params[:therapist_id]).chat_rooms.includes(:messages, :user)
          render :show
     # chatroom not found 
     else 

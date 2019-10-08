@@ -10,6 +10,15 @@ class Api::MessagesController < ApplicationController
         end 
     end 
 
+    def show 
+        @message = Message.find(params[:id])
+        if @message
+            render :show 
+        else 
+            render json: ["Message not foound"], status: 404
+        end 
+    end 
+
     # def create   ## handled by actionc able
     # end 
 

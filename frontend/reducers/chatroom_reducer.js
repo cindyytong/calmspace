@@ -15,4 +15,4 @@ const chatRoomsReducer = ( state = {}, action ) => {
     }
 };
 
-export default chatroomsReducer;
+export default chatRoomsReducer;

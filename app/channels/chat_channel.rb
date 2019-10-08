@@ -1,25 +1,24 @@
 class ChatChannel < ApplicationCable::Channel
   def subscribed
     @chat_channel = ChatRoom.find(params[:id])
+    # params obj is first argument to create method in consumer.subscriptions
     stream_for @chat_channel
   end
 
   # we can only broadcast objects, hence we make the socket 
   def speak(data)
-    message = Message.new(body: data['message'])
+    debugger
+    message = Message.new(data['message'])
     # message = @chat_channel.messages.new(body: data['message'])
     message.chat_room_id = @chat_channel.id 
-    if current_user.member_type == 'User' 
-      message.messageable_type = 'User'
-    elsif current_user.member_type == 'Therapist'
-      message.messageable_type = 'Therapist'
-    end 
-    message.messageable_id = current_user.id 
+    # message.messageable_type = current_user.member_type
+    # message.messageable_id = current_user.id 
 
     if message.save! 
       # socket = { message: message.body }
       socket = { message: message.to_json }
-      ChatChannel.broadcast_to('chat_channel', socket)
+      # first argument is what we are broadcast to should match to what you are subscribed to
+      ChatChannel.broadcast_to(@chat_channel, socket)
     end 
   end 
 

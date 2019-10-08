@@ -8,6 +8,8 @@ const receiveMessages = messages => ({
     messages 
 });
 
+// Do I need a receiveMessage?
+
 const receiveMessage = message => ({
     type: RECEIVE_MESSAGES,
     message 
@@ -21,9 +23,3 @@ export const getChatRoomMessages = chatRoomId => dispatch => {
         })
 };
 
-export const getChatRoomMessage = chatRoomId => dispatch => {
-    return MessageAPIUtil.getChatRoomMessages(chatRoomId)
-        .then( messages => {
-            dispatch(receiveMessages(messages))
-        })
-};

@@ -15,7 +15,8 @@ class MessageForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     // App.cable.subscriptions.subscriptions allows us ot access all subscriptions
-    App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body });
+    App.cable.subscriptions.subscriptions[0].speak({ message: { body: this.state.body,
+    messageable_type: 'User', messageable_id:11}});
     this.setState({ body: "" });
   }
   

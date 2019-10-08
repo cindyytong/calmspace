@@ -13,7 +13,7 @@ class ChatRoom extends React.Component {
   componentDidMount() {
     App.cable.subscriptions.create(
         // Subscribe to a chatchannel, subscriptions persist 
-      { channel: "ChatChannel" },
+      { channel: "ChatChannel", id: 1 },
       {
           // subscribed client will listen to stream for new data, when data is sent into the stream via braodcast method, this function is invoked 
         received: data => {
@@ -23,7 +23,7 @@ class ChatRoom extends React.Component {
         },
         //  sends data to back end and invokes the backend speak 
         speak: function(data) {
-          return this.perform("speak", data);
+          return this.perform("speak", data );
         }
       }
     );
