@@ -29,7 +29,7 @@ import TherapistDashboardContainer from './therapist_dashboard/therapist_dashboa
 
 // Chat
 import UserChatroom from './chatroom/user_chatroom';
-// import ChatRoom from './chatroom/chatroom';
+import TherapistChatroom from './chatroom/therapist_chatroom';
 
 const App = () => (
     <>  
@@ -48,6 +48,7 @@ const App = () => (
 
         {/* Therapist */}
         <ProtectedRoute exact path="/auth/therapist/dashboard" component={TherapistDashboardContainer}/>
+        <ProtectedRoute exact path="/auth/therapist/:therapistId/chatroom" component={UserChatroom}/>
     </Switch>        
     </>
 

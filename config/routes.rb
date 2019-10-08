@@ -17,8 +17,12 @@ Rails.application.routes.draw do
 
     post 'session/:type', to: 'sessions#create', as: 'signin'
     delete 'session', to: 'sessions#destroy', as: 'signout'
-
     get 'get_matches', to: 'users#get_matches'  
+
+    resources :chat_rooms, only: [:create, :show, :update] do 
+      resources :messages, only: [:create]
+      get 'get_therapist_chat_rooms', to: 'chat_rooms#get_therapist_chat_rooms'
+    end 
   end 
 end
 
