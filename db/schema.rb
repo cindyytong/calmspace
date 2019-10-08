@@ -26,11 +26,6 @@ ActiveRecord::Schema.define(version: 2019_10_07_235322) do
     t.index ["user_id"], name: "index_chat_room_on_user"
   end
 
-  create_table "members", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "messages", force: :cascade do |t|
     t.string "body", null: false
     t.integer "chat_room_id", null: false
@@ -50,17 +45,17 @@ ActiveRecord::Schema.define(version: 2019_10_07_235322) do
   end
 
   create_table "therapists", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "password_digest", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
+    t.string "session_token", null: false
     t.text "body"
     t.string "degree"
     t.string "gender", null: false
     t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", null: false
-    t.string "password_digest", null: false
-    t.string "session_token", null: false
     t.string "username"
     t.index ["email"], name: "index_therapists_on_email", unique: true
     t.index ["first_name", "last_name"], name: "index_therapist_on_first_and_last_name", unique: true
@@ -85,15 +80,15 @@ ActiveRecord::Schema.define(version: 2019_10_07_235322) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "password_digest", null: false
     t.string "username", null: false
     t.boolean "over_age_13", null: false
+    t.string "session_token", null: false
     t.string "gender_pref", default: "none"
     t.integer "current_therapist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", null: false
-    t.string "password_digest", null: false
-    t.string "session_token", null: false
     t.text "goals"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true

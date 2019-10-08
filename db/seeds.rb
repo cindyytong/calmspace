@@ -159,12 +159,12 @@ end
 
 
 ############### TESTING CHATROOMS & MESSAGES ############
-user_id = 142
-therapist_id = 19 
+# user_id = 142
+# therapist_id = 19 
 
-chatroom_1 = ChatRoom.create!(user_id: 142, therapist_id: 19)
-note_1 = Note.create!(chat_room_id: 2, body: "this is a new note")
-message1 = Message.create!(body: "Hello test", chat_room_id: 2, messageable_id: 142, messageable_type: "User")
+# chatroom_1 = ChatRoom.create!(user_id: 142, therapist_id: 19)
+# note_1 = Note.create!(chat_room_id: 2, body: "this is a new note")
+# message1 = Message.create!(body: "Hello test", chat_room_id: 2, messageable_id: 142, messageable_type: "User")
 
 
 #### 
