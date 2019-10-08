@@ -10,6 +10,8 @@
   window.linkedInURL = "<%= image_url('linked_in.png') %>"
   window.instagramURL = "<%= image_url('instagram.png') %>"
   window.degreeIconURL = "<%= image_url('degree_icon.jpg') %>"
+  window.checkIconURL = "<%= image_url('checked.png') %>"
+  
   window.therapist1URL = "<%= image_url('therapist1.jpg') %>"
   window.therapist2URL = "<%= image_url('therapist2.jpg') %>"
   window.therapist3URL = "<%= image_url('therapist3.jpg') %>"
@@ -33,6 +35,18 @@
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag asset_path('logo_favicon.png') %>
   </head>
+
+<% if logged_in? && user_type == 'user' %>
+  <script id="bootstrap-current-user" type="text/javascript">
+  	window.currentUser = <%= render("api/users/user.json.jbuilder",
+  		user: current_user).html_safe %>
+  </script>
+<% elsif logged_in? && user_type == 'therapist' %>
+  <script id="bootstrap-current-user" type="text/javascript">
+  	window.currentUser = <%= render("api/therapists/show.json.jbuilder",
+  		user: current_user).html_safe %>
+  </script>
+<% end %>
 
   <body>
     <%= yield %>

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     # protect_from_forgery with: :exception
     protect_from_forgery
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in?, :user_type
 
     private 
 
@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
         return nil unless session[:session_token]
         memberClass = session[:member_type].titleize.constantize 
         @current_user ||= memberClass.find_by(session_token: session[:session_token])
+    end 
+
+    def user_type 
+        @memberClass = session[:member_type]
     end 
 
     def login!(user)
@@ -23,7 +27,7 @@ class ApplicationController < ActionController::Base
     end 
 
     def logged_in?
-        !!@current_user
+        !!current_user
     end 
 
     ####### should I use base or the user validation? 

@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-validates :body, presence: true, length: { minimum: 1 }
+validates :body, presence: true
 validates :messageable_type, inclusion: { in: ["User", "Therapist"] }
 
 belongs_to :chat_room,

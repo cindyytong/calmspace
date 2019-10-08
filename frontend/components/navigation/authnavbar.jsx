@@ -23,7 +23,7 @@ class AuthNavBar extends React.Component{
                 <Link to="/"> <img src={window.whitelogoURL} className="nav-logo"/></Link>
                 <ul className="nav-right">
                     <li className="auth-nav-welcome">Hello {currentUser.username}</li>
-                    <li className="logout"><Link to='/' onClick={this.handleSubmit}>Log Out</Link></li>
+                    <li className="logout"><Link to='/user/login' onClick={this.handleSubmit}>Log Out</Link></li>
                 </ul>
                
             </nav>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
+import AuthNavContainer from '../navigation/auth_nav_container'
 
 
 class Onboard extends React.Component {
@@ -116,6 +117,8 @@ class Onboard extends React.Component {
         }
 
         return(
+        <>
+        <AuthNavContainer /> 
         <div className="onboard-page-container">
             <div className="onboard-header">
                 <h2 className="onboard-headline">Get Matched</h2>
@@ -156,6 +159,7 @@ class Onboard extends React.Component {
             </form>
             </div>
         </div>
+        </>
         )
     }
 };
