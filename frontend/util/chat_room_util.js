@@ -1,20 +1,21 @@
-export const getUserChatRoom = user_id => {
+export const getUserChatRoom = chatroom_id => {
+    debugger
     return $.ajax({
         method: 'GET',
-        url: 'api/chat_rooms',
+        url: `api/chat_rooms/${chatroom_id}`,
         data: {
-            user_id
+            chatroom_id
         }
     })
 }
 
-// do I need separate utils for therapist and user? 
-export const getTherapistChatRooms = therapist_id => {
+// UPDATE WITH USER_ID? 
+export const getTherapistChatRooms = chat_room_ids => {
     return $.ajax({
         method: 'GET',
-        url: 'api/chat_rooms',
+        url: `api/chat_rooms/${chat_room_ids}`,
         data: {
-            therapist_id
+            chat_room_ids
         }
     })
 }

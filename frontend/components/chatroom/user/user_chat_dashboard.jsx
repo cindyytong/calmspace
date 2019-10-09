@@ -2,30 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import AuthNavContainer from '../../navigation/auth_nav_container';
 import TherapistProfile from '../user/therapist_profile';
-import ChatRoom from '../chatroom';
-import { getUserChatRoom, createChatRoom } from '../../../actions/chat_room_actions';
-import { fetchTherapist } from '../../../actions/therapist_actions';
-
-
-const mapStateToProps = state => {
-    debugger
-    return {
-        user: state.entities.users,
-        chatrooms: {},
-        messages: {},
-        errors: state.errors.session
-    }
-};
-
-const mapDispatchToProps = dispatch => {
-    debugger
-    return {
-        clearErrors: () => dispatch(clearErrors()),
-        createChatRoom: (chatRoom) => dispatch(createChatRoom(chatRoom)),
-        getUserChatRoom: (userId) => dispatch(getUserChatRoom(userId)),
-        fetchTherapist: (id) => dispatch(fetchTherapist)
-    }
-};
+import ChatRoomContainer from '../chatroom_container';
 
 class UserChatDashboard extends React.Component  { 
     render() {
@@ -33,8 +10,8 @@ class UserChatDashboard extends React.Component  {
             <>
             <AuthNavContainer />
             <div className="user-chat-page-container">
-                <TherapistProfile />
-                {/* <ChatRoom /> */}
+                {/* <TherapistProfile /> */}
+                <ChatRoomContainer />
     
             </div>
             </>
@@ -42,4 +19,4 @@ class UserChatDashboard extends React.Component  {
     }  
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserChatDashboard);
+export default UserChatDashboard;

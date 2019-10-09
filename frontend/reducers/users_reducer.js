@@ -10,8 +10,6 @@ const usersReducer = (state={}, action) => {
             return merge({}, state, { [action.user.id]: action.user })
         case RECEIVE_CURRENT_USER: 
             return merge({}, state, { [action.currentUser.id]: action.currentUser })
-            // case RECEIVE_ALL_MATCHES: 
-        //     return merge({}, state, { matches: action.matches } )
         default: 
             return state;
     }

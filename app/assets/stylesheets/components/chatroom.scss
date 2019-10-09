@@ -1,21 +1,49 @@
 
-  .chatroom-li {
-    list-style: decimal;
-  }
-  .chatroom-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .message-list {
-    overflow-y: scroll;
-    height: 300px;
-    width: 400px;
-    border: solid gray 1px;
-  }
+.chatroom-container {
+  padding: 30px;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FCFCFD;
+}
+
+.chatroom-li {
+  font-family: roboto,serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #333333; 
+  background-color: #EEEEEE;
+  margin: 11px 17px;  
+  margin: 2px 0px 1px;
+  border-radius: 20px; 
+  line-height: 19px;
+  word-wrap: break-word;
+  word-break: keep-all;
+  width: 80%;
+}
+ 
+.message-list-sent {
+  font-size: 11px;
+  line-height: 13px;
+  color: rgba(107,105,105,.5);
+  text-align: center;
+}
+.message-list {
+  overflow-y: scroll;
+  height: 300px;
+  width: 400px;
+  // border: solid gray 1px;
+}
   
-  .load-button {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-  }
+.load-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.submit-message-container {
+  border-top: 2px solid  #0fc1a7;
+  height: 50px;
+}

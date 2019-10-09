@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :chat_rooms, only: [:index, :create, :show, :update] do 
       resources :messages, only: [:create] # create is handled by action cable
     end 
-    
+
     resources :messages, only: [:index, :show]
   end 
 

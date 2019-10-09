@@ -41,7 +41,7 @@ const App = () => (
         <ProtectedRoute exact path="/auth/user/onboard" component={OnboardContainer}/>
         <ProtectedRoute exact path="/auth/landing" component={AuthLanding}/>
         <ProtectedRoute exact path="/auth/user/:userId/matches" component={MatchContainer}/>
-        <ProtectedRoute exact path="/auth/user/chatroom/:userId" component={UserChatDashboard}/>
+        <ProtectedRoute exact path="/auth/user/chatroom/:chatRoomId" component={UserChatDashboard}/>
 
     </Switch>        
     </>

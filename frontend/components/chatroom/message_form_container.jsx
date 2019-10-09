@@ -4,21 +4,18 @@ import MessageForm from './message_form';
 import { getUserChatRoom, createChatRoom } from '../../actions/chat_room_actions';
 import { fetchTherapist } from '../../actions/therapist_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+    debugger
     return {
-        user: state.entities.users,
-        chatrooms: state.entitites.chatrooms,
-        messages: state.entities.messages,
+        user: Object.values(state.entities.users)[0],
+        chatrooms: Object.values(state.entities.users)[0].chat_rooms,
         errors: state.errors.session
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        clearErrors: () => dispatch(clearErrors()),
-        createChatRoom: (chatRoom) => dispatch(createChatRoom(chatRoom)),
-        getUserChatRoom: (userId) => dispatch(getUserChatRoom(userId)),
-        fetchTherapist: (id) => dispatch(fetchTherapist)
+        clearErrors: () => dispatch(clearErrors())
     }
 };
 

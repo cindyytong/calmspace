@@ -1,6 +1,7 @@
 class Api::MessagesController < ApplicationController
     # before_action :require_logged_in
     def index 
+        debugger
         if (params[:chat_room_id])
             debugger
             @messages = Message.where(chat_room_id: params[:chat_room_id])

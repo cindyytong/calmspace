@@ -1,6 +1,6 @@
 .user-chat-page-container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 10%;
@@ -8,22 +8,15 @@
 
 .therapist-profile-container {
     height: 100%;
-    // display: flex;
+    width: 20%;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
     padding: 50px;
     padding-top: 100px;
-    width: 20%;
     border-right: 1px solid #c4c4c4;;
     top: 0;
     bottom: 0;
-    z-index: -1;
+    // z-index: -1;
 }
 
-.chat-container {
-    padding: 30px;
-    width: 80%;
-    height: 100%;
-    flex-direction: column;
-}
