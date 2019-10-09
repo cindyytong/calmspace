@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import MessageForm from './message_form';
 import { getUserChatRoom, createChatRoom } from '../../actions/chat_room_actions';
 import { fetchTherapist } from '../../actions/therapist_actions';
+import { getChatRoomMessages } from '../../actions/message_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -14,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        clearErrors: () => dispatch(clearErrors())
+        clearErrors: () => dispatch(clearErrors()),
+        getChatRoomMessages: (chatRoomId) => dispatch(getChatRoomMessages(chatRoomId))
     }
 };
 

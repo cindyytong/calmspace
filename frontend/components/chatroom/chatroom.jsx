@@ -3,13 +3,9 @@ import MessageFormContainer from './message_form_container';
 import { withRouter } from 'react-router-dom';
 
 class ChatRoom extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { messages: this.props.messages };
-    this.bottom = React.createRef();
-  }
 
   componentDidMount() {
+    debugger
     const chatRoomId = this.props.user.chat_rooms.id;
     this.props.clearErrors();
     this.props.getUserChatRoom(chatRoomId); 
@@ -17,20 +13,26 @@ class ChatRoom extends React.Component {
 
     App.cable.subscriptions.create(
       { channel: "ChatChannel", id: chatRoomId },
-      // update local state with message 
       {
         received: data => {
           this.setState({
             messages: this.state.messages.concat(data.message)
           });
         },
-        //  sends data to back end and invokes the backend speak 
         speak: function(data) {
           return this.perform("speak", data );
         }
       }
     );
   }
+
+  constructor(props) {
+    super(props);
+    this.state = { messages: this.props.messages };
+    this.bottom = React.createRef();
+  }
+
+  
   
   componentDidUpdate() {
     // this.bottom.current.scrollIntoView();
@@ -38,21 +40,20 @@ class ChatRoom extends React.Component {
   
   render() {
     debugger
-    const messageList = this.state.messages.map(message => {
-      debugger
+    const messageList = this.props.messages.map(message => {
       return (
         <>
-        <li className="chatroom-li" key={message.id}>
-          <p className="message-time-sent">{message.created_at}</p>
-          {message.body} 
-          <div ref={this.bottom} />
-        </li>
+          <div className="chatroom-message" key={message.id}>
+            <p>{message.body}</p> 
+          </div>
         </>
       );
     });
     return (
       <div className="chatroom-container">
-        <div className="message-list">{messageList}</div>
+        <div className="message-list">
+          {messageList}
+        </div>
         <MessageFormContainer />
       </div>
     );

@@ -2,11 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ChatRoom from './chatroom';
 import { getUserChatRoom } from '../../actions/chat_room_actions';
-import { getChatRoomMessages, getMessage } from '../../actions/message_actions';
+import { getChatRoomMessages } from '../../actions/message_actions';
 import { clearErrors } from '../../actions/session_actions'
 
 const mapStateToProps = ( state, ownProps ) => {
-
     return {
         user: Object.values(state.entities.users)[0],
         chatrooms: Object.values(state.entities.chatrooms) || [],

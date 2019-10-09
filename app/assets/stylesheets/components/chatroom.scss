@@ -9,19 +9,27 @@
   background-color: #FCFCFD;
 }
 
-.chatroom-li {
+// .chatroom-ul {
+//   list-style-type: none;
+//   margin: 0;
+//   padding: 0;
+// }
+
+.chatroom-message {
   font-family: roboto,serif;
   font-size: 14px;
   font-weight: 300;
   color: #333333; 
   background-color: #EEEEEE;
-  margin: 11px 17px;  
-  margin: 2px 0px 1px;
+  padding: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border-radius: 20px; 
   line-height: 19px;
   word-wrap: break-word;
   word-break: keep-all;
-  width: 80%;
+  width: 60%;
+
 }
  
 .message-list-sent {
@@ -32,9 +40,9 @@
 }
 .message-list {
   overflow-y: scroll;
-  height: 300px;
-  width: 400px;
-  // border: solid gray 1px;
+  height: 100%;
+  width: 100%;
+
 }
   
 .load-button {

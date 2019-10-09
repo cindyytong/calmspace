@@ -1,7 +1,6 @@
 class ChatChannel < ApplicationCable::Channel
   def subscribed
     @chat_channel = ChatRoom.find(params[:id])
-    # params obj is first argument to create method in consumer.subscriptions
     stream_for @chat_channel
   end
 

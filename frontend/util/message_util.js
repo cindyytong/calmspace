@@ -11,4 +11,3 @@ export const getMessage = messageId => {
         url: `api/messages/${messageId}`
     })
 }
-

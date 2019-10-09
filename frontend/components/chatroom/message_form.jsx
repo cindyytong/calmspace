@@ -3,13 +3,18 @@ import React from "react";
 // manages the submission of a new message 
 class MessageForm extends React.Component {
   constructor(props) {
-    super(props);
     debugger
+    super(props);
     this.state = { body: "" };
   }
   
+  // componentDidUpdate(){
+  //   debugger
+  //   const chatRoomId = this.props.user.chat_rooms.id;
+  //   this.props.getChatRoomMessages(chatRoomId);
+  // }
+
   update(field) {
-    debugger
     return e =>
       this.setState({ [field]: e.currentTarget.value });
   }
