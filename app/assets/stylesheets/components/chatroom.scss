@@ -52,6 +52,36 @@
 }
 
 .submit-message-container {
-  border-top: 2px solid  #0fc1a7;
-  height: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  border-top: 2px solid #0fc1a7;
+  height: 80px;
+}
+
+.send-message-field {
+  width: 100%;
+  height: 80px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.send-message-text {
+  font-family: roboto,serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: #333333; 
+  width: 93%;
+}
+
+.submit-button {
+  margin-left: 2%;
+  font-family: roboto,serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: #333333;; 
+}
+
+.submit-button:hover {
+  color: #179a87; 
 }
