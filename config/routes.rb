@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :create] # create is handled by action cable
     end 
 
-    resources :messages, only: [:show]
+    resources :messages, only: [:show, :create]
   end 
 
   root to: "static_pages#root"

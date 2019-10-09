@@ -11,3 +11,12 @@ export const getMessage = messageId => {
         url: `api/messages/${messageId}`
     })
 }
+
+export const createMessage = (message) => {
+    debugger
+    return $.ajax({
+        method: 'POST',
+        url: `api/chat_rooms/${message.chat_room_id}/messages`,
+        data: { message }
+    })
+}

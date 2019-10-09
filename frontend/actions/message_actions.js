@@ -32,3 +32,10 @@ export const getChatRoomMessages = chatRoomId => dispatch => {
         });
 };
 
+export const createMessage = (message) => dispatch => {
+    debugger
+    return MessageAPIUtil.createMessage(message)
+        .then( message => {
+            dispatch(receiveMessage(message))
+        })
+};

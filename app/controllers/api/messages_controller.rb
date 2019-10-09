@@ -18,10 +18,15 @@ class Api::MessagesController < ApplicationController
         end 
     end 
 
-    # def create   ## handled by actionc able
-    # end 
+    def create 
+        debugger
+        @message = Message.new(message_params)
+        if @message.save 
+            render :show
+        end 
+    end 
 
     def message_params 
-        params.require(:message).permit(:body)
+        params.require(:message).permit(:body, :chat_room_id, :messageable_id, :messageable_type)
     end 
 end

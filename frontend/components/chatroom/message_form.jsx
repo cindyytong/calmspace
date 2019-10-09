@@ -7,12 +7,6 @@ class MessageForm extends React.Component {
     super(props);
     this.state = { body: "" };
   }
-  
-  // componentDidUpdate(){
-  //   debugger
-  //   const chatRoomId = this.props.user.chat_rooms.id;
-  //   this.props.getChatRoomMessages(chatRoomId);
-  // }
 
   update(field) {
     return e =>
@@ -22,19 +16,24 @@ class MessageForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     debugger
+    let chatRoomId = this.props.chatrooms[0].id;
     let type;
-    // Is there a better way to check if therapist or patient? 
     if(this.props.user.current_therapist_id !== null){
       type = 'User'
     } else {
       type = 'Therapist'
     }
-    App.cable.subscriptions.subscriptions[0].speak({ message: { 
-      chat_room_id: this.props.chatrooms[0].id, 
+    let newMessage = { 
+      chat_room_id: chatRoomId, 
       body: this.state.body,
       messageable_id: this.props.user.id,
       messageable_type: type
-    }});
+    }
+    
+    App.cable.subscriptions.subscriptions[0].speak({ message: newMessage});
+    
+  
+    this.props.createMessage( newMessage )
     this.setState({ body: "" });
   }
   
