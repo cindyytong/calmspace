@@ -6,11 +6,11 @@ import { getChatRoomMessages, getMessage } from '../../actions/message_actions';
 import { clearErrors } from '../../actions/session_actions'
 
 const mapStateToProps = ( state, ownProps ) => {
-    debugger
+
     return {
         user: Object.values(state.entities.users)[0],
-        chatrooms: Object.values(state.entities.chatrooms) || {},
-        messages: Object.values(state.entities.messages) || {},
+        chatrooms: Object.values(state.entities.chatrooms) || [],
+        messages: Object.values(state.entities.messages) || [],
         errors: state.errors.session
     }
 };
@@ -18,7 +18,6 @@ const mapStateToProps = ( state, ownProps ) => {
 const mapDispatchToProps = dispatch => {
     return {
         clearErrors: () => dispatch(clearErrors()),
-        // createChatRoom: (chatRoom) => dispatch(createChatRoom(chatRoom)),
         getUserChatRoom: (chatRoomId) => dispatch(getUserChatRoom(chatRoomId)),
         getChatRoomMessages: (chatRoomId) => dispatch(getChatRoomMessages(chatRoomId)),
         getMessage: (messageId) => dispatch(getMessage(messageId))

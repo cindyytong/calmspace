@@ -1,5 +1,4 @@
 export const getUserChatRoom = chatroom_id => {
-    debugger
     return $.ajax({
         method: 'GET',
         url: `api/chat_rooms/${chatroom_id}`,

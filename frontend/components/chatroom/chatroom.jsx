@@ -4,23 +4,21 @@ import { withRouter } from 'react-router-dom';
 
 class ChatRoom extends React.Component {
   constructor(props) {
-    debugger
     super(props);
-    this.state = { messages: [] };
+    this.state = { messages: this.props.messages };
     this.bottom = React.createRef();
   }
 
   componentDidMount() {
     const chatRoomId = this.props.user.chat_rooms.id;
     this.props.clearErrors();
-    this.props.getUserChatRoom(chatRoomId); // update chatroom state
-    debugger
+    this.props.getUserChatRoom(chatRoomId); 
     this.props.getChatRoomMessages(chatRoomId);
 
     App.cable.subscriptions.create(
-      { channel: "ChatChannel", id: this.props.chatrooms.id },
+      { channel: "ChatChannel", id: chatRoomId },
+      // update local state with message 
       {
-          // subscribed client will listen to stream for new data, when data is sent into the stream via braodcast method, this function is invoked 
         received: data => {
           this.setState({
             messages: this.state.messages.concat(data.message)
@@ -39,12 +37,13 @@ class ChatRoom extends React.Component {
   }
   
   render() {
+    debugger
     const messageList = this.state.messages.map(message => {
       debugger
       return (
         <>
-        <p className="message-time-sent">{message.created_at}</p>
         <li className="chatroom-li" key={message.id}>
+          <p className="message-time-sent">{message.created_at}</p>
           {message.body} 
           <div ref={this.bottom} />
         </li>

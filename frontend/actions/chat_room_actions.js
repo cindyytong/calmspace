@@ -14,7 +14,6 @@ export const receiveChatRooms = chatrooms => {
 
 // patient & therapist 
 export const receiveChatRoom = chatroom => {
-    debugger
     return {
         type: RECEIVE_CHATROOM,
         chatroom 
@@ -29,7 +28,6 @@ const receiveErrors = errors => {
 }
 
 export const getUserChatRoom = chatRoomId => dispatch => {
-    debugger
     return ChatRoomAPIUtil.getUserChatRoom(chatRoomId)
         .then( chatRoom => {
             dispatch(receiveChatRoom(chatRoom))

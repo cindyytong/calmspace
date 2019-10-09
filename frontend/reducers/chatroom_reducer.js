@@ -5,7 +5,6 @@ import { merge } from 'lodash';
 const chatRoomsReducer = ( state = {}, action ) => {
     Object.freeze(state);
     let newState;
-    debugger
     switch(action.type){
         case RECEIVE_CHATROOMS:
             return merge({}, action.chatrooms);

@@ -5,10 +5,9 @@ import { getUserChatRoom, createChatRoom } from '../../actions/chat_room_actions
 import { fetchTherapist } from '../../actions/therapist_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     return {
         user: Object.values(state.entities.users)[0],
-        chatrooms: Object.values(state.entities.users)[0].chat_rooms,
+        chatrooms: Object.values(state.entities.chatrooms) || [],
         errors: state.errors.session
     }
 };

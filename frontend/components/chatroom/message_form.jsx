@@ -17,15 +17,15 @@ class MessageForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     debugger
-    // App.cable.subscriptions.subscriptions allows us ot access all subscriptions
     let type;
+    // Is there a better way to check if therapist or patient? 
     if(this.props.user.current_therapist_id !== null){
       type = 'User'
     } else {
       type = 'Therapist'
     }
     App.cable.subscriptions.subscriptions[0].speak({ message: { 
-      chatroom_id: this.props.chatrooms.id, 
+      chat_room_id: this.props.chatrooms[0].id, 
       body: this.state.body,
       messageable_id: this.props.user.id,
       messageable_type: type

@@ -10,7 +10,6 @@ class Api::UsersController < ApplicationController
     end 
 
     def show 
-        debugger
         @user = User.includes(:topics, :topic_interests, :chat_rooms).where(id: params[:id]).first 
         render "api/users/show" 
     end 

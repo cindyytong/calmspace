@@ -8,9 +8,7 @@ class ChatChannel < ApplicationCable::Channel
   # we can only broadcast objects, hence we make the socket 
   def speak(data)
     message = Message.new(data['message'])
-    debugger
     if message.save! 
-      # socket = { message: message.body }
       socket = { message: message.to_json }
       # first argument is what we are broadcast to should match to what you are subscribed to
       ChatChannel.broadcast_to(@chat_channel, socket)
