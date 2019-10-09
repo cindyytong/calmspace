@@ -38,7 +38,7 @@ class LoginForm extends React.Component {
     loginDemoPatient(e){
         e.preventDefault();
         this.props.processForm({ email: 'user1@calmspace.com', password: '12345678'})
-        .then(() => this.props.history.push(`/auth/user/chatroom/11`));
+        .then(() => this.props.history.push(`/auth/user/chatroom/1`));
     };
 
     render(){

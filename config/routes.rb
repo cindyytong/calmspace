@@ -18,10 +18,10 @@ Rails.application.routes.draw do
     get 'get_matches', to: 'users#get_matches'  
 
     resources :chat_rooms, only: [:index, :create, :show, :update] do 
-      resources :messages, only: [:create] # create is handled by action cable
+      resources :messages, only: [:index, :create] # create is handled by action cable
     end 
 
-    resources :messages, only: [:index, :show]
+    resources :messages, only: [:show]
   end 
 
   root to: "static_pages#root"

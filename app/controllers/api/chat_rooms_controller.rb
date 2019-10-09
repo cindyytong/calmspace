@@ -1,17 +1,19 @@
 class Api::ChatRoomsController < ApplicationController 
 # before_action :require_logged_in 
 def index 
+    debugger
     # Check if authorized user 
     if (params[:user_id].to_i != current_user.id) && (params[:therapist_id] != current_user.id/Users/cindytong/Desktop/halcyon/app/controllers/api/chat_rooms_controller.rb)
         render json: ["Unauthorized user"], status: 401 
     # find chatroom for user 
     elsif params[:user_id]
-         @chat_rooms = ChatRoom.includes(:messages, :therapist).where(:user_id => params[:user_id])
+         @chat_room = ChatRoom.includes(:messages, :therapist).where(:user_id => params[:user_id]).to_a
+         debugger
          render :show
     # find chatrooms for therapist; can return many 
     elsif params[:therapist_id]
-        @chat_rooms = ChatRoom.includes(:messages, :therapist).where(:therapist_id => params[:therapist_id])
-         render :show
+        @chat_rooms = ChatRoom.includes(:messages, :therapist).where(:therapist_id => params[:therapist_id]).to_a
+         render :index
     # chatroom not found 
     else 
          render json: ["Chatroom not found based on user/therapist id"], status: 404
@@ -30,9 +32,9 @@ def create
     end 
 end 
 
-def show 
+def show  # show one chatroom 
     debugger
-    @chat_room = ChatRoom.includes(:user, :therapist, :messages, :note).find(params[:id])
+    @chat_room = ChatRoom.includes(:user, :therapist, :messages, :note).find(params[:chatroom_id])
     if @chat_room
         debugger
         render :show 

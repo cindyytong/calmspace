@@ -9,10 +9,8 @@ const mapStateToProps = ( state, ownProps ) => {
     debugger
     return {
         user: Object.values(state.entities.users)[0],
-        // unable to access ownprops 
-        // chatrooms: state.entities.chatrooms[ownProps.match.params.chatRoomId] || {},
-        chatrooms: Object.values(state.entities.users)[0].chat_rooms,
-        messages: {},
+        chatrooms: Object.values(state.entities.chatrooms) || {},
+        messages: Object.values(state.entities.messages) || {},
         errors: state.errors.session
     }
 };

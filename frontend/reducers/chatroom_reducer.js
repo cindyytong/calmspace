@@ -11,6 +11,7 @@ const chatRoomsReducer = ( state = {}, action ) => {
             return merge({}, action.chatrooms);
         case RECEIVE_CHATROOM:
             newState = merge({}, state, { [action.chatroom.id]: action.chatroom });
+            return newState;
         default: 
             return state;
     }

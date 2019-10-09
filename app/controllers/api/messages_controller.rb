@@ -3,8 +3,8 @@ class Api::MessagesController < ApplicationController
     def index 
         debugger
         if (params[:chat_room_id])
+            @messages = Message.where(chat_room_id: params[:chat_room_id]).to_a
             debugger
-            @messages = Message.where(chat_room_id: params[:chat_room_id])
             render :index
         else
             render json: ["Chatroom not found"], status: 404 

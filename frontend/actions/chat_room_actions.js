@@ -14,6 +14,7 @@ export const receiveChatRooms = chatrooms => {
 
 // patient & therapist 
 export const receiveChatRoom = chatroom => {
+    debugger
     return {
         type: RECEIVE_CHATROOM,
         chatroom 
@@ -27,9 +28,9 @@ const receiveErrors = errors => {
     }
 }
 
-export const getUserChatRoom = userId => dispatch => {
+export const getUserChatRoom = chatRoomId => dispatch => {
     debugger
-    return ChatRoomAPIUtil.getUserChatRoom(userId)
+    return ChatRoomAPIUtil.getUserChatRoom(chatRoomId)
         .then( chatRoom => {
             dispatch(receiveChatRoom(chatRoom))
         })
@@ -37,8 +38,8 @@ export const getUserChatRoom = userId => dispatch => {
 
 // .catch( errors => dispatch(receiveErrors(errors.responseJSON)))
 
-export const getTherapistChatRooms = therapistId => dispatch => {
-    return ChatRoomAPIUtil.getTherapistChatRooms(therapistId)
+export const getTherapistChatRooms = chatRoomIds => dispatch => {
+    return ChatRoomAPIUtil.getTherapistChatRooms(chatRoomIds)
         .then( chatRooms => {
             dispatch(receiveChatRooms(chatRooms))
         })

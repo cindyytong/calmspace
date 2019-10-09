@@ -72,8 +72,6 @@ I have expertise in Relationship issues, working with Sexuality and Gender Ident
 
 ################ TOPIC_INTERESTS JOINS ###############
 # All topics: therapist1 & therapist4 
-# therapist1_id = Therapist.where(first_name: "Sarah")[0].id
-# therapist4_id = Therapist.where(first_name: "Jason")[0].id
 
 Topic.all.each{|topic| TopicInterest.create!( { userable_id: therapist1.id, topic_id: topic.id, userable_type: "Therapist"} )}
 
@@ -81,9 +79,6 @@ Topic.all.each{|topic| TopicInterest.create!( { userable_id: therapist4.id, topi
 
 # topics_arr[0..10]
 # therapist 2 & 5
-
-# therapist2_id = Therapist.where(first_name: "Rebecca")[0].id
-# therapist5_id = Therapist.where(first_name: "Michael")[0].id
 
 (0..10).each do |n| 
     TopicInterest.create!( { userable_id: therapist2.id, topic_id: (Topic.where(title: topics_arr[n]))[0].id, userable_type: "Therapist"} )
@@ -95,8 +90,6 @@ end
 
 
 # topics_arr[11...20]
-# therapist3_id = Therapist.where(first_name: "Chloe")[0].id
-# therapist6_id = Therapist.where(first_name: "Andrew")[0].id
 
 (10..20).each do |n| 
     TopicInterest.create!( { userable_id: therapist3.id, topic_id: (Topic.where(title: topics_arr[n]))[0].id, userable_type: "Therapist"} )
@@ -107,10 +100,6 @@ end
 end 
 
 # Patients 
-
-# demo_patient_id = User.where(email: 'user1@calmspace.com')[0].id
-# demo_patient_female_id = User.where(email: 'user2@calmspace.com')[0].id
-# demo_patient_male_id = User.where(email: 'user3@calmspace.com')[0].id
 
 demo_patient_topic_id = [1, 12]
 
@@ -130,40 +119,6 @@ demo_patient_male_topic_id.each do |topic_id|
     TopicInterest.create!( { userable_id: demo_patient_male.id, topic_id: (Topic.where(title: topics_arr[topic_id]))[0].id, userable_type: "User"} )
 end 
 
-############## Matching queries ###########
-
-# 1. find patient id by email 
-# 2. get patient user_gender_pref 
-# 3. get therapist matching user_gender_pref (3 - 6)
-# 4. From the therapist matching gender pref find therapist matching topics 
-
-# def get_gender_match(email)
-#     user_gender_pref = User.where(email: email)[0].gender_pref
-#     if user_gender_pref == 'none'
-#         return Therapist.all.to_a 
-#     else 
-#         return Therapist.where(gender: user_gender_pref).to_a
-#     end 
-# end 
-
-# get_gender_match("user1@calmspace.com").length # returns 6 
-# get_gender_match("user2@calmspace.com").length # returns 3
-# get_gender_match("user3@calmspace.com").length # returns 3
-
-# topic_arr = User.where(email: "user1@calmspace.com")[0].topics.to_a
-# gender_matches = get_gender_match("user1@calmspace.com").to_a  # array of all therapist matches 
-# gender_matches[0].topics.to_a.length # first therapist 
-# def get_topic_match(gender_matches, email)
-#     # get topics interest from user 
-#     user_topics = User.where(email: email)[0].topics.to_a
-#     # save topic titles in array 
-#     topic_names = user_topics.map{|topic| topic.title}
-#     # for each therapist match 
-#     gender_matches.each do |therapist|
-#         therapist_topics = Therapist.where(email: therapist.email)[0].topics.to_a.length 
-#     end 
-# end 
-
 
 ############### TESTING CHATROOMS & MESSAGES ############
 # user_id = 142
@@ -171,8 +126,8 @@ end
 
 chatroom_1 = ChatRoom.create!(user_id: demo_patient_id, therapist_id: therapist1.id)
 # chatroom_1 = ChatRoom.create!(user_id: 11, therapist_id: 19)
-message1 = Message.create!(body: "Hello test", chat_room_id: chatroom_1.id, messageable_id: demo_patient_id, messageable_type: "User")
-# message1 = Message.create!(body: "Hello test", chat_room_id: 1, messageable_id: 11, messageable_type: "User")
+message1 = Message.create!(body: "User test message", chat_room_id: chatroom_1.id, messageable_id: demo_patient_id, messageable_type: "User")
+message1 = Message.create!(body: "Therapist test message", chat_room_id: chatroom_1.id, messageable_id: therapist1.id, messageable_type: "Therapist")
 
 note_1 = Note.create!(chat_room_id: chatroom_1.id, body: "this is a new note for chatroom1")
 

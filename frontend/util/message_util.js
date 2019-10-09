@@ -1,16 +1,14 @@
 export const getChatRoomMessages = chatRoomId => {
-    $.ajax({
+    debugger
+    return $.ajax({
         method: 'GET',
-        url: 'api/messages',
-        data: {
-            chat_room_id: chatRoomId
-        }
+        url: `api/chat_rooms/${chatRoomId}/messages`,
     })
 }
 
 export const getMessage = messageId => {
     debugger
-    $.ajax({
+    return $.ajax({
         method: 'GET',
         url: `api/messages/${messageId}`
     })
