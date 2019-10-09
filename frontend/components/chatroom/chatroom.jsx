@@ -5,8 +5,7 @@ import { withRouter } from 'react-router-dom';
 class ChatRoom extends React.Component {
 
   componentDidMount() {
-    debugger
-    const chatRoomId = this.props.user.chat_rooms.id;
+    const chatRoomId = this.props.user.chat_rooms.id; // therapist can have many ids 
     this.props.clearErrors();
     this.props.getUserChatRoom(chatRoomId); 
     this.props.getChatRoomMessages(chatRoomId);
@@ -28,18 +27,16 @@ class ChatRoom extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { messages: this.props.messages };
+    this.state = { messages: props.messages };
     this.bottom = React.createRef();
   }
 
-  
   
   componentDidUpdate() {
     // this.bottom.current.scrollIntoView();
   }
   
   render() {
-    debugger
     const messageList = this.props.messages.map(message => {
       return (
         <>

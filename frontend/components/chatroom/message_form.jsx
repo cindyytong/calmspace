@@ -3,7 +3,6 @@ import React from "react";
 // manages the submission of a new message 
 class MessageForm extends React.Component {
   constructor(props) {
-    debugger
     super(props);
     this.state = { body: "" };
   }
@@ -15,7 +14,6 @@ class MessageForm extends React.Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    debugger
     let chatRoomId = this.props.chatrooms[0].id;
     let type;
     if(this.props.user.current_therapist_id !== null){

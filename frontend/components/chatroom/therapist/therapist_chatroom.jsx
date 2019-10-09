@@ -1,16 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import AuthNavContainer from '../../navigation/auth_nav_container';
-import ChatRoom from '../chatroom';
+import ChatRoomContainer from '../chatroom_container';
 
-
-const TherapistChatroom = () => {
-    return (
-        <>
-        <AuthNavContainer />
-        <ChatRoom />
-        </>
-    )
+class TherapistChatDashboard extends React.Component  { 
+    render() {
+        return (
+            <>
+            <AuthNavContainer />
+            <div className="user-chat-page-container">
+            <ChatRoomContainer />
+            </div>
+            </>
+        )
+    }  
 };
 
-export default TherapistChatroom;
+export default TherapistChatDashboard;

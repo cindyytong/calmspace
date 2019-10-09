@@ -19,13 +19,13 @@ import UserSignUpFormContainer from './session_form/user_signup_form_container';
 import OnboardContainer from './onboard/onboard_container';
 import MatchContainer from './matches/match_container';
 import AuthLanding from './auth_landing/auth_landing';
+import UserChatDashboard from './chatroom/user/user_chat_dashboard';
 
 // Therapist Components 
 import DemoTherapistContainer from './demo_therapist/demo_therapist_container';
-import TherapistDashboardContainer from './therapist_dashboard/therapist_dashboard_container';
-
+import TherapistChatDashboard from './chatroom/therapist/therapist_chatroom';
 // Chat
-import UserChatDashboard from './chatroom/user/user_chat_dashboard';
+
 // import TherapistChatroom from './chatroom/therapist_chatroom';
 
 const App = () => (
@@ -43,6 +43,8 @@ const App = () => (
         <ProtectedRoute exact path="/auth/user/:userId/matches" component={MatchContainer}/>
         <ProtectedRoute exact path="/auth/user/chatroom/:chatRoomId" component={UserChatDashboard}/>
 
+        {/* Therappist */}
+        <ProtectedRoute exact path="/auth/therapist/chatroom/:chatRoomId" component={TherapistChatDashboard}/>
     </Switch>        
     </>
 
