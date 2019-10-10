@@ -53,7 +53,7 @@ class TherapistProfile extends React.Component{
 
         return (
             <div className="therapist-profile-container">
-                <h4>About Your Therapist</h4>
+                <h4 className="about-therapist-headline">About Your Therapist</h4>
                     {therapist}
             </div>
         )

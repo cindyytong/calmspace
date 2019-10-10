@@ -12,7 +12,6 @@ class UserChatDashboard extends React.Component  {
             <div className="user-chat-page-container">
                 <TherapistProfile />
                 <ChatRoomContainer />
-    
             </div>
             </>
         )

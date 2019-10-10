@@ -131,6 +131,8 @@ message1 = Message.create!(body: "Therapist test message", chat_room_id: chatroo
 
 note_1 = Note.create!(chat_room_id: chatroom_1.id, body: "this is a new note for chatroom1")
 
+chatroom_2 = ChatRoom.create!(user_id: 12, therapist_id: 19)
+note_2 = Note.create!(chat_room_id: chatroom_2.id, body: "this is a new note for chatroom1")
 
 #### 
 # 1. get topic interest for user with userable_id

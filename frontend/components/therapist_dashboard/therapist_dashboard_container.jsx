@@ -1,13 +1,21 @@
 import React from 'react';
-import AuthNavContainer from '../navigation/auth_nav_container'
+import { connect } from 'react-redux';
+import TherapistDashboard from './therapist_dashboard';
+import { getUserChatRoom } from '../../actions/chat_room_actions'
 
-const TherapistDashboardContainer = () => {
-    return (
-        <>
-        <AuthNavContainer />
-        <h1>Therapist Dashboard Logged In</h1>
-        </>
-    )
-}
+const mapStateToProps = ( state, ownProps ) => {
+    return {
+        user: Object.values(state.entities.users)[0],
+        chatrooms: Object.values(state.entities.chatrooms)
+    }
+};
 
-export default TherapistDashboardContainer;
+const mapDispatchToProps = dispatch => {
+    return {
+        clearErrors: () => dispatch(clearErrors()),
+        getUserChatRoom: (chatRoomId) => dispatch(getUserChatRoom(chatRoomId))
+        
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TherapistDashboard);

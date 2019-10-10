@@ -11,7 +11,7 @@ class DemoTherapist extends React.Component{
     loginDemoTherapist(demoTherapist) {
         return (e) => {
             this.props.login(demoTherapist)
-                .then(() => this.props.history.push('/auth/therapist/chatroom/1'));
+                .then(() => this.props.history.push(`/auth/therapist/${demoTherapist.id}/dashboard`));
         }
     }
 
