@@ -21,7 +21,8 @@ class User < Member
     class_name: :Message,
     dependent: :destroy 
 
-    has_one :chat_room,
+    # check impact of changing this to many relation
+    has_one :chat_rooms,
     foreign_key: :user_id,
     class_name: :ChatRoom,
     dependent: :destroy  

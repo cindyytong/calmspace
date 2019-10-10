@@ -1,0 +1,28 @@
+.user-chat-page-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 6%;
+    box-sizing: border-box
+}
+
+.therapist-profile-container {
+    height: 100%;
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 50px;
+    margin-right: 3%;
+    padding-top: 5px;
+    border-right: 1px solid #c4c4c4;;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box
+}
+
+.about-therapist-headline {
+    color: #333333; 
+    font-size: 18px;
+}

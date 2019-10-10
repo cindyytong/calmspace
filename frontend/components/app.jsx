@@ -9,10 +9,7 @@ import {
 } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
 
-// Global Components 
-// import NavBar from './navigation/navbar';
-// import SimpleNavBar from './navigation/simplenavbar';
-// import AuthNavBarContainer from './navigation/auth_nav_container';
+//Global Components 
 import Splash from './splash/splash';
 import Footer from './footer/footer';
 
@@ -22,14 +19,15 @@ import UserSignUpFormContainer from './session_form/user_signup_form_container';
 import OnboardContainer from './onboard/onboard_container';
 import MatchContainer from './matches/match_container';
 import AuthLanding from './auth_landing/auth_landing';
+import UserChatDashboard from './chatroom/user/user_chat_dashboard';
 
 // Therapist Components 
 import DemoTherapistContainer from './demo_therapist/demo_therapist_container';
+import TherapistChatDashboard from './chatroom/therapist/therapist_chat_dashboard';
 import TherapistDashboardContainer from './therapist_dashboard/therapist_dashboard_container';
-
 // Chat
-import UserChatroom from './chatroom/user_chatroom';
-// import ChatRoom from './chatroom/chatroom';
+
+// import TherapistChatroom from './chatroom/therapist_chatroom';
 
 const App = () => (
     <>  
@@ -44,10 +42,11 @@ const App = () => (
         <ProtectedRoute exact path="/auth/user/onboard" component={OnboardContainer}/>
         <ProtectedRoute exact path="/auth/landing" component={AuthLanding}/>
         <ProtectedRoute exact path="/auth/user/:userId/matches" component={MatchContainer}/>
-        <ProtectedRoute exact path="/auth/user/:userId/chatroom" component={UserChatroom}/>
+        <ProtectedRoute exact path="/auth/user/chatroom/:chatRoomId" component={UserChatDashboard}/>
 
-        {/* Therapist */}
-        <ProtectedRoute exact path="/auth/therapist/dashboard" component={TherapistDashboardContainer}/>
+        {/* Therappist */}
+        <ProtectedRoute exact path="/auth/therapist/:therapistId/dashboard" component={TherapistDashboardContainer}/>
+        <ProtectedRoute exact path="/auth/therapist/chatroom/:chatRoomId" component={TherapistChatDashboard}/>
     </Switch>        
     </>
 

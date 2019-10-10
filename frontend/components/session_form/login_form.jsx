@@ -32,13 +32,13 @@ class LoginForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user) // add in success cb for where to route to 
-        .then(() => this.props.history.push(`/auth/user/${user.id}/chatroom`));
+        .then(() => this.props.history.push(`/auth/user/chatroom/${user.id}`));
     }
 
     loginDemoPatient(e){
         e.preventDefault();
         this.props.processForm({ email: 'user1@calmspace.com', password: '12345678'})
-        .then(() => this.props.history.push(`/auth/user/1/chatroom`));
+        .then(() => this.props.history.push(`/auth/user/chatroom/1`));
     };
 
     render(){

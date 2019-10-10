@@ -1,7 +1,7 @@
 class ChatRoom < ApplicationRecord 
     validates :user_id, null: false, uniqueness: { scope: :therapist_id,
 message: "each user can only chat with one therapist at a time"} 
-    validates :note_id, uniqueness: true 
+    validates :note_id, uniqueness: true, allow_nil: true 
 
     belongs_to :user,
     foreign_key: :user_id,

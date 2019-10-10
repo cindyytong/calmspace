@@ -3,7 +3,6 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save 
             login!(@user)
-            # render json: @user 
             render "api/users/show" 
         else 
             render json: @user.errors.full_messages, status: 422
@@ -11,15 +10,13 @@ class Api::UsersController < ApplicationController
     end 
 
     def show 
-        @user = User.includes(:topics, :topic_interests).where(id: params[:id]).first 
-        # render :show 
+        @user = User.includes(:topics, :topic_interests, :chat_rooms).where(id: params[:id]).first 
         render "api/users/show" 
     end 
 
     def update
         @user = User.find(params[:id])
         if @user.update(user_params)
-            # render :show
             render "api/users/show"  
         else
             render json: @user.errors.full_messages, status: 422

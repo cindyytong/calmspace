@@ -11,11 +11,10 @@ class DemoTherapist extends React.Component{
     loginDemoTherapist(demoTherapist) {
         return (e) => {
             this.props.login(demoTherapist)
-                .then(() => this.props.history.push('/auth/therapist/dashboard'));
+                .then(() => this.props.history.push(`/auth/therapist/${demoTherapist.id}/dashboard`));
         }
     }
 
-    
 
     render(){
         const therapists = this.props.demoTherapists.map( therapist => {
