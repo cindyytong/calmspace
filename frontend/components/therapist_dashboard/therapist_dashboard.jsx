@@ -1,9 +1,8 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import AuthNavContainer from '../navigation/auth_nav_container';
 
 class TherapistDashboard extends React.Component {
-    constructor(props){
+    constructor(props){    
         super(props);
         this.handleClick = this.handleClick.bind(this);
     }
@@ -35,7 +34,7 @@ class TherapistDashboard extends React.Component {
                     </div>
                     <div className="button-chat-row">
                         <button className="dashboard-link" value={chatroom.id} onClick={this.handleClick}>Go to Chat</button>
-                        <button className="dashboard-link" value={chatroom.note.id} onClick={this.handleClick}>View Notes</button>
+                        {/* <button className="dashboard-link" value={chatroom.note.id} onClick={this.handleClick}>View Notes</button> */}
                     </div>
                 </div>
             )
@@ -52,4 +51,4 @@ class TherapistDashboard extends React.Component {
     }
 };
 
-export default withRouter(TherapistDashboard);
+export default TherapistDashboard;

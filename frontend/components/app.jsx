@@ -44,7 +44,7 @@ const App = () => (
         <ProtectedRoute exact path="/auth/user/:userId/matches" component={MatchContainer}/>
         <ProtectedRoute exact path="/auth/user/chatroom/:chatRoomId" component={UserChatDashboard}/>
 
-        {/* Therappist */}
+        {/* Therapist */}
         <ProtectedRoute exact path="/auth/therapist/:therapistId/dashboard" component={TherapistDashboardContainer}/>
         <ProtectedRoute exact path="/auth/therapist/chatroom/:chatRoomId" component={TherapistChatDashboard}/>
     </Switch>        

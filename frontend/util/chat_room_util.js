@@ -20,12 +20,9 @@ export const getTherapistChatRooms = chat_room_ids => {
 }
 
 // Do I have to pass a chatroom into here? It just needs current_user and current_user.current_therapist_id
-export const createChatRoom = (chatroom) => {
+export const createChatRoom = () => {
     return $.ajax({
         method: 'POST',
-        url: 'api/chat_rooms',
-        data: {
-            chatroom
-        }
+        url: 'api/chat_rooms'
     })
 }

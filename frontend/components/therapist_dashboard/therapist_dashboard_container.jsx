@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TherapistDashboard from './therapist_dashboard';
 import { getUserChatRoom } from '../../actions/chat_room_actions'
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ( state, ownProps ) => {
     return {
@@ -18,4 +19,4 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TherapistDashboard);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TherapistDashboard));

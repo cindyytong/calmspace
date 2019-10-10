@@ -5,10 +5,6 @@ import SimpleNavBar from '../navigation/simplenavbar';
 
 
 class LoginForm extends React.Component {
-    
-    componentDidMount(){
-        this.props.clearErrors();
-    }
     constructor(props){
         super(props);
         this.state = {
@@ -18,7 +14,9 @@ class LoginForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.loginDemoPatient = this.loginDemoPatient.bind(this);
     }
-
+    componentDidMount(){
+        this.props.clearErrors();
+    }
 
     update(field) {
       return (e) => {
@@ -31,8 +29,12 @@ class LoginForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user) // add in success cb for where to route to 
-        .then(() => this.props.history.push(`/auth/user/chatroom/${user.id}`));
+        // this.props.processForm(user)
+        // .then(() => this.props.history.push(`/auth/user/chatroom/${this.props.chatRoomId}`));
+        let processUser = this.props.processForm(user);
+        // let getChatRoomId = processUser.then(this.props.history.push(`/auth/user/chatroom/${this.props.chatRoomId}`))
+        this.props.processForm(user)
+        .then(() => this.props.history.push(`/auth/user/chatroom/${this.props.chatRoomId}`));
     }
 
     loginDemoPatient(e){

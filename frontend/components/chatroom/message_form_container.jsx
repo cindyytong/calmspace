@@ -7,11 +7,10 @@ import { fetchTherapist } from '../../actions/therapist_actions';
 import { getChatRoomMessages, createMessage } from '../../actions/message_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     return {
         user: Object.values(state.entities.users)[0],
-        chatrooms: Object.values(state.entities.chatrooms) || [],
-        // chatrooms: Object.values(state.entities.chatrooms)[ownProps.match.params.chatRoomId],
+        // chatrooms: Object.values(state.entities.chatrooms) || [],
+        chatroom: state.entities.chatrooms[ownProps.match.params.chatRoomId], 
         errors: state.errors.session
     }
 };
