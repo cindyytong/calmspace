@@ -5,8 +5,7 @@ class ChatChannel < ApplicationCable::Channel
   end
  
   def speak(data)
-    message = Message.new(data['message'])
-    debugger
+    message = Message.new(data['message'])    
     if message.save! 
       # socket = { message: message.to_json, type: 'message' }
       socket = { message: message, type: 'message' }

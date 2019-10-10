@@ -3,22 +3,21 @@ import MessageFormContainer from './message_form_container';
 import { withRouter } from 'react-router-dom';
 
 class ChatRoom extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = { messages: props.messages };
-    debugger
     // this.bottom = React.createRef();
+    this.chatRoomId = this.props.match.params.chatRoomId;
   }
 
   componentDidMount() {
-    const chatRoomId = this.props.user.chat_rooms.id; 
+    // const chatRoomId = this.props.user.chat_rooms.id;
     this.props.clearErrors();
-    this.props.getUserChatRoom(chatRoomId); 
-    this.props.getChatRoomMessages(chatRoomId);
+    this.props.getUserChatRoom(this.chatRoomId); 
+    this.props.getChatRoomMessages(this.chatRoomId);
 
     App.cable.subscriptions.create(
-      { channel: "ChatChannel", id: chatRoomId },
+      { channel: "ChatChannel", id: this.chatRoomId },
       {
         received: data => {
           switch (data.type) {

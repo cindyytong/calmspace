@@ -15,14 +15,18 @@ class MessageForm extends React.Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    let chatRoomId = this.props.chatrooms[0].id;
+    // let chatRoomId = this.props.chatrooms[0].id;
+    let chatRoomId = this.props.match.params.chatRoomId;
     let type;
-    if(this.props.user.current_therapist_id !== null){
+    // if(this.props.user.current_therapist_id !== null){
+    debugger
+    if(this.props.user.id === this.props.chatrooms[chatRoomId].user.id){
+      debugger
       type = 'User'
     } else {
+      debugger
       type = 'Therapist'
     }
-    debugger
     let newMessage = { 
       chat_room_id: chatRoomId, 
       body: this.state.body,
@@ -32,7 +36,6 @@ class MessageForm extends React.Component {
     
     App.cable.subscriptions.subscriptions[0].speak({ message: newMessage});
     
-    debugger
     this.setState({ body: "" });
   }
   

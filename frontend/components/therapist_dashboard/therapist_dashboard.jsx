@@ -5,6 +5,7 @@ import AuthNavContainer from '../navigation/auth_nav_container';
 class TherapistDashboard extends React.Component {
     constructor(props){
         super(props);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount(){
@@ -12,10 +13,16 @@ class TherapistDashboard extends React.Component {
         chatRoomIds.forEach( chatRoomId => this.props.getUserChatRoom(chatRoomId));
     }
 
+    handleClick(e){
+        e.preventDefault();
+        let chatRoomId = e.target.value;
+        this.props.history.push(`/auth/therapist/chatroom/${chatRoomId}`);
+    }
+
     render(){
         const chatRooms = this.props.chatrooms.map(chatroom => {
             return (
-                <div className="patient-container">
+                <div className="patient-container" key={chatroom.id}>
                     <div className="patient-info">
                         <h6 className="patient-header">Username:</h6>
                         <p className="patient-desc">{chatroom.user.username}</p>
@@ -27,8 +34,8 @@ class TherapistDashboard extends React.Component {
                         <p className="patient-desc">{chatroom.messages.length}</p>
                     </div>
                     <div className="button-chat-row">
-                        <button className="dashboard-link" value={chatroom.id}>Go to Chat</button>
-                        <button className="dashboard-link" value={chatroom.note.id}>View Notes</button>
+                        <button className="dashboard-link" value={chatroom.id} onClick={this.handleClick}>Go to Chat</button>
+                        <button className="dashboard-link" value={chatroom.note.id} onClick={this.handleClick}>View Notes</button>
                     </div>
                 </div>
             )
