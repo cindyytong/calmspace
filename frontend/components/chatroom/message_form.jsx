@@ -5,6 +5,7 @@ class MessageForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { body: "" };
+    
   }
 
   update(field) {
@@ -21,6 +22,7 @@ class MessageForm extends React.Component {
     } else {
       type = 'Therapist'
     }
+    debugger
     let newMessage = { 
       chat_room_id: chatRoomId, 
       body: this.state.body,
@@ -30,8 +32,7 @@ class MessageForm extends React.Component {
     
     App.cable.subscriptions.subscriptions[0].speak({ message: newMessage});
     
-  
-    this.props.createMessage( newMessage )
+    debugger
     this.setState({ body: "" });
   }
   

@@ -27,8 +27,8 @@ class TherapistDashboard extends React.Component {
                         <p className="patient-desc">{chatroom.messages.length}</p>
                     </div>
                     <div className="button-chat-row">
-                        <button className="dashboard-link">Go to Chat</button>
-                        <button className="dashboard-link">View Notes</button>
+                        <button className="dashboard-link" value={chatroom.id}>Go to Chat</button>
+                        <button className="dashboard-link" value={chatroom.note.id}>View Notes</button>
                     </div>
                 </div>
             )

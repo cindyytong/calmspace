@@ -3,15 +3,13 @@ class ChatChannel < ApplicationCable::Channel
     @chat_channel = ChatRoom.find(params[:id])
     stream_for @chat_channel
   end
-
-  # we can only broadcast objects, hence we make the socket 
+ 
   def speak(data)
-  
     message = Message.new(data['message'])
+    debugger
     if message.save! 
-  
-      socket = { message: message.to_json }
-      # first argument is what we are broadcast to should match to what you are subscribed to
+      # socket = { message: message.to_json, type: 'message' }
+      socket = { message: message, type: 'message' }
       ChatChannel.broadcast_to(@chat_channel, socket)
     end 
   end 
