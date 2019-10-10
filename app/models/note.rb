@@ -3,4 +3,6 @@ class Note < ApplicationRecord
     foreign_key: :chat_room_id,
     class_name: :ChatRoom
 
+    has_one :therapist, :through => :chat_room, :source => :therapist 
+
 end 

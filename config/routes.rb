@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     end 
 
     resources :messages, only: [:show, :create]
+
+    resources :notes, only: [:show, :index, :create, :update]
   end 
 
   root to: "static_pages#root"

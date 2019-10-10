@@ -26,10 +26,7 @@ class Therapist < Member
     class_name: :ChatRoom,
     dependent: :destroy 
 
-    has_many :notes,
-    through: :chat_rooms,
-    source: :note 
-
-    
+    has_many :notes, :through => :chat_rooms, :source => :note
+ 
 
 end 
