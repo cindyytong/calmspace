@@ -14,7 +14,7 @@ class Api::MessagesController < ApplicationController
         if @message
             render :show 
         else 
-            render json: ["Message not foound"], status: 404
+            render json: ["Message not found"], status: 404
         end 
     end 
 
