@@ -5,7 +5,6 @@ class MessageForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { body: "" };
-    
   }
 
   update(field) {
@@ -14,6 +13,7 @@ class MessageForm extends React.Component {
   }
   
   handleSubmit(e) {
+    debugger
     e.preventDefault();
     // let chatRoomId = this.props.match.params.chatRoomId;
     let chatRoomId = this.props.chatroom.id;

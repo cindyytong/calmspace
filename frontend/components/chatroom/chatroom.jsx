@@ -15,6 +15,7 @@ class ChatRoom extends React.Component {
     this.props.clearErrors();
     this.props.getUserChatRoom(this.chatRoomId); 
     this.props.getChatRoomMessages(this.chatRoomId);
+    debugger
     App.cable.subscriptions.create(
       { channel: "ChatChannel", id: this.chatRoomId },
       {

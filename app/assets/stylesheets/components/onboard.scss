@@ -80,6 +80,13 @@
     padding: 50px;
 }
 
+select.select-gender {
+    width:  300px;
+    height: 65px;
+    padding: 30px;
+}
+
+
 .topics-container {
     display: flex;
     flex-direction: row;
@@ -95,7 +102,7 @@
 .topic-row {
     border-radius: 10px;
     height: 50px;
-    width: 120px;
+    width: 100px;
     font-size: 15px;
     font-family: roboto, serif;
     font-weight: 500;
@@ -104,32 +111,36 @@
     max-width: 315px;
     border: 1px solid #c4c4c4;   
     padding: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .dashboard-link:hover {
     background: #222f2d
 }
 
-
-.check-topic input[type=checkbox] {
+input.check-topic {
     padding-left:5px;
     padding-right:15px;
     border-radius:15px;
     border: 1px solid #c4c4c4;
-    width:30px;
-    height:30px;
+    width:20px;
+    height:20px;
 }
 
-.check-topic input[type=checkbox]:checked {
+
+input.check-topic:checked {
     background-color: #179a87;  
 }
 
 
-.check-label {
+label.topic-label {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     line-height: 1.5;
     color: #55595c;
-    padding: 15px; 
-    margin-bottom: 15px;
+    margin-left: 20px;
+  
 }
