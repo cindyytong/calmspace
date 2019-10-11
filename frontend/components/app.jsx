@@ -26,7 +26,7 @@ import DemoTherapistContainer from './demo_therapist/demo_therapist_container';
 import TherapistChatDashboard from './chatroom/therapist/therapist_chat_dashboard';
 import TherapistDashboardContainer from './therapist_dashboard/therapist_dashboard_container';
 import NoteFormContainer from './note/note_form_container';
-import NoteForm from './note/note_form';
+import NewNoteFormContainer from './note/new_note_form_container';
 
 // import TherapistChatroom from './chatroom/therapist_chatroom';
 
@@ -48,8 +48,9 @@ const App = () => (
         {/* Therapist */}
         <ProtectedRoute exact path="/auth/therapist/:therapistId/dashboard" component={TherapistDashboardContainer}/>
         <ProtectedRoute exact path="/auth/therapist/chatroom/:chatRoomId" component={TherapistChatDashboard}/>
-        {/* <ProtectedRoute exact path="/auth/therapist/note/:noteId" component={NoteFormContainer}/> */}
-        <Route exact path="/auth/therapist/note" component={NoteFormContainer}/>
+        <ProtectedRoute exact path="/auth/therapist/note/:noteId" component={NoteFormContainer}/>
+        <ProtectedRoute exact path="/auth/therapist/note/new" component={NewNoteFormContainer}/>
+       
     </Switch>        
     </>
 
