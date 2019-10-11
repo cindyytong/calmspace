@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DemoTherapist from './demo_therapist';
 import { login } from '../../actions/session_actions';
-
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
     const demoTherapists = [
@@ -24,4 +24,4 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DemoTherapist);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DemoTherapist));

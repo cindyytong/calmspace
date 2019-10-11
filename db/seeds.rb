@@ -42,15 +42,6 @@ topics_arr = [
 
 topics_arr.each {|topic| Topic.create( {title: topic } )}
 
-################# USERS ###################
-# no gender pref 
-demo_patient = User.create!({ email: 'user1@calmspace.com', username: 'demo patient', over_age_13: true, password: '12345678', gender_pref: 'none' })
-# female pref 
-demo_patient_female = User.create!({ email: 'user2@calmspace.com', username: 'demo patient 2', over_age_13: true, password: '12345678', gender_pref: 'female' })
-#male pref 
-demo_patient_male = User.create!({ email: 'user3@calmspace.com', username: 'demo patient 3', over_age_13: true, password: '12345678', gender_pref: 'male' })
-
-
 ################# THERAPISTS ###################
 
 # female therapists 
@@ -69,6 +60,15 @@ My approach to therapy employs a psychodynamic background that is compassionate 
 
 therapist6 = Therapist.create!({ email: 'therapist6@calmspace.com', password: '12345678', username: 'therapist6', first_name: 'Andrew', last_name: 'Garvy', gender: 'male', degree: 'Psychologist', body: "Psychotherapy lets people be their most 'authentic' selves and live at their highest potential; it also helps them understand barriers to optimal living. Expecting that you have all the answers is not realistic, and entering therapy is a helpful step to deepening understanding, resolving problematic relational patterns and simply making changes. Also,Therapy need not be a 'lifelong process'. I have a proven track record working with people achieving results. My treatment approach combines a Relational psychodynamic frame with goal-focused techniques. I tend to work very interactively with clients relationally, while also allowing abundant space for clients their own insights and self-reflection.
 I have expertise in Relationship issues, working with Sexuality and Gender Identity(Transgender) , Stress/anxiety and depressive disorders, Addictions, and 'Life Transitions' and challenges. LGBTQ focused. I also see couples, and run psychotherapy groups.", img_url: 'therapist6URL'})
+
+################# USERS ###################
+# no gender pref 
+demo_patient = User.create!({ email: 'user1@calmspace.com', username: 'demo patient', over_age_13: true, password: '12345678', gender_pref: 'none', goals: 'I have been feeling stressted at work and want to change my career but I do not know where to begin.', current_therapist_id: therapist1.id })
+# female pref 
+demo_patient_female = User.create!({ email: 'user2@calmspace.com', username: 'demo patient 2', over_age_13: true, password: '12345678', gender_pref: 'female', goals: 'I want to have a child but my husband does not want. We love each other very much but we have such different goals.', current_therapist_id: therapist1.id })
+#male pref 
+demo_patient_male = User.create!({ email: 'user3@calmspace.com', username: 'demo patient 3', over_age_13: true, password: '12345678', gender_pref: 'male', goals: 'I just lost my father and I am having a hard time dealing with him being gone.', current_therapist_id: therapist2.id })
+
 
 ################ TOPIC_INTERESTS JOINS ###############
 # All topics: therapist1 & therapist4 
@@ -91,11 +91,11 @@ end
 
 # topics_arr[11...20]
 
-(10..20).each do |n| 
+(10..19).each do |n| 
     TopicInterest.create!( { userable_id: therapist3.id, topic_id: (Topic.where(title: topics_arr[n]))[0].id, userable_type: "Therapist"} )
 end 
 
-(10..20).each do |n| 
+(10..19).each do |n| 
     TopicInterest.create!( { userable_id: therapist6.id, topic_id: (Topic.where(title: topics_arr[n]))[0].id, userable_type: "Therapist"} )
 end 
 
@@ -124,15 +124,18 @@ end
 # user_id = 142
 # therapist_id = 19 
 
-chatroom_1 = ChatRoom.create!(user_id: demo_patient_id, therapist_id: therapist1.id)
+chatroom_1 = ChatRoom.create!(user_id: demo_patient.id, therapist_id: therapist1.id)
+chatroom_2 = ChatRoom.create!(user_id: demo_patient_female.id, therapist_id: therapist1.id)
+chatroom_3 = ChatRoom.create!(user_id: demo_patient_male.id, therapist_id: therapist2.id)
 # chatroom_1 = ChatRoom.create!(user_id: 11, therapist_id: 19)
-message1 = Message.create!(body: "User test message", chat_room_id: chatroom_1.id, messageable_id: demo_patient_id, messageable_type: "User")
-message1 = Message.create!(body: "Therapist test message", chat_room_id: chatroom_1.id, messageable_id: therapist1.id, messageable_type: "Therapist")
+# message1 = Message.create!(body: "User test message", chat_room_id: chatroom_1.id, messageable_id: demo_patient_id, messageable_type: "User")
+# message1 = Message.create!(body: "Therapist test message", chat_room_id: chatroom_1.id, messageable_id: therapist1.id, messageable_type: "Therapist")
 
-note_1 = Note.create!(chat_room_id: chatroom_1.id, body: "this is a new note for chatroom1")
+note_1 = Note.create!(chat_room_id: chatroom_1.id, body: "this is a new note for chatroom 1")
+note_2 = Note.create!(chat_room_id: chatroom_2.id, body: "this is a new note for chatroom 2")
 
-chatroom_2 = ChatRoom.create!(user_id: 12, therapist_id: 19)
-note_2 = Note.create!(chat_room_id: chatroom_2.id, body: "this is a new note for chatroom1")
+# chatroom_2 = ChatRoom.create!(user_id: 12, therapist_id: 19)
+# note_2 = Note.create!(chat_room_id: chatroom_2.id, body: "this is a new note for chatroom1")
 
 #### 
 # 1. get topic interest for user with userable_id

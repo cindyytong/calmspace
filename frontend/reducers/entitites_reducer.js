@@ -5,7 +5,8 @@ import therapist from './therapists_reducer';
 import matches from './matches_reducer';
 import topics from './topics_reducer';
 import chatrooms from './chatroom_reducer';
-import messages from './message_reducer'
+import messages from './message_reducer';
+import notes from './notes_reducer';
 
 export default combineReducers({
     users,
@@ -13,5 +14,6 @@ export default combineReducers({
     matches,
     topics,
     chatrooms,
-    messages
+    messages,
+    notes
 });

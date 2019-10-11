@@ -43,8 +43,8 @@ export const getTherapistChatRooms = chatRoomIds => dispatch => {
         })
 };
 
-export const createChatRoom = chatRoom => dispatch => {
-    return ChatRoomAPIUtil.createChatRoom(chatRoom)
+export const createChatRoom = () => dispatch => {    
+    return ChatRoomAPIUtil.createChatRoom()
         .then( chatRoom => {
             dispatch(receiveChatRoom(chatRoom))
         })

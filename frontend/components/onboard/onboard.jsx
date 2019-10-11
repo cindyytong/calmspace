@@ -133,7 +133,7 @@ class Onboard extends React.Component {
                         <textarea className="goal-textarea" name="question-goal" value={this.state.new_user.goals} onChange={this.update('goals')} cols="20" rows="5"></textarea>
                 </div>
                 <div className="question-container">
-                    <label className="question" htmlFor="gender-pref">Do you have a gender preference for your therapist</label>
+                    <label className="question">Do you have a gender preference for your therapist</label>
                         <div className="custom-select">
                         <select className="select-gender" onChange={this.update('gender_pref')}>
                             <option className="dropdown-option" value="none">No preference</option>
@@ -143,7 +143,7 @@ class Onboard extends React.Component {
                         </div>     
                 </div>
                 <div className="question-container">
-                    <label className="question" htmlFor="topics">
+                    <label className="question">
                         Select all topics you would like to explore</label>
                     <div className="topics-container">
                         {topics}

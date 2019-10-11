@@ -8,6 +8,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
+    noParse: /node_modules\/quill/,
     rules: [
       {
         test: /\.jsx?$/,

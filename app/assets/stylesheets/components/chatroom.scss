@@ -20,9 +20,7 @@
   font-size: 14px;
   font-weight: 300;
   color: #333333; 
-  background-color: #EEEEEE;
   padding: 8px;
-  padding-left: 15px;
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 20px; 
@@ -30,8 +28,19 @@
   word-wrap: break-word;
   word-break: keep-all;
   width: 60%;
+  padding-left: 15px;
 
 }
+
+.grey-message {
+  background-color: #EEEEEE;
+  margin-left: 30%;
+
+}
+
+.green-message {
+  background-color:#0fc1a7;
+}  
  
 .message-list-sent {
   font-size: 11px;
@@ -39,6 +48,7 @@
   color: rgba(107,105,105,.5);
   text-align: center;
 }
+
 .message-list {
   overflow-y: scroll;
   height: 100%;
@@ -60,6 +70,7 @@
   height: 80px;
 }
 
+
 .send-message-field {
   width: 100%;
   height: 80px;
@@ -76,9 +87,9 @@
 }
 
 .submit-button {
-  margin-left: 2%;
+  margin-left: 4%;
   font-family: roboto,serif;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 300;
   color: #333333;; 
 }

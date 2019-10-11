@@ -9,7 +9,6 @@ class Match extends React.Component {
     constructor(props, ownProps){
         super(props);
         this.state = props.user;
-       
     }
  
     componentDidMount(){
@@ -20,15 +19,17 @@ class Match extends React.Component {
     selectTherapist(therapistId){
         return(e) => {
             e.preventDefault();
-    
+            // this.props.updateUser({
+            //     current_therapist_id: therapistId,
+            //     id: this.state.id})
+            // .then(() => this.props.history.push(`/auth/user/${this.state.id}/chatroom`))
             this.props.updateUser({
                 current_therapist_id: therapistId,
                 id: this.state.id})
-            .then(() => this.props.history.push(`/auth/user/${this.state.id}/chatroom`))
+            .then(() => this.props.createChatRoom())
+            .then(() => this.props.history.push(`/auth/user/chatroom/${this.props.chatroom.id}`))
         }
-        
     }
-
 
     render(){
         const therapists = Object.values(this.props.matches).map(therapist => {
@@ -58,10 +59,10 @@ class Match extends React.Component {
                         <div className="profile-col-2">
     
                             <div className="focus-list">
-                                <ul>Focus
+                                <ul><p className="focus-header">Focus</p>
                                     {Object.values(therapist.topics).map(topic => {
                                         return (
-                                            <div className="topic-row" key={`topic-${topic.id}-${therapist.first_name}`}>
+                                            <div className="match-topic-row" key={`topic-${topic.id}-${therapist.first_name}`}>
                                                 <img className="check-bullet" src={window.checkIconURL} />
                                                 <li className="topic-item" >{topic.title}</li>
                                             </div>

@@ -27,8 +27,8 @@ class TherapistProfile extends React.Component{
         const therapist = Object.values(this.props.therapist).map(therapist => {
             return (
                 <>
-                    <img src={eval(`window.${therapist.img_url}`)} className="therapist-pic"/>
-                    <h4 className="therapist-name">{therapist.first_name} {therapist.last_name}</h4>
+                    <img src={eval(`window.${therapist.img_url}`)} className="therapist-pro-pic"/>
+                    <h4 className="therapist-name-pro">{therapist.first_name} {therapist.last_name}</h4>
                     <div className="degree-info">
                             <img src={window.degreeIconURL} className="degree-icon"/>
                             <p>License and State </p>
@@ -36,10 +36,10 @@ class TherapistProfile extends React.Component{
                     </div>
                     <p className="bio">{therapist.body}</p>
                         <div className="focus-list">
-                            <ul>Focus
+                            <ul className='focus-heading'>Focus
                                 {Object.values(therapist.topics).map(topic => {
                                     return (
-                                        <div className="topic-row" key={`topic-${topic.id}-${therapist.first_name}`}>
+                                        <div className="match-topic-row" key={`topic-${topic.id}-${therapist.first_name}`}>
                                             <img className="check-bullet" src={window.checkIconURL} />
                                             <li className="topic-item" >{topic.title}</li>
                                         </div>

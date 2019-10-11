@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import ChatRoom from './chatroom';
-import { getUserChatRoom, getTherapistChatRooms } from '../../actions/chat_room_actions';
-import { getChatRoomMessages } from '../../actions/message_actions';
+import { getUserChatRoom } from '../../actions/chat_room_actions';
+import { getChatRoomMessages, receiveMessage } from '../../actions/message_actions';
 import { clearErrors } from '../../actions/session_actions'
 
 const mapStateToProps = ( state, ownProps ) => {
     return {
         user: Object.values(state.entities.users)[0],
         chatrooms: Object.values(state.entities.chatrooms),
+        // chatrooms: state.entities.chatrooms[ownProps.match.params.chatRoomId],
         messages: Object.values(state.entities.messages),
         errors: state.errors.session
     }
@@ -17,11 +19,10 @@ const mapStateToProps = ( state, ownProps ) => {
 const mapDispatchToProps = dispatch => {
     return {
         clearErrors: () => dispatch(clearErrors()),
-        // getTherapistChatRooms: () => dispatch(getTherapistChatRooms(chatRoomId)),
         getUserChatRoom: (chatRoomId) => dispatch(getUserChatRoom(chatRoomId)),
         getChatRoomMessages: (chatRoomId) => dispatch(getChatRoomMessages(chatRoomId)),
-        getMessage: (messageId) => dispatch(getMessage(messageId))
+        receiveMessage: (message) => dispatch(receiveMessage(message))
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChatRoom);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChatRoom));
