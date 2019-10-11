@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { getUserChatRoom } from '../../../actions/chat_room_actions';
 
 const mapStateToProps = state => {
-    debugger
     return {
         user: Object.values(state.entities.users)[0], 
         chatroom: Object.values(state.entities.chatrooms)[0]
@@ -19,7 +18,6 @@ const mapDispatchToProps = dispatch => {
 class UserProfile extends React.Component{
 
     render(){
-        debugger
         const chatroom = this.props.chatroom;
             return (
                 <>

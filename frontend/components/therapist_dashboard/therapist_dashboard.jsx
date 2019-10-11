@@ -28,20 +28,17 @@ class TherapistDashboard extends React.Component {
 
     linkToNewNote(e){
         e.preventDefault();
-        debugger
         this.props.history.push('/auth/therapist/note/new');
     }
 
     render(){
         const chatRooms = this.props.chatrooms.map(chatroom => {
-            debugger
             let noteLink;
             if(chatroom.note){
                 noteLink = <button className="dashboard-link" value={chatroom.note.id} onClick={this.linkToNote}>View Note</button>;
             } else {
                 noteLink = <button className="dashboard-link" onClick={this.linkToNewNote}>Create Note</button>
             }
-            debugger
             return (
                 <div className="patient-container" key={chatroom.id}>
                     <div className="patient-info">

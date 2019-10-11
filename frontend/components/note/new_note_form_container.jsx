@@ -6,7 +6,6 @@ import { createNote } from '../../actions/note_actions';
 const mapStateToProps = (state, ownProps) => {
     const note = { body: '' };
     const formType = 'Create Note';
-    debugger
     return {
         note,
         formType

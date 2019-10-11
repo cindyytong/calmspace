@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactQuill from 'react-quill'; 
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import './style.css';
 // import css from 'file.css';
 
 
 class NoteForm extends React.Component {
     constructor(props){
-        debugger
         super(props);
         this.state = props.note;
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -51,35 +52,33 @@ class NoteForm extends React.Component {
     handleSubmit() {
         e.preventDefault();
         let note = this.state;
-        debugger
         if(this.props.formType === 'Edit Note'){
             let noteId = this.props.match.params.noteId;
-            debugger
             this.props.action(noteId, note)
                 .then(() => this.props.history.push(`/auth/therapist/note/${noteId}`))
         } else {
-            debugger
             this.props.action(note)
                 .then(() => this.props.history.push(`/auth/therapist/note/new`))
         }
     }
 
     render(){
-        debugger
+        let userId = this.props.userId;
         return (
-            <>
-            <ReactQuill 
-                // modules={this.modules}
-                // formats={this.formats}  
-                onChange={this.handleChange}
-                value={this.state.body}
-                theme="snow" />
-            <form>
-                <button type='submit' onClick={this.handleSubmit}>{this.props.formType}</button>
-            </form>
-            </>
+            <div className="note-page-container">
+                <Link to={`/auth/therapist/${userId}/dashboard`} className="back-to-dashboard-link">Back to Dashboard</Link>
+                <ReactQuill 
+                    // modules={this.modules}
+                    // formats={this.formats}  
+                    onChange={this.handleChange}
+                    value={this.state.body}
+                    theme="snow" />
+                <form>
+                    <button className="submit-note" type='submit' onClick={this.handleSubmit}>{this.props.formType}</button>
+                </form>
+            </div>
         )
     }
 }
 
-export default NoteForm;
+export default withRouter(NoteForm);

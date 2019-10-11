@@ -59,7 +59,7 @@ class Match extends React.Component {
                         <div className="profile-col-2">
     
                             <div className="focus-list">
-                                <ul>Focus
+                                <ul><p className="focus-header">Focus</p>
                                     {Object.values(therapist.topics).map(topic => {
                                         return (
                                             <div className="match-topic-row" key={`topic-${topic.id}-${therapist.first_name}`}>

@@ -1,0 +1,42 @@
+.note-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 6%;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.back-to-dashboard-link {
+    margin-bottom: 30px;
+    font-size: 14px; 
+}
+
+.back-to-dashboard-link:hover {
+    color: #179a87;
+}
+
+.submit-note {
+    width: 150px;
+    height: 45px;
+    margin-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-family: "Roboto Condensed",Helvetica,Arial;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1.9px;
+    line-height: 42px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.17);
+    background-color: #179a87;
+    color: white;
+}
+
+.submit-note:hover {
+    background-color: #003e4c; 
+}

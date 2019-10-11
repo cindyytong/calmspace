@@ -21,6 +21,7 @@
     width: 900px;
     margin: 0 auto;
     border: 1px solid #c4c4c4;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
     margin-bottom: 40px;
@@ -37,23 +38,24 @@
 
 .patient-header {
     font-size: 14px;
-    line-height: 28px;
+    line-height: 18px;
     letter-spacing: .06px;
-    color: #6b6969;
+    color: #179a87; 
     margin-bottom: 8px;
 }
 
 .patient-desc {
     font-size: 14px;
     font-weight: 500;
-    color:black;
+    color:#6b6969; 
     line-height: 19px;
 }
 
 .button-chat-row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-end;
+    margin-left: 100px;
     // align-items: baseline;
     align-items: center;
     justify-content: center;

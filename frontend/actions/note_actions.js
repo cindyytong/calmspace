@@ -18,19 +18,16 @@ const receiveNote = note => {
 // }
 
 export const getNote = (noteId) => dispatch => {
-    debugger
     return NoteAPIUtil.getNote(noteId)
         .then(note => dispatch(receiveNote(note)))
 };
 
 export const createNote = (note) => dispatch => {
-    debugger
     return NoteAPIUtil.createNote(note)
         .then(note => dispatch(receiveNote(note)))
 };
 
 export const updateNote = (noteId, note) => dispatch => {
-    debugger
     return NoteAPIUtil.updateNote(noteId, note)
         .then(note => dispatch(receiveNote(note)))
 };

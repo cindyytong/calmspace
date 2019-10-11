@@ -7,7 +7,6 @@ import { getChatRoomMessages, receiveMessage } from '../../actions/message_actio
 import { clearErrors } from '../../actions/session_actions'
 
 const mapStateToProps = ( state, ownProps ) => {
-    debugger
     return {
         user: Object.values(state.entities.users)[0],
         chatrooms: Object.values(state.entities.chatrooms),
