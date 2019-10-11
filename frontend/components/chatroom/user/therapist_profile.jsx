@@ -39,7 +39,7 @@ class TherapistProfile extends React.Component{
                             <ul>Focus
                                 {Object.values(therapist.topics).map(topic => {
                                     return (
-                                        <div className="topic-row" key={`topic-${topic.id}-${therapist.first_name}`}>
+                                        <div className="match-topic-row" key={`topic-${topic.id}-${therapist.first_name}`}>
                                             <img className="check-bullet" src={window.checkIconURL} />
                                             <li className="topic-item" >{topic.title}</li>
                                         </div>
