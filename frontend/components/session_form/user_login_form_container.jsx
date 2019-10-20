@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import LoginForm from './login_form';
 import { login, clearErrors } from '../../actions/session_actions';
 import { fetchUser } from '../../actions/user_actions';
+import { getChatRoomId } from '../../actions/chat_room_actions'; 
 import { Link } from 'react-router-dom';
 
 const mapStateToProps = state => {
@@ -21,7 +22,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         processForm: (user) => dispatch(login(user, 'user')),
-        clearErrors: () => dispatch(clearErrors())
+        clearErrors: () => dispatch(clearErrors()),
+        getChatRoomId: (userId) => getChatRoomId(userId)
+        
     }
 };
 

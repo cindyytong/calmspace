@@ -27,6 +27,10 @@ const receiveErrors = errors => {
     }
 }
 
+export const getChatRoomId = userId  => {
+    return ChatRoomAPIUtil.getChatRoomId(userId)
+}
+
 export const getUserChatRoom = chatRoomId => dispatch => {
     return ChatRoomAPIUtil.getUserChatRoom(chatRoomId)
         .then( chatRoom => {
@@ -34,7 +38,7 @@ export const getUserChatRoom = chatRoomId => dispatch => {
         })
 };
 
-// .catch( errors => dispatch(receiveErrors(errors.responseJSON)))
+
 
 export const getTherapistChatRooms = chatRoomIds => dispatch => {
     return ChatRoomAPIUtil.getTherapistChatRooms(chatRoomIds)

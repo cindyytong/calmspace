@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 class NoteForm extends React.Component {
     constructor(props){
+
         super(props);
         this.state = props.note;
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -49,7 +50,7 @@ class NoteForm extends React.Component {
         }
     }
 
-    handleSubmit() {
+    handleSubmit(e){
         e.preventDefault();
         let note = this.state;
         if(this.props.formType === 'Edit Note'){
@@ -73,8 +74,8 @@ class NoteForm extends React.Component {
                     onChange={this.handleChange}
                     value={this.state.body}
                     theme="snow" />
-                <form>
-                    <button className="submit-note" type='submit' onClick={this.handleSubmit}>{this.props.formType}</button>
+                <form onSubmit={this.handleSubmit}>
+                    <button className="submit-note" type='submit'>{this.props.formType}</button>
                 </form>
             </div>
         )

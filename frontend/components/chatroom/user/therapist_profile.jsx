@@ -26,7 +26,7 @@ class TherapistProfile extends React.Component{
     render(){
         const therapist = Object.values(this.props.therapist).map(therapist => {
             return (
-                <>
+                <div key={therapist.id}> 
                     <img src={eval(`window.${therapist.img_url}`)} className="therapist-pro-pic"/>
                     <h4 className="therapist-name-pro">{therapist.first_name} {therapist.last_name}</h4>
                     <div className="degree-info">
@@ -47,7 +47,7 @@ class TherapistProfile extends React.Component{
                                 })}
                             </ul>
                         </div>
-                </>
+                </div>
             )
         });
 

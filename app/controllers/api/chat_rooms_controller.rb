@@ -39,6 +39,14 @@ def show  # show one chatroom
     end 
 end 
 
+def get_chatroom_id 
+    @chat_room_id = ChatRoom.where(user_id: params[:user_id])
+    if @chat_room
+        render @chat_room_id.id 
+    else 
+        render json: ["Chatroom not found"], status: 404
+    end 
+end 
 
 def chat_room_params
     params.require(:chat_room).permit(:user_id, :therapist_id) 

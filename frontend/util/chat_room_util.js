@@ -26,3 +26,11 @@ export const createChatRoom = () => {
         url: 'api/chat_rooms'
     })
 }
+
+export const getChatRoomId = (userId) => {
+    return $.ajax({
+        method: 'GET',
+        url: 'api/get_chatroom_id'
+    })
+};
+

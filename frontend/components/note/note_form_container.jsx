@@ -7,14 +7,14 @@ import AuthNavContainer from '../../components/navigation/auth_nav_container';
 
 const mapStateToProps = (state, ownProps) => {
     const defaultNote = { body: '' };    
-    // const note = state.note[ownProps.match.params.noteId] || defaultNote
+    const note = state.entities.notes.body || defaultNote;
     const formType = 'Edit Note';
-    let note; 
-    if (state.notes){
-        note = state.entities.notes.body
-    } else {
-        note = defaultNote
-    }
+    // let note; 
+    // if (state.notes){
+    //     note = state.entities.notes.body
+    // } else {
+    //     note = defaultNote
+    // }
     let userId = state.session.id
     return {
         note,

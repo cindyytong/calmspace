@@ -36,7 +36,9 @@ export const login = ( user, type ) => dispatch => {
         dispatch(receiveCurrentUser(user)) })
         .fail(function(error) {
             dispatch(receiveErrors(error.responseJSON))
-        })
+        });
+    // return user.id;
+
     };
  
 

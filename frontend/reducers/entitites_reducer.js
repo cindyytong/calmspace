@@ -10,7 +10,7 @@ import notes from './notes_reducer';
 
 export default combineReducers({
     users,
-    therapist, // therapist of suer 
+    therapist, // therapist of user 
     matches,
     topics,
     chatrooms,

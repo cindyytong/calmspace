@@ -29,12 +29,11 @@ class LoginForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        // this.props.processForm(user)
-        // .then(() => this.props.history.push(`/auth/user/chatroom/${this.props.chatRoomId}`));
-        let processUser = this.props.processForm(user);
-        // let getChatRoomId = processUser.then(this.props.history.push(`/auth/user/chatroom/${this.props.chatRoomId}`))
         this.props.processForm(user)
-        .then(() => this.props.history.push(`/auth/user/chatroom/${this.props.chatRoomId}`));
+        .then((userId) => this.props.getChatRoomId(userId))
+        .then((chatRoomId) => this.props.history.push(`/auth/user/chatroom/${chatRoomId}`));
+
+        // $.ajax(..).then(rex => doThing(res)).then(arg => do)
     }
 
     loginDemoPatient(e){
