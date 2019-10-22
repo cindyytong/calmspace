@@ -1,0 +1,1 @@
+json.partial! 'api/topic_interests/topic_interest', @topic_interest: topic_interest

@@ -6,10 +6,14 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 
-export const receiveCurrentUser = currentUser => {
+export const receiveCurrentUser = ({user, topics, topic_interests, chat_rooms}) => {
+    debugger
     return {
         type: RECEIVE_CURRENT_USER,
-        currentUser
+        user,
+        topics,
+        topic_interests,
+        chat_rooms 
     }
 };
 
@@ -32,8 +36,8 @@ export const clearErrors = () => ({
 
 
 export const login = ( user, type ) => dispatch => {
-    return APIUtil.login(user, type).then(function(user) {
-        dispatch(receiveCurrentUser(user)) })
+    return APIUtil.login(user, type).then(function(userPayload) {
+        dispatch(receiveCurrentUser(userPayload)) })
         .fail(function(error) {
             dispatch(receiveErrors(error.responseJSON))
         });
