@@ -1,0 +1,1 @@
+json.extract! patient, :id, :username, :over_age_13, :gender_pref, :current_therapist_id, :created_at, :goals

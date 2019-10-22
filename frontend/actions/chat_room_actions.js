@@ -13,10 +13,11 @@ export const receiveChatRooms = chatrooms => {
 }
 
 // patient & therapist 
-export const receiveChatRoom = chatroom => {
+export const receiveChatRoom = ({chatroom, messages}) => {
     return {
         type: RECEIVE_CHATROOM,
-        chatroom 
+        chatroom, 
+        messages  
     }
 }
 
@@ -27,8 +28,12 @@ const receiveErrors = errors => {
     }
 }
 
-export const getChatRoomId = userId  => {
-    return ChatRoomAPIUtil.getChatRoomId(userId)
+// export const getChatRoomId = userId  => {
+//     return ChatRoomAPIUtil.getChatRoomId(userId)
+// }
+
+export const getChatRoomId = () => {
+    return ChatRoomAPIUtil.getChatRoomId()
 }
 
 export const getUserChatRoom = chatRoomId => dispatch => {

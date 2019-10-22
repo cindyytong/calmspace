@@ -27,7 +27,14 @@ export const createChatRoom = () => {
     })
 }
 
-export const getChatRoomId = (userId) => {
+// export const getChatRoomId = (userId) => {
+//     return $.ajax({
+//         method: 'GET',
+//         url: 'api/get_chatroom_id'
+//     })
+// };
+
+export const getChatRoomId = () => {
     return $.ajax({
         method: 'GET',
         url: 'api/get_chatroom_id'

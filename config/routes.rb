@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :create] # create is handled by action cable
     end 
 
-    get 'get_chatroom_id', to: 'chatroom#get_chatroom_id'
+    get 'get_chatroom_id', to: 'chat_rooms#get_chatroom_id'
 
     resources :messages, only: [:show, :create]
 

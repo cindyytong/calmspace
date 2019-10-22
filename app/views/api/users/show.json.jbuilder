@@ -31,3 +31,17 @@ json.chat_rooms do
         end  
     end 
 end 
+
+if current_user.member_type == 'User'
+    json.therapist do 
+        json.partial! 'api/therapists/therapist', therapist: @user.therapist    
+    end 
+else 
+    json.patients do 
+        @user.patients.each do |patient|
+            json.set! patient.id do 
+                json.partial! 'api/patients/patient', patient: patient
+            end 
+        end 
+    end 
+end 

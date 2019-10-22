@@ -23,7 +23,6 @@ const receiveAllMatches = matches => {
 }
 
 export const fetchUser = id => dispatch => {
-    debugger
     return UserApiUtil.fetchUser(id)
         .then(user => dispatch(receiveUser(user)))
 };

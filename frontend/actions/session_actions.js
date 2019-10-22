@@ -6,14 +6,15 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 
-export const receiveCurrentUser = ({user, topics, topic_interests, chat_rooms}) => {
-    debugger
+export const receiveCurrentUser = ({user, topics, topic_interests, chat_rooms, therapist, patients}) => {
     return {
         type: RECEIVE_CURRENT_USER,
         user,
         topics,
         topic_interests,
-        chat_rooms 
+        chat_rooms,  
+        therapist,
+        patients
     }
 };
 
@@ -37,12 +38,12 @@ export const clearErrors = () => ({
 
 export const login = ( user, type ) => dispatch => {
     return APIUtil.login(user, type).then(function(userPayload) {
-        dispatch(receiveCurrentUser(userPayload)) })
+         dispatch(receiveCurrentUser(userPayload));
+         return userPayload.user.id;  })
         .fail(function(error) {
             dispatch(receiveErrors(error.responseJSON))
         });
-    // return user.id;
-
+        
     };
  
 
