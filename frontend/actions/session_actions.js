@@ -7,6 +7,7 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 
 export const receiveCurrentUser = ({user, topics, topic_interests, chat_rooms, therapist, patients}) => {
+    debugger
     return {
         type: RECEIVE_CURRENT_USER,
         user,

@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
     // } else {
     //     note = defaultNote
     // }
-    let userId = state.session.id
+    let userId = state.session.currentUserId
     return {
         note,
         formType,
