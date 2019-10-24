@@ -13,7 +13,7 @@ export default combineReducers({
     therapist, // therapist of user 
     matches,
     topics,
-    topicInterests,
+    // topicInterests,
     chatrooms,
     messages,
     notes

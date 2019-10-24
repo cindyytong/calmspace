@@ -10,7 +10,6 @@ const mapStateToProps = ( state, ownProps ) => {
     return {
         user: Object.values(state.entities.users)[0],
         chatrooms: Object.values(state.entities.chatrooms),
-        // chatrooms: state.entities.chatrooms[ownProps.match.params.chatRoomId],
         messages: Object.values(state.entities.messages),
         errors: state.errors.session
     }
