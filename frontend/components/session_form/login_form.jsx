@@ -32,8 +32,6 @@ class LoginForm extends React.Component {
         this.props.processForm(user)
         .then((userId) => this.props.getChatRoomId(userId))
         .then((chatRoomId) => this.props.history.push(`/auth/user/chatroom/${chatRoomId}`));
-
-        // $.ajax(..).then(rex => doThing(res)).then(arg => do)
     }
 
     loginDemoPatient(e){
@@ -42,15 +40,8 @@ class LoginForm extends React.Component {
         .then(() => {
             return this.props.getChatRoomId()
         })
-        // .then((userId) => {
-        //     return this.props.getChatRoomId(userId)
-        // })
         .then((chatRoomId) => {
-            console.log(this.props.history);
-            debugger
             this.props.history.push(`/auth/user/chatroom/${chatRoomId}`);
-            console.log(this.props.history);
-            debugger
         });
 
     };

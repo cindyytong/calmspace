@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchTherapist } from './../../../actions/therapist_actions';
 
 const mapStateToProps = state => {
-
+debugger
     return {
         user: Object.values(state.entities.users)[0], 
         errors: state.errors.session,
@@ -11,19 +11,19 @@ const mapStateToProps = state => {
     }
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchTherapist: (therapistId) => dispatch(fetchTherapist(therapistId))
-    }
-};
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         fetchTherapist: (therapistId) => dispatch(fetchTherapist(therapistId))
+//     }
+// };
 
 class TherapistProfile extends React.Component{
-
-    componentDidMount(){
-        this.props.fetchTherapist(this.props.user.current_therapist_id);
-    }
+    // componentDidMount(){
+    //     this.props.fetchTherapist(this.props.user.current_therapist_id);
+    // }
 
     render(){
+        debugger
         const therapist = Object.values(this.props.therapist).map(therapist => {
             return (
                 <div key={therapist.id}> 
@@ -61,4 +61,4 @@ class TherapistProfile extends React.Component{
 } 
     
 
-export default connect(mapStateToProps, mapDispatchToProps)(TherapistProfile);
+export default connect(mapStateToProps)(TherapistProfile);
