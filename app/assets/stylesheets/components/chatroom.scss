@@ -39,10 +39,12 @@
 }
 
 .green-message {
-  background-color:#b2e8e0;
+  background-color:#10c2a726;
 }  
  
 .message-list-sent {
+  overflow-y: scroll;
+  height: 600px;
   font-size: 11px;
   line-height: 13px;
   color: rgba(107,105,105,.5);
