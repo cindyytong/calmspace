@@ -13,7 +13,7 @@ class ChatRoom extends React.Component {
   componentDidMount() {
     // const chatRoomId = this.props.user.chat_rooms.id;
     this.props.clearErrors();
-    this.props.getUserChatRoom(this.chatRoomId); 
+    // this.props.getUserChatRoom(this.chatRoomId); 
     this.props.getChatRoomMessages(this.chatRoomId);
     App.cable.subscriptions.create(
       { channel: "ChatChannel", id: this.chatRoomId },
@@ -41,11 +41,6 @@ class ChatRoom extends React.Component {
     e.preventDefault();
     App.cable.subscriptions.subscriptions[0].load();
   }
-
-  
-  // componentDidUpdate() {
-  //   this.bottom.current.scrollIntoView();
-  // }
   
   render() {
     const messageList = this.props.messages.map(message => {

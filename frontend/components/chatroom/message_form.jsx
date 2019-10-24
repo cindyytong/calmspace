@@ -15,20 +15,13 @@ class MessageForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     // let chatRoomId = this.props.match.params.chatRoomId;
-    let chatRoomId = this.props.chatroom.id;
-    let chatRoomUserId = this.props.chatroom.user.id;
-    let type;
-    let userId = this.props.user.id;
-    // if(this.props.user.current_therapist_id !== null){
-    if(userId === chatRoomUserId){
-      type = 'User';
-    } else {
-      type = 'Therapist';
-    }
+    const chatRoomId = this.props.chatroom.id;
+    const type = this.props.session.memberType
+    const userId = this.props.session.currentUserId;
+    debugger
     let newMessage = { 
       chat_room_id: chatRoomId, 
       body: this.state.body,
-      // messageable_id: this.props.user.id,
       messageable_id: userId,
       messageable_type: type
     }

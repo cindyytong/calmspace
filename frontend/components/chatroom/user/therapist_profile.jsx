@@ -4,7 +4,6 @@ import { fetchTherapist } from './../../../actions/therapist_actions';
 
 const mapStateToProps = state => {
     const user = state.entities.users[state.session.currentUserId];
-    debugger
     return {
         user: user,  
         errors: state.errors.session,
@@ -12,17 +11,7 @@ const mapStateToProps = state => {
     }
 };
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         fetchTherapist: (therapistId) => dispatch(fetchTherapist(therapistId))
-//     }
-// };
-
 class TherapistProfile extends React.Component{
-    // componentDidMount(){
-    //     this.props.fetchTherapist(this.props.user.current_therapist_id);
-    // }
-
     render(){
         const therapist = this.props.therapist;
         const topicList = therapist.topics.map(topic => {
@@ -34,11 +23,10 @@ class TherapistProfile extends React.Component{
             );
         });
 
-        debugger
         return (
             <div className="therapist-profile-container">
                 <h4 className="about-therapist-headline">About Your Therapist</h4>
-                <div key={therapist.id}> 
+                <div key={therapist.id} className="therapist-info-container"> 
                     <img src={eval(`window.${therapist.img_url}`)} className="therapist-pro-pic"/>
                     <h4 className="therapist-name-pro">{therapist.first_name} {therapist.last_name}</h4>
                     <div className="degree-info">

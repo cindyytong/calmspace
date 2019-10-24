@@ -10,6 +10,7 @@
 .therapist-profile-container {
     height: 100%;
     width: 18%;
+    min-width: 175px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -25,13 +26,18 @@
 .about-therapist-headline {
     color: #333333; 
     font-size: 18px;
+    line-height: 25px;
+}
+
+.therapist-info-container {
+    min-width: 120px;
 }
 
 .therapist-pro-pic {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    margin-bottom: 50px;
+    margin: 20px 0px;
 }
 
 .therapist-name-pro {
