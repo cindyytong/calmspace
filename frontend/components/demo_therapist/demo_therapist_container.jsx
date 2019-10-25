@@ -14,8 +14,7 @@ const mapStateToProps = state => {
         { username: 'therapist6', email: 'therapist6@calmspace.com', password: '12345678', first_name: 'Andrew', image: window.therapist6URL}
     ];
     return {
-        demoTherapists: demoTherapists,
-        session: state.session
+        demoTherapists: demoTherapists
     }
 };
 

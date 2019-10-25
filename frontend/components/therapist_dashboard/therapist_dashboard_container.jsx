@@ -7,7 +7,8 @@ import { getNote, createNote } from '../../actions/note_actions';
 
 const mapStateToProps = ( state, ownProps ) => {
     return {
-        user: Object.values(state.entities.users)[0],
+        therapist: Object.values(state.entities.therapist)[0],
+        users: state.entities.users, 
         chatrooms: Object.values(state.entities.chatrooms)
     }
 };

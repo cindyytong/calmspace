@@ -54,7 +54,6 @@ export const login = ( user, type ) => dispatch => {
    } else {
     return APIUtil.login(user, type).then(function(therapistPayLoad) {
         dispatch(receiveCurrentTherapist(therapistPayLoad));
-        debugger
         return therapistPayLoad.therapist.id })
        .fail(function(error) {
            dispatch(receiveErrors(error.responseJSON))
