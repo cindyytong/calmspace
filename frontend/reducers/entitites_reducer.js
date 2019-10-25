@@ -11,7 +11,7 @@ import notes from './notes_reducer';
 export default combineReducers({
     users,
     therapist, // therapist of user 
-    matches,
+    // matches,
     topics,
     // topicInterests,
     chatrooms,

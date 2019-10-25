@@ -14,11 +14,9 @@ class MessageForm extends React.Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    // let chatRoomId = this.props.match.params.chatRoomId;
     const chatRoomId = this.props.chatroom.id;
     const type = this.props.session.memberType
     const userId = this.props.session.currentUserId;
-    debugger
     let newMessage = { 
       chat_room_id: chatRoomId, 
       body: this.state.body,

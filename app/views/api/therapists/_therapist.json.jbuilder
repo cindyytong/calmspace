@@ -1,3 +1,5 @@
 
-json.extract! therapist, :id, :first_name, :last_name, :body, :degree, :gender, :img_url
-json.topics therapist.topics.map{|topic| topic.title }
+
+json.extract! therapist, :id, :username, :first_name, :last_name, :body, :degree, :gender, :img_url
+json.memberType @user.member_type
+json.topics @user.topics.map{|topic| topic.title }
