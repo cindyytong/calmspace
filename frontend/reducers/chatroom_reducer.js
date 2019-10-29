@@ -11,7 +11,7 @@ const chatRoomsReducer = ( state = {}, action ) => {
     let newState;
     switch(action.type){
         case RECEIVE_CURRENT_USER: 
-            return merge({}, state, action.chat_rooms )
+            return merge({}, state, { [action.chat_rooms.id]: action.chat_rooms} )
         case RECEIVE_CURRENT_THERAPIST: 
             return merge({}, state, action.chat_rooms )
         case RECEIVE_CHATROOMS:

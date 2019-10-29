@@ -11,7 +11,8 @@ const mapStateToProps = ( state, ownProps ) => {
         user: Object.values(state.entities.users)[0],
         chatrooms: Object.values(state.entities.chatrooms),
         messages: Object.values(state.entities.messages),
-        errors: state.errors.session
+        errors: state.errors.session,
+        session: state.session
     }
 };
 

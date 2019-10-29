@@ -16,12 +16,13 @@ export const receiveCurrentUser = ({user, chat_rooms, therapist}) => {
     }
 };
 
-export const receiveCurrentTherapist = ({users, chat_rooms, therapist}) => {
+export const receiveCurrentTherapist = ({users, chat_rooms, therapist, notes}) => {
     return {
         type: RECEIVE_CURRENT_THERAPIST,
         users,
         chat_rooms,  
-        therapist
+        therapist,
+        notes
     }
 };
 

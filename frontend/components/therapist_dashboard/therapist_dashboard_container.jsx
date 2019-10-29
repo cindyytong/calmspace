@@ -1,24 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TherapistDashboard from './therapist_dashboard';
-import { getUserChatRoom } from '../../actions/chat_room_actions'
 import { withRouter } from 'react-router-dom';
-import { getNote, createNote } from '../../actions/note_actions';
 
-const mapStateToProps = ( state, ownProps ) => {
+const mapStateToProps = ( state ) => {
     return {
         therapist: Object.values(state.entities.therapist)[0],
         users: state.entities.users, 
-        chatrooms: Object.values(state.entities.chatrooms)
+        chatrooms: Object.values(state.entities.chatrooms),
+        notes: Object.values(state.entities.notes)
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         clearErrors: () => dispatch(clearErrors()),
-        getUserChatRoom: (chatRoomId) => dispatch(getUserChatRoom(chatRoomId)),
-        getNote: (noteId) => dispatch(getNote(noteId)),
-        createNote: (note) => dispatch(createNote(note))
     }
 };
 

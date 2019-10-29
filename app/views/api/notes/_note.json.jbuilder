@@ -1,0 +1,1 @@
+json.extract! note, :id, :body, :chat_room_id, :created_at, :updated_at

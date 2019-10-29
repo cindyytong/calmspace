@@ -1,6 +1,5 @@
 import React from "react";
 
-// manages the submission of a new message 
 class MessageForm extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +24,6 @@ class MessageForm extends React.Component {
     }
     
     App.cable.subscriptions.subscriptions[0].speak({ message: newMessage});
-    
     this.setState({ body: "" });
   }
   

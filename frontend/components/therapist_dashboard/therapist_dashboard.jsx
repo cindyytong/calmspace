@@ -2,7 +2,7 @@ import React from 'react';
 import AuthNavContainer from '../navigation/auth_nav_container';
 
 class TherapistDashboard extends React.Component {
-    constructor(props){    
+    constructor(props){   
         super(props);
         this.linkToChatRoom = this.linkToChatRoom.bind(this);
         this.linkToNote = this.linkToNote.bind(this);
@@ -28,12 +28,27 @@ class TherapistDashboard extends React.Component {
 
     render(){
         const users = this.props.users; 
+        let noPatientMessage;
+
+        if (Object.keys(users).length === 0){
+            noPatientMessage = (
+                <p>You do not have any current patients</p>
+            )
+        };
+
+        const notes = this.props.notes;
         const chatRooms = this.props.chatrooms.map(chatroom => {
+    
+            let noteObj = notes.filter(function(note){
+                return note.chat_room_id === chatroom.id
+            })[0]
             let noteLink;
-            if(chatroom.note_id){
-                noteLink = <button className="dashboard-link" value={chatroom.note_id} onClick={this.linkToNote}>View Note</button>;
+    
+            if(!noteObj){
+                noteLink = <button className="dashboard-link" onClick={this.linkToNewNote}>Create Note</button>   
             } else {
-                noteLink = <button className="dashboard-link" onClick={this.linkToNewNote}>Create Note</button>
+        
+                noteLink = <button className="dashboard-link" value={chatroom.note_id} onClick={this.linkToNote}>View Note</button>;
             }
             let chatPatient = users[chatroom.user_id];
 
@@ -59,6 +74,7 @@ class TherapistDashboard extends React.Component {
             <AuthNavContainer />
             <div className="therapist-dashboard-container">
                 <h5 className="therapist-dashboard-header">Your Patients</h5>
+                {noPatientMessage}
                 {chatRooms}
             </div>
             </>
