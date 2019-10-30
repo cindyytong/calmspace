@@ -8,6 +8,7 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 
 export const receiveCurrentUser = ({user, chat_rooms, therapist}) => {
+    debugger
     return {
         type: RECEIVE_CURRENT_USER,
         user,
@@ -69,10 +70,31 @@ export const logout = () => dispatch => {
         ))
 };
 
-export const signup = (user, type) => dispatch => {
-    return APIUtil.signup(user, type).then(function(user) {
-        dispatch(receiveCurrentUser(user)) })
+// export const signup = (user, type) => dispatch => {
+//     debugger
+//     return APIUtil.signup(user, type).then(function(user) {
+//         dispatch(receiveCurrentUser(user)) })
+//         .fail(function(error) {
+//             dispatch(receiveErrors(error.responseJSON))
+//         })
+//     };
+
+export const signup = ( user, type ) => dispatch => {
+    if(type === 'user'){
+        debugger
+     return APIUtil.signup(user, type).then(function(userPayload) {
+         dispatch(receiveCurrentUser(userPayload));
+         debugger
+         return userPayload.user.id  })
         .fail(function(error) {
             dispatch(receiveErrors(error.responseJSON))
-        })
-    };
+        });  
+    } else {
+     return APIUtil.signup(user, type).then(function(therapistPayLoad) {
+         dispatch(receiveCurrentTherapist(therapistPayLoad));
+         return therapistPayLoad.therapist.id })
+        .fail(function(error) {
+            dispatch(receiveErrors(error.responseJSON))
+        });  
+    }
+ };

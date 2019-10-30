@@ -6,7 +6,6 @@ import SimpleNavBar from '../navigation/simplenavbar';
 
 
 class Signup extends React.Component {
- 
     componentDidMount(){
         this.props.clearErrors();
     }
@@ -41,8 +40,12 @@ class Signup extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
+        debugger
         this.props.processForm(this.state)
-            .then(() => this.props.history.push(`/auth/user/onboard`));
+            .then(() => {
+                debugger
+                this.props.history.push(`/auth/user/onboard`)
+            });
     }
     
 
