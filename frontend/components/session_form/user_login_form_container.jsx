@@ -23,7 +23,8 @@ const mapDispatchToProps = dispatch => {
     return {
         processForm: (user) => dispatch(login(user, 'user')),
         clearErrors: () => dispatch(clearErrors()),
-        getChatRoomId: (userId) => getChatRoomId(userId)
+        // getChatRoomId: (userId) => getChatRoomId(userId)
+        getChatRoomId: () => getChatRoomId()
         
     }
 };

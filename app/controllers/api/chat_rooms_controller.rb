@@ -40,9 +40,9 @@ def show  # show one chatroom
 end 
 
 def get_chatroom_id 
-    @chat_room_id = ChatRoom.where(user_id: params[:user_id])
+    @chat_room = ChatRoom.find_by(user_id: current_user.id)
     if @chat_room
-        render @chat_room_id.id 
+        render json: @chat_room.id 
     else 
         render json: ["Chatroom not found"], status: 404
     end 

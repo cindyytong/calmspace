@@ -2,16 +2,11 @@ import React from 'react';
 import AuthNavContainer from '../navigation/auth_nav_container';
 
 class TherapistDashboard extends React.Component {
-    constructor(props){    
+    constructor(props){   
         super(props);
         this.linkToChatRoom = this.linkToChatRoom.bind(this);
         this.linkToNote = this.linkToNote.bind(this);
         this.linkToNewNote = this.linkToNewNote.bind(this);
-    }
-
-    componentDidMount(){
-        const chatRoomIds = this.props.user.chat_rooms.map( chatRoom => chatRoom.id);
-        chatRoomIds.forEach( chatRoomId => this.props.getUserChatRoom(chatRoomId));
     }
 
     linkToChatRoom(e){
@@ -32,24 +27,40 @@ class TherapistDashboard extends React.Component {
     }
 
     render(){
+        const users = this.props.users; 
+        let noPatientMessage;
+
+        if (Object.keys(users).length === 0){
+            noPatientMessage = (
+                <p>You do not have any current patients</p>
+            )
+        };
+
+        const notes = this.props.notes;
         const chatRooms = this.props.chatrooms.map(chatroom => {
+    
+            let noteObj = notes.filter(function(note){
+                return note.chat_room_id === chatroom.id
+            })[0]
             let noteLink;
-            if(chatroom.note){
-                noteLink = <button className="dashboard-link" value={chatroom.note.id} onClick={this.linkToNote}>View Note</button>;
+    
+            if(!noteObj){
+                noteLink = <button className="dashboard-link" onClick={this.linkToNewNote}>Create Note</button>   
             } else {
-                noteLink = <button className="dashboard-link" onClick={this.linkToNewNote}>Create Note</button>
+        
+                noteLink = <button className="dashboard-link" value={chatroom.note_id} onClick={this.linkToNote}>View Note</button>;
             }
+            let chatPatient = users[chatroom.user_id];
+
             return (
                 <div className="patient-container" key={chatroom.id}>
                     <div className="patient-info">
                         <h6 className="patient-header">Username:</h6>
-                        <p className="patient-desc">{chatroom.user.username}</p>
+                        <p className="patient-desc">{chatPatient.username}</p>
                         <h6 className="patient-header">Member since:</h6>
-                        <p className="patient-desc">{chatroom.user.created_at.split("T")[0]}</p>
+                        <p className="patient-desc">{chatPatient.created_at.split("T")[0]}</p>
                         <h6 className="patient-header">Therapy Goals:</h6>
-                        <p className="patient-desc">{chatroom.user.goals}</p>
-                        <h6 className="patient-header">Number of Messages Exchanged</h6>
-                        <p className="patient-desc">{chatroom.messages.length}</p>
+                        <p className="patient-desc">{chatPatient.goals}</p>
                     </div>
                     <div className="button-chat-row">
                         <button className="dashboard-link" value={chatroom.id} onClick={this.linkToChatRoom}>Go to Chat</button>
@@ -63,6 +74,7 @@ class TherapistDashboard extends React.Component {
             <AuthNavContainer />
             <div className="therapist-dashboard-container">
                 <h5 className="therapist-dashboard-header">Your Patients</h5>
+                {noPatientMessage}
                 {chatRooms}
             </div>
             </>

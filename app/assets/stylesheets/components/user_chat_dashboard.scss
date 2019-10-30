@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin: 6%;
+    margin: 8% 3% 5% 3%;
     box-sizing: border-box
 }
 
@@ -13,10 +13,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 50px;
-    margin-right: 3%;
-    padding-top: 5px;
-    border-right: 1px solid #c4c4c4;;
+    padding: 2% 1%;
     top: 0;
     bottom: 0;
     box-sizing: border-box
@@ -25,13 +22,18 @@
 .about-therapist-headline {
     color: #333333; 
     font-size: 18px;
+    line-height: 25px;
+}
+
+.therapist-info-container {
+    min-width: 120px;
 }
 
 .therapist-pro-pic {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    margin-bottom: 50px;
+    margin: 20px 0px;
 }
 
 .therapist-name-pro {

@@ -1,2 +1,4 @@
 
-json.extract! user, :id, :username, :current_therapist_id, :gender_pref, :current_therapist_id, :email, :topics, :topic_interests, :gender_pref, :goals, :chat_rooms
+json.extract! user, :id, :username, :gender_pref, :current_therapist_id, :email, :gender_pref, :goals, :created_at
+json.memberType user.member_type
+json.topics user.topics.map{|topic| topic.title }

@@ -1,15 +1,43 @@
 import * as APIUtil from '../util/session_api_util';
 
+export const RECEIVE_NEW_USER = 'RECEIVE_NEW_USER';
+export const RECEIVE_NEW_THERAPIST = 'RECEIVE_NEW_THERAPIST';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const RECEIVE_CURRENT_THERAPIST = 'RECEIVE_CURRENT_THERAPIST';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
+export const receiveNewUser = ({user}) => {
+    return {
+        type: RECEIVE_NEW_USER,
+        user 
+    }
+};
 
-export const receiveCurrentUser = currentUser => {
+export const receiveNewTherapist = ({therapist}) => {
+    return {
+        type: RECEIVE_NEW_USER,
+        therapist 
+    }
+};
+
+export const receiveCurrentUser = ({user, chat_rooms, therapist}) => {
     return {
         type: RECEIVE_CURRENT_USER,
-        currentUser
+        user,
+        chat_rooms,  
+        therapist
+    }
+};
+
+export const receiveCurrentTherapist = ({users, chat_rooms, therapist, notes}) => {
+    return {
+        type: RECEIVE_CURRENT_THERAPIST,
+        users,
+        chat_rooms,  
+        therapist,
+        notes
     }
 };
 
@@ -32,14 +60,22 @@ export const clearErrors = () => ({
 
 
 export const login = ( user, type ) => dispatch => {
-    return APIUtil.login(user, type).then(function(user) {
-        dispatch(receiveCurrentUser(user)) })
-        .fail(function(error) {
-            dispatch(receiveErrors(error.responseJSON))
-        });
-    // return user.id;
-
-    };
+   if(type === 'user'){
+    return APIUtil.login(user, type).then(function(userPayload) {
+        dispatch(receiveCurrentUser(userPayload));
+        return userPayload.user.id  })
+       .fail(function(error) {
+           dispatch(receiveErrors(error.responseJSON))
+       });  
+   } else {
+    return APIUtil.login(user, type).then(function(therapistPayLoad) {
+        dispatch(receiveCurrentTherapist(therapistPayLoad));
+        return therapistPayLoad.therapist.id })
+       .fail(function(error) {
+           dispatch(receiveErrors(error.responseJSON))
+       });  
+   }
+};
  
 
 export const logout = () => dispatch => {
@@ -48,10 +84,20 @@ export const logout = () => dispatch => {
         ))
 };
 
-export const signup = (user, type) => dispatch => {
-    return APIUtil.signup(user, type).then(function(user) {
-        dispatch(receiveCurrentUser(user)) })
+export const signup = ( user, type ) => dispatch => {
+    if(type === 'user'){
+     return APIUtil.signup(user, type).then(function(userPayload) {
+         dispatch(receiveNewUser(userPayload));
+         return userPayload.user.id  })
         .fail(function(error) {
             dispatch(receiveErrors(error.responseJSON))
-        })
-    };
+        });  
+    } else {
+     return APIUtil.signup(user, type).then(function(therapistPayLoad) {
+         dispatch(receiveNewTherapist(therapistPayLoad));
+         return therapistPayLoad.therapist.id })
+        .fail(function(error) {
+            dispatch(receiveErrors(error.responseJSON))
+        });  
+    }
+ };

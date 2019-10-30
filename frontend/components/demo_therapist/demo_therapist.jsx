@@ -8,10 +8,10 @@ class DemoTherapist extends React.Component{
         super(props);
     }
 
-    loginDemoTherapist(demoTherapist) {
+    loginDemoTherapist(demoTherapist, type) {
         return (e) => {
-            this.props.login(demoTherapist)
-                .then(() => this.props.history.push(`/auth/therapist/${demoTherapist.id}/dashboard`));
+            this.props.login(demoTherapist, type)
+                .then((therapistId) => this.props.history.push(`/auth/therapist/${therapistId}/dashboard`));
         }
     }
 
@@ -19,12 +19,12 @@ class DemoTherapist extends React.Component{
     render(){
         const therapists = this.props.demoTherapists.map( therapist => {
             return (
-                <div className="single-therapist-container" key={therapist.id}>
+                <div className="single-therapist-container" key={therapist.username}>
                     <img src={therapist.image} id="splash-image"/>
     
                     <Link to="/auth/therapist/dashboard"
                         className="therapist-name"
-                        onClick={this.loginDemoTherapist(therapist)}>
+                        onClick={this.loginDemoTherapist(therapist, 'therapist')}>
                         {therapist.first_name}
                     </Link>
                 </div>

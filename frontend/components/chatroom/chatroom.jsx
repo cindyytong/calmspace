@@ -11,9 +11,7 @@ class ChatRoom extends React.Component {
   }
 
   componentDidMount() {
-    // const chatRoomId = this.props.user.chat_rooms.id;
     this.props.clearErrors();
-    this.props.getUserChatRoom(this.chatRoomId); 
     this.props.getChatRoomMessages(this.chatRoomId);
     App.cable.subscriptions.create(
       { channel: "ChatChannel", id: this.chatRoomId },
@@ -41,26 +39,15 @@ class ChatRoom extends React.Component {
     e.preventDefault();
     App.cable.subscriptions.subscriptions[0].load();
   }
-
-  
-  // componentDidUpdate() {
-  //   this.bottom.current.scrollIntoView();
-  // }
   
   render() {
     const messageList = this.props.messages.map(message => {
       let classStyle;
-      if( message.messageable_id === this.props.user.id){
-        classStyle = 'grey-message';
-      } else {
-        classStyle = 'green-message';
-      }
+      this.props.session.memberType === 'User' ? classStyle = 'grey-message' : classStyle = 'green-message';
       return (
-        <>
           <div className={`chatroom-message ${classStyle}`} key={message.id}>
             <p>{message.body}</p> 
           </div>
-        </>
       );
     });
     return (

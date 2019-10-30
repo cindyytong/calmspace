@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getUserChatRoom } from '../../../actions/chat_room_actions';
+import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
-        user: Object.values(state.entities.users)[0], 
-        chatroom: Object.values(state.entities.chatrooms)[0]
+        chatrooms: state.entities.chatrooms,
+        users: state.entities.users 
     }
 };
 
@@ -16,22 +17,20 @@ const mapDispatchToProps = dispatch => {
 };
 
 class UserProfile extends React.Component{
-
     render(){
-        const chatroom = this.props.chatroom;
+        const chatroom = this.props.chatrooms[this.props.match.params.chatRoomId];
+        const patient = this.props.users[chatroom.user_id];
             return (
                 <>
                 <div className="therapist-profile-container">
                    <div className="patient-info">
                         <h4 className="about-therapist-headline">About Your Patient</h4>
                         <h6 className="patient-header">Username:</h6>
-                        <p className="patient-desc">{chatroom.user.username}</p>
+                        <p className="patient-desc">{patient.username}</p>
                         <h6 className="patient-header">Member since:</h6>
-                        <p className="patient-desc">{chatroom.user.created_at.split("T")[0]}</p>
+                        <p className="patient-desc">{patient.created_at.split("T")[0]}</p>
                         <h6 className="patient-header">Therapy Goals:</h6>
-                        <p className="patient-desc">{chatroom.user.goals}</p>
-                        <h6 className="patient-header">Number of Messages Exchanged</h6>
-                        <p className="patient-desc">{chatroom.messages.length}</p>
+                        <p className="patient-desc">{patient.goals}</p>
                     </div>
                 </div>
                 </>
@@ -40,4 +39,4 @@ class UserProfile extends React.Component{
 } 
     
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserProfile));

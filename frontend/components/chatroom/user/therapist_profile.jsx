@@ -3,30 +3,30 @@ import { connect } from 'react-redux';
 import { fetchTherapist } from './../../../actions/therapist_actions';
 
 const mapStateToProps = state => {
-
+    const user = state.entities.users[state.session.currentUserId];
     return {
-        user: Object.values(state.entities.users)[0], 
+        user: user,  
         errors: state.errors.session,
-        therapist: state.entities.therapist
-    }
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchTherapist: (therapistId) => dispatch(fetchTherapist(therapistId))
+        therapist: state.entities.therapist[user.current_therapist_id]
     }
 };
 
 class TherapistProfile extends React.Component{
-
-    componentDidMount(){
-        this.props.fetchTherapist(this.props.user.current_therapist_id);
-    }
-
     render(){
-        const therapist = Object.values(this.props.therapist).map(therapist => {
+        const therapist = this.props.therapist;
+        const topicList = therapist.topics.map(topic => {
             return (
-                <div key={therapist.id}> 
+                <div className="match-topic-row" key={`${topic}`}>
+                    <img className="check-bullet" src={window.checkIconURL} />
+                    <li className="topic-item" >{topic}</li>
+                </div>
+            );
+        });
+
+        return (
+            <div className="therapist-profile-container">
+                <h4 className="about-therapist-headline">About Your Therapist</h4>
+                <div key={therapist.id} className="therapist-info-container"> 
                     <img src={eval(`window.${therapist.img_url}`)} className="therapist-pro-pic"/>
                     <h4 className="therapist-name-pro">{therapist.first_name} {therapist.last_name}</h4>
                     <div className="degree-info">
@@ -37,28 +37,14 @@ class TherapistProfile extends React.Component{
                     <p className="bio">{therapist.body}</p>
                         <div className="focus-list">
                             <ul className='focus-heading'>Focus
-                                {Object.values(therapist.topics).map(topic => {
-                                    return (
-                                        <div className="match-topic-row" key={`topic-${topic.id}-${therapist.first_name}`}>
-                                            <img className="check-bullet" src={window.checkIconURL} />
-                                            <li className="topic-item" >{topic.title}</li>
-                                        </div>
-                                    );
-                                })}
+                                {topicList}
                             </ul>
                         </div>
                 </div>
-            )
-        });
-
-        return (
-            <div className="therapist-profile-container">
-                <h4 className="about-therapist-headline">About Your Therapist</h4>
-                    {therapist}
             </div>
         )
     }
 } 
     
 
-export default connect(mapStateToProps, mapDispatchToProps)(TherapistProfile);
+export default connect(mapStateToProps)(TherapistProfile);

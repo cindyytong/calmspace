@@ -1,5 +1,5 @@
 import { RECEIVE_ALL_TOPICS, RECEIVE_TOPIC } from '../actions/topic_actions';
-import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
+import { LOGOUT_CURRENT_USER} from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 const _nullTopic = Object.freeze({

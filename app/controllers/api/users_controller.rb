@@ -10,7 +10,11 @@ class Api::UsersController < ApplicationController
     end 
 
     def show 
-        @user = User.includes(:topics, :topic_interests, :chat_rooms).where(id: params[:id]).first 
+        if current_user.member_type == 'User'
+            @user = User.includes(:topics, :topic_interests, :chat_rooms, :therapist).where(id: params[:id]).first 
+        else
+            @user = User.includes(:topics, :topic_interests, :chat_rooms, :patients).where(id: params[:id]).first 
+        end 
         render "api/users/show" 
     end 
 
@@ -49,11 +53,6 @@ class Api::UsersController < ApplicationController
         end 
     end 
 
-
-    # topic_ids = TopicInterest.where(:userable_id => 174 ).group(:topic_id).pluck(:topic_id)
-
-    # therapist_ids = TopicInterest.limit(3).where(topic_id: topic_ids).where(userable_type: "Therapist").group(:userable_id).pluck(:userable_id)
-    
     private
 
     def user_params

@@ -5,9 +5,6 @@ import { withRouter } from 'react-router-dom';
 class AuthNavBar extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            currentUser: this.props.currentUser
-        } 
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -18,13 +15,21 @@ class AuthNavBar extends React.Component{
     }
    
     render(){
-        const { currentUser, logout } = this.props;
+        let currentUser; 
+        let homeLink; 
+        if(this.props.session.memberType === 'User'){
+            currentUser = this.props.users[this.props.session.currentUserId];
+            homeLink = "#";
+        } else {
+            currentUser = this.props.therapists[this.props.session.currentUserId];
+            homeLink =  `/auth/therapist/${currentUser.id}/dashboard`;
+        }
+       
         return (
                 <nav className="navigation-bar green-fill">
-                <Link to="/"> <img src={window.whitelogoURL} className="nav-logo"/></Link>
+                <Link to={homeLink}> <img src={window.whitelogoURL} className="nav-logo"/></Link>
                 <ul className="nav-right">
                     <li className="auth-nav-welcome">Hello {currentUser.username}</li>
-                    {/* <li className="logout"><Link to='/user/login' onClick={this.handleSubmit}>Log Out</Link></li> */}
                     <li className="logout"><button className="logout-button" onClick={this.handleSubmit}>Log Out</button></li>
                 </ul>
                
