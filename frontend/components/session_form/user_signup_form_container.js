@@ -23,7 +23,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     debugger
     return {
-        processForm: (user) => dispatch(signup(user)),
+        processForm: (user, type) => dispatch(signup(user, type)),
         clearErrors: () => dispatch(clearErrors())
     }
 };

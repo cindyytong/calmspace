@@ -12,12 +12,14 @@ const therapistsReducer = (state={}, action) => {
         case RECEIVE_CURRENT_USER: 
             return merge({}, state, { [action.therapist.id]: action.therapist });
         case RECEIVE_CURRENT_THERAPIST: 
+        debugger
             return merge({}, state, { [action.therapist.id]: action.therapist })
         case RECEIVE_THERAPIST: 
             return merge({}, state, { [action.therapist.id]: action.therapist })
         case LOGOUT_CURRENT_USER:
             return _nullTherapist;
         default: 
+        debugger
             return state;
     }
 };

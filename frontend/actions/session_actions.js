@@ -1,11 +1,26 @@
 import * as APIUtil from '../util/session_api_util';
 
+export const RECEIVE_NEW_USER = 'RECEIVE_NEW_USER';
+export const RECEIVE_NEW_THERAPIST = 'RECEIVE_NEW_THERAPIST';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_CURRENT_THERAPIST = 'RECEIVE_CURRENT_THERAPIST';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
+export const receiveNewUser = ({user}) => {
+    return {
+        type: RECEIVE_NEW_USER,
+        user 
+    }
+};
+
+export const receiveNewTherapist = ({therapist}) => {
+    return {
+        type: RECEIVE_NEW_USER,
+        therapist 
+    }
+};
 
 export const receiveCurrentUser = ({user, chat_rooms, therapist}) => {
     debugger
@@ -56,6 +71,7 @@ export const login = ( user, type ) => dispatch => {
    } else {
     return APIUtil.login(user, type).then(function(therapistPayLoad) {
         dispatch(receiveCurrentTherapist(therapistPayLoad));
+        debugger
         return therapistPayLoad.therapist.id })
        .fail(function(error) {
            dispatch(receiveErrors(error.responseJSON))
@@ -83,7 +99,7 @@ export const signup = ( user, type ) => dispatch => {
     if(type === 'user'){
         debugger
      return APIUtil.signup(user, type).then(function(userPayload) {
-         dispatch(receiveCurrentUser(userPayload));
+         dispatch(receiveNewUser(userPayload));
          debugger
          return userPayload.user.id  })
         .fail(function(error) {
@@ -91,7 +107,7 @@ export const signup = ( user, type ) => dispatch => {
         });  
     } else {
      return APIUtil.signup(user, type).then(function(therapistPayLoad) {
-         dispatch(receiveCurrentTherapist(therapistPayLoad));
+         dispatch(receiveNewTherapist(therapistPayLoad));
          return therapistPayLoad.therapist.id })
         .fail(function(error) {
             dispatch(receiveErrors(error.responseJSON))
