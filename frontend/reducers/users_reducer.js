@@ -12,7 +12,6 @@ const usersReducer = (state={}, action) => {
     switch(action.type){
         case RECEIVE_NEW_USER:
         case RECEIVE_CURRENT_USER:
-            debugger
             return merge({}, state, { [action.user.id]: action.user })
         case RECEIVE_CURRENT_THERAPIST:
             return merge({}, state, action.users);

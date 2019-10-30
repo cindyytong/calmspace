@@ -40,10 +40,8 @@ class Signup extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        debugger
         this.props.processForm(this.state, "user")
             .then(() => {
-                debugger
                 this.props.history.push(`/auth/user/onboard`)
             });
     }

@@ -10,7 +10,6 @@ const mapStateToProps = state => {
     const errors = state.errors.session;
     const session = state.session;
     const navLink = <Link to="/user/login">Log In</Link>
-    debugger
     return {
         user,
         formType,
@@ -21,7 +20,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-    debugger
     return {
         processForm: (user, type) => dispatch(signup(user, type)),
         clearErrors: () => dispatch(clearErrors())

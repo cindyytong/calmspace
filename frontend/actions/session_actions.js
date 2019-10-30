@@ -23,7 +23,6 @@ export const receiveNewTherapist = ({therapist}) => {
 };
 
 export const receiveCurrentUser = ({user, chat_rooms, therapist}) => {
-    debugger
     return {
         type: RECEIVE_CURRENT_USER,
         user,
@@ -71,7 +70,6 @@ export const login = ( user, type ) => dispatch => {
    } else {
     return APIUtil.login(user, type).then(function(therapistPayLoad) {
         dispatch(receiveCurrentTherapist(therapistPayLoad));
-        debugger
         return therapistPayLoad.therapist.id })
        .fail(function(error) {
            dispatch(receiveErrors(error.responseJSON))
@@ -86,21 +84,10 @@ export const logout = () => dispatch => {
         ))
 };
 
-// export const signup = (user, type) => dispatch => {
-//     debugger
-//     return APIUtil.signup(user, type).then(function(user) {
-//         dispatch(receiveCurrentUser(user)) })
-//         .fail(function(error) {
-//             dispatch(receiveErrors(error.responseJSON))
-//         })
-//     };
-
 export const signup = ( user, type ) => dispatch => {
     if(type === 'user'){
-        debugger
      return APIUtil.signup(user, type).then(function(userPayload) {
          dispatch(receiveNewUser(userPayload));
-         debugger
          return userPayload.user.id  })
         .fail(function(error) {
             dispatch(receiveErrors(error.responseJSON))

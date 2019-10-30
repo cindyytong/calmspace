@@ -9,7 +9,6 @@ class DemoTherapist extends React.Component{
     }
 
     loginDemoTherapist(demoTherapist, type) {
-        debugger
         return (e) => {
             this.props.login(demoTherapist, type)
                 .then((therapistId) => this.props.history.push(`/auth/therapist/${therapistId}/dashboard`));
