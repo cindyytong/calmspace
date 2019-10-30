@@ -4,16 +4,16 @@ export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_ALL_MATCHES = 'RECEIVE_ALL_MATCHES';
 
 
-// const receiveUser = ({user, topics, topic_interests, chat_rooms}) => {
-//     debugger
-//     return {
-//         type: RECEIVE_USER,
-//         user,
-//         topics,
-//         topic_interests,
-//         chat_rooms 
-//     }
-// };
+const receiveUser = ({user, topics, topic_interests, chat_rooms}) => {
+    debugger
+    return {
+        type: RECEIVE_USER,
+        user,
+        topics,
+        topic_interests,
+        chat_rooms 
+    }
+};
 
 const receiveAllMatches = matches => {
     return {
