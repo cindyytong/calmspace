@@ -27,4 +27,5 @@ class User < Member
     class_name: :ChatRoom,
     dependent: :destroy  
 
+    has_one_attached :profile_photo
 end 
