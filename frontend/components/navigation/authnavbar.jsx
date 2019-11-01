@@ -22,7 +22,6 @@ class AuthNavBar extends React.Component{
             currentUser = this.props.users[this.props.session.currentUserId];
             homeLink = "#";
             settingsLink = `/auth/user/settings`;
-            debugger
         } else {
             currentUser = this.props.therapists[this.props.session.currentUserId];
             homeLink =  `/auth/therapist/${currentUser.id}/dashboard`;
