@@ -20,6 +20,7 @@ import OnboardContainer from './onboard/onboard_container';
 import MatchContainer from './matches/match_container';
 import AuthLanding from './auth_landing/auth_landing';
 import UserChatDashboard from './chatroom/user/user_chat_dashboard';
+import UserSettings from './settings/user_settings';
 
 // Therapist Components 
 import DemoTherapistContainer from './demo_therapist/demo_therapist_container';
@@ -27,8 +28,8 @@ import TherapistChatDashboard from './chatroom/therapist/therapist_chat_dashboar
 import TherapistDashboardContainer from './therapist_dashboard/therapist_dashboard_container';
 import NoteFormContainer from './note/note_form_container';
 import NewNoteFormContainer from './note/new_note_form_container';
+import TherapistSettings from './settings/therapist_settings';
 
-// import TherapistChatroom from './chatroom/therapist_chatroom';
 
 const App = () => (
     <>  
@@ -44,13 +45,13 @@ const App = () => (
         <ProtectedRoute exact path="/auth/landing" component={AuthLanding}/>
         <ProtectedRoute exact path="/auth/user/:userId/matches" component={MatchContainer}/>
         <ProtectedRoute exact path="/auth/user/chatroom/:chatRoomId" component={UserChatDashboard}/>
-
+        <ProtectedRoute exact path="/auth/user/settings" component={UserSettings}/>
         {/* Therapist */}
         <ProtectedRoute exact path="/auth/therapist/:therapistId/dashboard" component={TherapistDashboardContainer}/>
         <ProtectedRoute exact path="/auth/therapist/chatroom/:chatRoomId" component={TherapistChatDashboard}/>
         <ProtectedRoute exact path="/auth/therapist/note/:noteId" component={NoteFormContainer}/>
         <ProtectedRoute exact path="/auth/therapist/note/new" component={NewNoteFormContainer}/>
-       
+        <ProtectedRoute exact path="/auth/therapist/settings" component={TherapistSettings}/>
     </Switch>        
     </>
 
