@@ -127,71 +127,9 @@ end
 chatroom_1 = ChatRoom.create!(user_id: demo_patient.id, therapist_id: therapist1.id)
 chatroom_2 = ChatRoom.create!(user_id: demo_patient_female.id, therapist_id: therapist1.id)
 chatroom_3 = ChatRoom.create!(user_id: demo_patient_male.id, therapist_id: therapist2.id)
-# chatroom_1 = ChatRoom.create!(user_id: 11, therapist_id: 19)
-# message1 = Message.create!(body: "User test message", chat_room_id: chatroom_1.id, messageable_id: demo_patient_id, messageable_type: "User")
-# message1 = Message.create!(body: "Therapist test message", chat_room_id: chatroom_1.id, messageable_id: therapist1.id, messageable_type: "Therapist")
 
 note_1 = Note.create!(chat_room_id: chatroom_1.id, body: "this is a new note for chatroom 1")
 note_2 = Note.create!(chat_room_id: chatroom_2.id, body: "this is a new note for chatroom 2")
 
 # chatroom_2 = ChatRoom.create!(user_id: 12, therapist_id: 19)
 # note_2 = Note.create!(chat_room_id: chatroom_2.id, body: "this is a new note for chatroom1")
-
-#### 
-# 1. get topic interest for user with userable_id
-# SELECT * 
-# FROM topic_interests 
-# WHERE userable_type = 'User'
-# AND userable_id = 5; 
-# # 2. get the topic ids for the topics the user wants 
-# SELECT DISTINCT topic_id 
-# FROM topic_interests 
-# WHERE userable_type = 'User'
-# AND userable_id = 5; 
-
-# # 3. get therapist ids who match any topic 
-# SELECT DISTINCT userable_id 
-# FROM topic_interests 
-# WHERE userable_type = 'Therapist'
-# AND topic_id IN (
-#     SELECT DISTINCT topic_id 
-#     FROM topic_interests 
-#     WHERE userable_type = 'User'
-#     AND userable_id = 5 
-# );
-
-# # 4. order by therapist who match the most topics; limit top 3  
-# SELECT userable_id, COUNT (*) 
-# FROM topic_interests 
-# WHERE userable_type = 'Therapist'
-# AND topic_id IN (
-#     SELECT DISTINCT topic_id 
-#     FROM topic_interests 
-#     WHERE userable_type = 'User'
-#     AND userable_id = 5 
-# )
-# GROUP BY userable_id
-# ORDER BY COUNT(*) DESC
-# LIMIT 3;
-
-# TopicInterest.select(:topic_id).where(:userable_id => 5, :userable_type => "User").to_a
-
-# # rewrite using activeRecord 
-
-
-# # therapist_ids = <<-SQL
-# #     SELECT userable_id, COUNT (*) 
-#     FROM topic_interests 
-#     WHERE userable_type = 'Therapist'
-#     AND topic_id IN (
-#         SELECT DISTINCT topic_id 
-#         FROM topic_interests 
-#         WHERE userable_type = 'User'
-#         AND userable_id = 5 
-#     )
-#     GROUP BY userable_id
-#     ORDER BY COUNT(*) DESC
-#     LIMIT 3;
-# SQL 
-
-# therapist_array = ActiveRecord::Base.connection.execute(sql)
