@@ -5,7 +5,7 @@ state = {
         users: {  // save match_ids in backend so we don't fetch again 
             1: {current_therapist_id: 1, therapist_match_ids: [1,2,3], topic_interests_ids: [1,2,3]},
         }, 
-        therapist: { // store selected therapist and therapist matches here
+        therapists: { // store selected therapist and therapist matches here
             1: {id: 1, .....}, // find current therapist by user.current_therapist_id
             2: {id: 2, .....},
             3: {id: 3, .....}
