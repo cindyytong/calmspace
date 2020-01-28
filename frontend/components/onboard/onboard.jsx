@@ -79,10 +79,12 @@ class Onboard extends React.Component {
         const topicArr = Object.values(this.props.topics)
 
         // for each title, invoke createTopicInterest 
-        selectedTopics.forEach(topic => {
-            let topicId = topicArr.find(o => o.title === topic).id;
-            this.props.createTopicInterest(this.state.new_user.id, topicId);
-        })
+        if (selectedTopics.length > 0){
+            selectedTopics.forEach(topic => {
+                let topicId = topicArr.find(o => o.title === topic).id;
+                this.props.createTopicInterest(this.state.new_user.id, topicId);
+            })
+        }
     }
 
     handleSubmit(e){

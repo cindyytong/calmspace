@@ -9,13 +9,6 @@ const _nullNote = Object.freeze({
 const notesReducer = (state = {}, action) => {
     Object.freeze(state);
     switch(action.type){
-        // case RECEIVE_NOTES:
-        //     const notes = {};
-        //     action.notes.forEach((note) => {
-        //         notes[note.id] = note;
-        //     });
-           
-        //     return merge({}, state, notes);  
         case RECEIVE_CURRENT_THERAPIST:
             return merge({}, state, action.notes)
         case RECEIVE_NOTE:
