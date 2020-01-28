@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import SimpleNavBar from '../navigation/simplenavbar';
 
-
 class Signup extends React.Component {
     componentDidMount(){
         this.props.clearErrors();
@@ -44,6 +43,14 @@ class Signup extends React.Component {
                 this.props.history.push(`/auth/user/onboard`)
             });
     }
+
+    loginDemoPatient(e){
+        e.preventDefault();
+        this.props.processForm({ email: 'user1@calmspace.com', password: '12345678'})
+        .then((chatRoomId) => {
+            this.props.history.push(`/auth/user/chatroom/${chatRoomId}`);
+        })}
+    };
     
 
     render(){
