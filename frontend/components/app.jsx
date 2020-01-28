@@ -34,24 +34,23 @@ import TherapistSettings from './settings/therapist_settings';
 const App = () => (
     <>  
     <Switch> 
-        {/* Logged Out */}
+        <AuthRoute exact path='/' component={Splash}/>
         <AuthRoute exact path="/user/login" component={UserLogInFormContainer}/>
         <AuthRoute exact path="/user/signup" component={UserSignUpFormContainer}/>
         <AuthRoute exact path="/therapist/login" component={DemoTherapistContainer}/>
-        <AuthRoute exact path='/' component={Splash}/>
-
-        {/* User */}
+        
         <ProtectedRoute exact path="/auth/user/onboard" component={OnboardContainer}/>
         <ProtectedRoute exact path="/auth/landing" component={AuthLanding}/>
-        <ProtectedRoute exact path="/auth/user/:userId/matches" component={MatchContainer}/>
-        <ProtectedRoute exact path="/auth/user/chatroom/:chatRoomId" component={UserChatDashboard}/>
+        <ProtectedRoute path="/auth/user/:userId/matches" component={MatchContainer}/>
+        <ProtectedRoute path="/auth/user/chatroom/:chatRoomId" component={UserChatDashboard}/>
         <ProtectedRoute exact path="/auth/user/settings" component={UserSettings}/>
-        {/* Therapist */}
-        <ProtectedRoute exact path="/auth/therapist/:therapistId/dashboard" component={TherapistDashboardContainer}/>
-        <ProtectedRoute exact path="/auth/therapist/chatroom/:chatRoomId" component={TherapistChatDashboard}/>
-        <ProtectedRoute exact path="/auth/therapist/note/:noteId" component={NoteFormContainer}/>
+
+        <ProtectedRoute path="/auth/therapist/:therapistId/dashboard" component={TherapistDashboardContainer}/>
+        <ProtectedRoute path="/auth/therapist/chatroom/:chatRoomId" component={TherapistChatDashboard}/>
+        <ProtectedRoute path="/auth/therapist/note/:noteId" component={NoteFormContainer}/>
         <ProtectedRoute exact path="/auth/therapist/note/new" component={NewNoteFormContainer}/>
         <ProtectedRoute exact path="/auth/therapist/settings" component={TherapistSettings}/>
+
     </Switch>        
     </>
 

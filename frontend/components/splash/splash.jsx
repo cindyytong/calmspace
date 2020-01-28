@@ -1,6 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import NavBar from '../navigation/navbar'
 import Footer from '../footer/footer';
 
@@ -16,7 +15,7 @@ const Splash = () => {
                     <p className="white">With Calmspace online therapy, anyone can get therapy without traveling to an office - and for significantly less money than traditional therapy.</p>
                     <p className="white">Start therapy now with a licensed therapist that understands how you live your life today.</p>
                 </div>
-                <Link to="/user/signup" className="green-fill white btn-primary ">Get Started</Link>
+                <Link to="/user/signup" className="green-fill white btn-primary">Get Started</Link>
             </div>
         </div>
         <Footer />
@@ -24,4 +23,4 @@ const Splash = () => {
     )
 }
 
-export default withRouter(Splash); 
+export default Splash; 

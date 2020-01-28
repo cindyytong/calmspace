@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
-// if logged out, render component 
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
   <Route path={path} exact={exact} render={(props) => (
     !loggedIn ? (
@@ -13,7 +12,8 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
   )} />
 );
 
-// only render component if logged in 
+
+
 const Protected = ({ component: Component, path, loggedIn, exact }) => (
   <Route path={path} exact={exact} render={(props) => (
      loggedIn ? (

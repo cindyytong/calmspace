@@ -7,7 +7,7 @@ const mapStateToProps = state => {
     return {
         user: user,  
         errors: state.errors.session,
-        therapist: state.entities.therapist[user.current_therapist_id]
+        therapist: state.entities.therapists[user.current_therapist_id]
     }
 };
 

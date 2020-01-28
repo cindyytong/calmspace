@@ -1,6 +1,7 @@
 class Api::SessionsController < ApplicationController 
     def create
         memberType = params[:type].titleize.constantize
+        debugger
         @user = memberType.find_by_credentials(
             params[:user][:email],
             params[:user][:password]
