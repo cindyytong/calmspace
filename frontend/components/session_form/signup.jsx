@@ -49,11 +49,11 @@ class Signup extends React.Component {
         this.props.processForm({ email: 'user1@calmspace.com', password: '12345678'})
         .then((chatRoomId) => {
             this.props.history.push(`/auth/user/chatroom/${chatRoomId}`);
-        })}
+        })
     };
     
-
     render(){
+
         let displayError;
         if (this.props.errors.length > 0){
             displayError = this.props.errors[0];

@@ -61,9 +61,8 @@ export const clearErrors = () => ({
 
 export const login = ( user, type ) => dispatch => {
    if(type === 'user'){
-       debugger
     return APIUtil.login(user, type).then(function(userPayload) {
-        debugger
+
         dispatch(receiveCurrentUser(userPayload))
         return userPayload.user.id  })
        .fail(function(error) {

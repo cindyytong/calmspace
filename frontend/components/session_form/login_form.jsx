@@ -39,21 +39,8 @@ class LoginForm extends React.Component {
         this.props.processForm({ email: 'user1@calmspace.com', password: '12345678'})
         .then((chatRoomId) => {
             this.props.history.push(`/auth/user/chatroom/${chatRoomId}`);
-        })}
+        })
     };
-
-    // loginDemoPatient(e){
-    //     e.preventDefault();
-    //     this.props.processForm({ email: 'user1@calmspace.com', password: '12345678'})
-    //     .then((payload) => {
-    //         debugger
-    //         return this.props.getChatRoomId()
-    //     })
-    //     .then((chatRoomId) => {
-    //         this.props.history.push(`/auth/user/chatroom/${chatRoomId}`);
-    //     });
-
-    // };
 
     render(){
         let displayError;
