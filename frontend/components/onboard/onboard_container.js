@@ -7,8 +7,9 @@ import { updateUser } from '../../actions/user_actions';
 import { createTopicInterest } from '../../actions/topic_interest_actions';
 
 const mapStateToProps = state => {
+    debugger
     return {
-        user: Object.values(state.entities.users)[0], // user object 
+        user: state.entities.users[state.session.currentUserId],
         errors: state.errors.session,
         topics: Object.values(state.entities.topics)
     }

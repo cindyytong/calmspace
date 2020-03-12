@@ -9,8 +9,9 @@ const _nullTherapist= Object.freeze({
 const therapistsReducer = (state={}, action) => {
     Object.freeze(state);
     switch(action.type){
-        case RECEIVE_CURRENT_USER: 
-            return merge({}, state, { [action.therapist.id]: action.therapist });
+        case RECEIVE_CURRENT_USER:  
+        debugger
+            return merge({}, { [action.therapist.id]: action.therapist });
         case RECEIVE_CURRENT_THERAPIST: 
             return merge({}, state, { [action.therapist.id]: action.therapist })
         case RECEIVE_THERAPIST: 

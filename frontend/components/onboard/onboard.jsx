@@ -13,6 +13,7 @@ class Onboard extends React.Component {
         super(props);
         let user = this.props.user; 
         let topics = this.props.topics;
+        debugger
         this.state = {
             new_user: {
                 id: user.id,
