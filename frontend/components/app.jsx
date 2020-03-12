@@ -34,7 +34,6 @@ import TherapistSettings from './settings/therapist_settings';
 const App = () => (
     <>  
     <Switch> 
-        <AuthRoute exact path='/' component={Splash}/>
         <AuthRoute exact path="/user/login" component={UserLogInFormContainer}/>
         <AuthRoute exact path="/user/signup" component={UserSignUpFormContainer}/>
         <AuthRoute exact path="/therapist/login" component={DemoTherapistContainer}/>
@@ -50,6 +49,7 @@ const App = () => (
         <ProtectedRoute path="/auth/therapist/note/:noteId" component={NoteFormContainer}/>
         <ProtectedRoute exact path="/auth/therapist/note/new" component={NewNoteFormContainer}/>
         <ProtectedRoute exact path="/auth/therapist/settings" component={TherapistSettings}/>
+        <Route exact path='/' component={Splash}/>
 
     </Switch>        
     </>
